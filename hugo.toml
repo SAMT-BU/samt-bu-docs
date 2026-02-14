@@ -1,0 +1,35 @@
+baseURL = "https://samt-bu.github.io/samt-bu-docs/"
+languageCode = "en"
+title = "SAMT-BU Documentation"
+theme = "hugo-theme-altinn"
+
+enableEmoji = true
+enableGitInfo = true
+pluralizeListTitles = false
+
+[markup.goldmark.parser]
+autoHeadingIDType = "github"
+
+[markup.goldmark.parser.attribute]
+block = true
+title = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+style = "dracula"
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 5
+ordered = false
+
+[params]
+editURL = "https://github.com/samt-bu/samt-bu-docs/blob/main/content/"
+noHomeIcon = true
+noSearch = false
+showVisitedLinks = false
+
+[outputs]
+home = ["HTML", "JSON"]
