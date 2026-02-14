@@ -1,7 +1,6 @@
 ---
 title: "Use Cases"
-description: "Use cases and scenarios"
-weight: 10
+draft: false
 ---
 
-This section describes the use cases for SAMT-BU.
+Oversikt over use cases.

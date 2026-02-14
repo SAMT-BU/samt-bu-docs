@@ -1,6 +1,6 @@
 ---
-title: "SAMT-BU Documentation"
-description: "Documentation hub for SAMT-BU"
+title: "Velkommen"
+draft: false
 ---
 
-Welcome to the SAMT-BU documentation site.
+Velkommen til SAMT-BU dokumentasjon.
