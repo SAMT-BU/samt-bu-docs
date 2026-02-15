@@ -57,7 +57,7 @@
         <div class="a-text">
         {{if not .IsHome}}
           <div id="top-bar">
-            
+
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
@@ -73,6 +73,11 @@
                   {{ template "breadcrumb" dict "page" . "value" .LinkTitle }}
                 </span>
             </div>
+            {{ if not .Lastmod.IsZero }}
+              <div class="page-meta-lastmod">
+                {{T "Last-modified"}}: {{ .Lastmod.Format "2006-01-02 15:04" }}
+              </div>
+            {{ end }}
           </div>
         {{end}}
         {{if .Params.tags }}
@@ -95,13 +100,6 @@
               </h1>
               <p class="a-leadText" id="leadText">{{.Description}}</p>
             {{end}}
-            {{ if not .Lastmod.IsZero }}
-              <div class="page-meta-info">
-                <span class="last-modified">
-                  {{T "Last-modified"}} {{ .Lastmod.Format "02.01.2006" }}
-                </span>
-              </div>
-            {{ end }}
           {{end}}
 
 {{define "breadcrumb"}}
