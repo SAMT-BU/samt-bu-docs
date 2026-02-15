@@ -55,10 +55,7 @@
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
         <div class="a-text">
-        {{if not .IsHome}}
           <div id="top-bar">
-
-
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
                   <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
@@ -68,15 +65,16 @@
                 </span>
                 <span class="links">
                   <a href="{{ "/" | relURL }}" class="breadcrumb-home"><i class="fa fa-home"></i></a>
+                  {{if not .IsHome}}
                   <span class="adocs-breadcrumb-divider"> / </span>
                   {{if eq .Kind "taxonomy"}}
                     <a href="/docs/tags/">Tags</a> /
                   {{end}}
                   {{ template "breadcrumb" dict "page" . "value" .LinkTitle }}
+                  {{end}}
                 </span>
             </div>
           </div>
-        {{end}}
         {{if .Params.tags }}
           <div id="tags">
             {{ range $index, $tag := .Params.tags }}

@@ -1,5 +1,5 @@
 ---
-title: "Velkommen"
+title: "Dokumentasjon"
 draft: false
 ---
 
