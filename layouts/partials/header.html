@@ -50,6 +50,7 @@
             <div class="col-sm-12">
 
     {{ partial "menu.html" . }}
+        <div class="body-toc-wrapper">
         <section id="body">
           <div id="content" class="adocs-content js-moveChildrenTo">
         <div id="overlay"></div>
@@ -95,13 +96,6 @@
               <p class="a-leadText" id="leadText">{{.Description}}</p>
             {{end}}
           {{end}}
-
-          {{ if .Params.toc }}
-            <aside id="page-toc">
-              <h3>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
-              {{ .TableOfContents }}
-            </aside>
-          {{ end }}
 
 {{define "breadcrumb"}}
 {{ if .page.Parent}}
