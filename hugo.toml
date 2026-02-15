@@ -19,5 +19,7 @@ defaultContentLanguageInSubdir = false
     title = "SAMT-BU Documentation"
     weight = 2
 
+enableGitInfo = true
+
 [params]
-  # tilpasses senere
+  editURL = "https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/"
