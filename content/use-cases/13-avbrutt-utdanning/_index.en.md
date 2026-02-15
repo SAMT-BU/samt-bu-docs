@@ -2,6 +2,7 @@
 title: "13. Interrupted Education (Dropout)"
 linkTitle: "13. Interrupted Education"
 weight: 13
+toc: true
 ---
 
 {{% notice info %}}

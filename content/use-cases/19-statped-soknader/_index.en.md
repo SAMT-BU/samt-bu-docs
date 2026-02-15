@@ -2,6 +2,7 @@
 title: "19. Statped – Applications from Educational Psychology Services"
 linkTitle: "19. Statped Applications"
 weight: 19
+toc: true
 ---
 
 {{% notice info %}}

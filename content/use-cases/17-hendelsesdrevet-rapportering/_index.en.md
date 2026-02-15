@@ -2,6 +2,7 @@
 title: "17. Event-Driven and Automated Reporting"
 linkTitle: "17. Automated Reporting"
 weight: 17
+toc: true
 ---
 
 {{% notice info %}}

@@ -2,6 +2,7 @@
 title: "1. Tilgjengeliggjøre resultater fra videregående opplæring"
 linkTitle: "1. Resultater fra VGO"
 weight: 1
+toc: true
 ---
 
 {{% notice info %}}

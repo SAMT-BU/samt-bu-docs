@@ -2,6 +2,7 @@
 title: "5. Consent Portal"
 linkTitle: "5. Consent Portal"
 weight: 5
+toc: true
 ---
 
 {{% notice info %}}

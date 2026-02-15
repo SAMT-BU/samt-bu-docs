@@ -2,6 +2,7 @@
 title: "4. Student Relocation Between Municipalities During the School Year"
 linkTitle: "4. Student Relocation"
 weight: 4
+toc: true
 ---
 
 {{% notice info %}}

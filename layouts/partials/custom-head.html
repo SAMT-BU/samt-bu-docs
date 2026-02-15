@@ -61,4 +61,52 @@
     height: 1.2em;
     vertical-align: bottom;
   }
+
+  /* Right-side Table of Contents */
+  #page-toc {
+    position: sticky;
+    top: 20px;
+    float: right;
+    width: 220px;
+    margin-left: 30px;
+    margin-right: -250px;
+    padding: 12px 16px;
+    font-size: 13px;
+    border-left: 2px solid #e0e0e0;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  #page-toc h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  #page-toc #TableOfContents {
+    font-size: 13px;
+    padding: 0;
+  }
+  #page-toc #TableOfContents ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  #page-toc #TableOfContents li {
+    margin-bottom: 4px;
+    padding-left: 0;
+  }
+  #page-toc #TableOfContents a {
+    color: #555;
+    text-decoration: none;
+  }
+  #page-toc #TableOfContents a:hover {
+    color: #17c;
+    text-decoration: underline;
+  }
+  @media (max-width: 1280px) {
+    #page-toc {
+      display: none;
+    }
+  }
 </style>

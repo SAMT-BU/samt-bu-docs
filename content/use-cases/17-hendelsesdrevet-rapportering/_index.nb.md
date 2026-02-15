@@ -2,6 +2,7 @@
 title: "17. Hendelsesdrevet og automatisert rapportering"
 linkTitle: "17. Automatisert rapportering"
 weight: 17
+toc: true
 ---
 
 {{% notice info %}}

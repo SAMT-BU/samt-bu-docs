@@ -2,6 +2,7 @@
 title: "8. Transitions Between Education Levels"
 linkTitle: "8. Education Level Transitions"
 weight: 8
+toc: true
 ---
 
 {{% notice info %}}

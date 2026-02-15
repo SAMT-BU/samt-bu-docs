@@ -2,6 +2,7 @@
 title: "16. AI Solutions Based on Common Information Models"
 linkTitle: "16. AI Solutions"
 weight: 16
+toc: true
 ---
 
 {{% notice info %}}
