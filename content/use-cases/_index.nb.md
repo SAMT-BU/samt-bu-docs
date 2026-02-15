@@ -1,6 +1,6 @@
 ---
-title: "Brukssaker"
-linkTitle: "Brukssaker"
+title: "Use cases"
+linkTitle: "Use cases"
 weight: 30
 ---
 
