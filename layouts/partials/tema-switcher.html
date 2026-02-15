@@ -9,12 +9,16 @@
   {{ $activeTema = "arkitektur" }}
 {{ else if findRE "loesning" $url }}
   {{ $activeTema = "loesning" }}
+{{ else if findRE "rammeverk" $url }}
+  {{ $activeTema = "rammeverk" }}
+{{ else if findRE "informasjonsmodeller" $url }}
+  {{ $activeTema = "informasjonsmodeller" }}
 {{ end }}
 
 <div class="tema-switcher">
   <div class="tema-switcher-toggle" id="tema-toggle">
     <span class="tema-label">Tema:</span>
-    <span class="tema-active">{{ if eq $activeTema "behov" }}Behov{{ else if eq $activeTema "pilotering" }}Pilotering{{ else if eq $activeTema "arkitektur" }}Arkitektur{{ else if eq $activeTema "loesning" }}Løsning{{ else }}Velg tema{{ end }}</span>
+    <span class="tema-active">{{ if eq $activeTema "behov" }}Behov{{ else if eq $activeTema "pilotering" }}Pilotering{{ else if eq $activeTema "arkitektur" }}Arkitektur{{ else if eq $activeTema "loesning" }}Løsning{{ else if eq $activeTema "rammeverk" }}Rammeverk{{ else if eq $activeTema "informasjonsmodeller" }}Informasjonsmodeller{{ else }}Velg tema{{ end }}</span>
     <i class="fa fa-caret-down"></i>
   </div>
   <ul class="tema-switcher-menu" id="tema-menu">
@@ -25,23 +29,40 @@
         {{ if eq $activeTema "behov" }}<i class="fa fa-check"></i>{{ end }}
       </a>
     </li>
-    <li class="disabled">
-      <span class="tema-disabled-item">
+    <li class="{{ if eq $activeTema "pilotering" }}active{{ end }}">
+      <a href="{{ "pilotering/" | relURL }}">
         <i class="fa fa-flask"></i>
         <span>Pilotering</span>
-      </span>
+        {{ if eq $activeTema "pilotering" }}<i class="fa fa-check"></i>{{ end }}
+      </a>
     </li>
-    <li class="disabled">
-      <span class="tema-disabled-item">
+    <li class="{{ if eq $activeTema "arkitektur" }}active{{ end }}">
+      <a href="{{ "arkitektur/" | relURL }}">
         <i class="fa fa-sitemap"></i>
         <span>Arkitektur</span>
-      </span>
+        {{ if eq $activeTema "arkitektur" }}<i class="fa fa-check"></i>{{ end }}
+      </a>
     </li>
-    <li class="disabled">
-      <span class="tema-disabled-item">
+    <li class="{{ if eq $activeTema "loesning" }}active{{ end }}">
+      <a href="{{ "loesning/" | relURL }}">
         <i class="fa fa-cogs"></i>
         <span>Løsning</span>
-      </span>
+        {{ if eq $activeTema "loesning" }}<i class="fa fa-check"></i>{{ end }}
+      </a>
+    </li>
+    <li class="{{ if eq $activeTema "rammeverk" }}active{{ end }}">
+      <a href="{{ "rammeverk/" | relURL }}">
+        <i class="fa fa-cubes"></i>
+        <span>Rammeverk</span>
+        {{ if eq $activeTema "rammeverk" }}<i class="fa fa-check"></i>{{ end }}
+      </a>
+    </li>
+    <li class="{{ if eq $activeTema "informasjonsmodeller" }}active{{ end }}">
+      <a href="{{ "informasjonsmodeller/" | relURL }}">
+        <i class="fa fa-database"></i>
+        <span>Informasjonsmodeller</span>
+        {{ if eq $activeTema "informasjonsmodeller" }}<i class="fa fa-check"></i>{{ end }}
+      </a>
     </li>
   </ul>
 </div>
