@@ -95,6 +95,13 @@
               </h1>
               <p class="a-leadText" id="leadText">{{.Description}}</p>
             {{end}}
+            {{ if not .Lastmod.IsZero }}
+              <div class="page-meta-info">
+                <span class="last-modified">
+                  {{T "Last-modified"}} {{ .Lastmod.Format "02.01.2006" }}
+                </span>
+              </div>
+            {{ end }}
           {{end}}
 
 {{define "breadcrumb"}}
