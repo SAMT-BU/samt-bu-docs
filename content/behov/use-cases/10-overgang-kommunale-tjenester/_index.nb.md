@@ -1,18 +1,13 @@
 ---
 title: "10. Overgang til andre kommunale tjenester"
-linkTitle: "10. Kommunale tjenester"
+linkTitle: "☐ 10. Kommunale tjenester"
 weight: 10
 toc: true
+status: "Detaljering gjenstår"
 ---
 
-{{% notice info %}}
-Denne brukssaken er under utarbeidelse.
-{{% /notice %}}
 
-## Beskrivelse
+## Foreløpig beskrivelse
 
 Overgang til andre kommunale tjenester som barnevern eller PPT.
 
-## Status
-
-Ikke påbegynt.

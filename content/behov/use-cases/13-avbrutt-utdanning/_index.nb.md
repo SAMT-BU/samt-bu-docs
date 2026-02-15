@@ -1,18 +1,13 @@
 ---
 title: "13. Avbrutt utdanning (frafall)"
-linkTitle: "13. Avbrutt utdanning"
+linkTitle: "☐ 13. Avbrutt utdanning"
 weight: 13
 toc: true
+status: "Detaljering gjenstår"
 ---
 
-{{% notice info %}}
-Denne brukssaken er under utarbeidelse.
-{{% /notice %}}
 
-## Beskrivelse
+## Foreløpig beskrivelse
 
 Avbrutt utdanning (frafall).
 
-## Status
-
-Ikke påbegynt.

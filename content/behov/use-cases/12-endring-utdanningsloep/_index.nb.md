@@ -1,18 +1,13 @@
 ---
 title: "12. Endring av utdanningsløp eller studieretning"
-linkTitle: "12. Endring utdanningsløp"
+linkTitle: "☐ 12. Endring utdanningsløp"
 weight: 12
 toc: true
+status: "Detaljering gjenstår"
 ---
 
-{{% notice info %}}
-Denne brukssaken er under utarbeidelse.
-{{% /notice %}}
 
-## Beskrivelse
+## Foreløpig beskrivelse
 
 Endring av utdanningsløp eller studieretning.
 
-## Status
-
-Ikke påbegynt.
