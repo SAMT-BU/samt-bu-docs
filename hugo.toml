@@ -3,6 +3,7 @@ title = "SAMT-BU Dokumentasjon"
 theme = "hugo-theme-altinn"
 defaultContentLanguage = "nb"
 defaultContentLanguageInSubdir = false
+enableGitInfo = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -18,8 +19,6 @@ defaultContentLanguageInSubdir = false
     languageName = "English"
     title = "SAMT-BU Documentation"
     weight = 2
-
-enableGitInfo = true
 
 [params]
   editURL = "https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/"
