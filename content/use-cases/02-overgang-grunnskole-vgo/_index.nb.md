@@ -7,7 +7,7 @@ toc: true
 
 ## Kort beskrivelse
 
-Caset tar for seg overgangen fra ungdomsskole til videregående opplæring -- en av de mest sentrale overgangene i barn og unges livsløp. Overgangen innebærer både et skifte i skolehverdag og et formelt ansvarsskifte fra kommune til fylkeskommune, og berører mange aktører, tjenester og systemer.
+Dette caset tar for seg overgangen fra ungdomsskole til videregående opplæring -- en av de mest sentrale overgangene i barn og unges livsløp. Overgangen innebærer både et skifte i skolehverdag og et formelt ansvarsskifte fra kommune til fylkeskommune, og berører mange aktører, tjenester og systemer.
 
 For ungdom er dette en fase preget av forventninger, valg og økt ansvar for egen hverdag. For foresatte handler det om trygghet for at barnet får riktig oppfølging. For ansatte i skole og støtteapparat handler det om å gi et godt tilbud, ofte under tidspress og med begrenset oversikt.
 
