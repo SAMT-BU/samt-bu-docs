@@ -40,7 +40,7 @@
   .lang-switcher-menu li a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
     padding: 8px 16px;
     color: #333;
     text-decoration: none;
@@ -53,8 +53,12 @@
   .lang-switcher-menu li.active a {
     font-weight: bold;
   }
-  .lang-switcher-menu li.active a .fa-check {
+  .lang-switcher-menu li a .fa-check {
     color: #17c;
-    margin-left: 8px;
+    margin-left: auto;
+  }
+  .lang-flag {
+    height: 1.2em;
+    vertical-align: bottom;
   }
 </style>
