@@ -83,33 +83,56 @@
     font-size: 16px;
   }
 
-  /* Remove underline from breadcrumb links */
+  /* Remove blue border-bottom from breadcrumb and TOC links
+     (designsystem.css sets border-bottom: 2px solid #1EAEF7 on all <a>) */
   #body #breadcrumbs a,
   #body #breadcrumbs .links a {
+    border-bottom: none;
     text-decoration: none;
   }
   #body #breadcrumbs .links a:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid #000;
   }
 
-  /* 3-column layout: left sidebar | content | right TOC */
-  .body-toc-wrapper {
-    display: flex;
-    align-items: flex-start;
+  #page-toc a {
+    border-bottom: none !important;
   }
-  .body-toc-wrapper #body {
-    flex: 1;
-    min-width: 0;
+
+  /* 3-column proportional flex layout: sidebar | content | TOC
+     Uses percentages so column ratios hold when zooming */
+  @media (min-width: 768px) {
+    .adocs-scrollcontainer .row > .col-sm-12 {
+      display: flex;
+      align-items: flex-start;
+    }
+    #sidebar {
+      float: none !important;
+      flex: 0 0 20%;
+      min-width: 180px;
+      max-width: 260px;
+    }
+    .body-toc-wrapper {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: flex-start;
+    }
+    .body-toc-wrapper #body {
+      flex: 1;
+      min-width: 0;
+      margin-left: 0 !important;
+    }
   }
 
   /* Right-side Table of Contents */
   #page-toc {
     position: sticky;
     top: 20px;
-    width: 220px;
-    flex-shrink: 0;
+    flex: 0 0 18%;
+    min-width: 150px;
+    max-width: 240px;
     padding: 12px 16px;
-    margin-left: 20px;
+    margin-left: 16px;
     font-size: 13px;
     border-left: 2px solid #e0e0e0;
     max-height: 85vh;
@@ -140,13 +163,18 @@
     text-decoration: none;
   }
   #page-toc #TableOfContents a:hover {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #000 !important;
     padding-bottom: 1px;
   }
-  @media (max-width: 1100px) {
+  @media (max-width: 767px) {
     .body-toc-wrapper {
       display: block;
     }
+    #page-toc {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1100px) {
     #page-toc {
       display: none;
     }
