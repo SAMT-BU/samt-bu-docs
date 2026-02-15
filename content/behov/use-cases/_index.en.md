@@ -2,7 +2,6 @@
 title: "Use Cases"
 linkTitle: "Use Cases"
 weight: 30
-alwaysopen: true
 status: "I arbeid"
 ---
 
