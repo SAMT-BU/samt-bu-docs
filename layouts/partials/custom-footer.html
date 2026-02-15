@@ -1,0 +1,14 @@
+<!-- Language switcher toggle -->
+<script>
+$(document).ready(function() {
+  var toggle = $('#lang-toggle');
+  var menu = $('#lang-menu');
+  toggle.on('click', function(e) {
+    e.stopPropagation();
+    menu.toggleClass('open');
+  });
+  $(document).on('click', function() {
+    menu.removeClass('open');
+  });
+});
+</script>
