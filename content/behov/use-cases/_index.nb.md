@@ -1,7 +1,7 @@
 ---
 title: "Case/Scenario"
 linkTitle: "Case/Scenario"
-weight: 30
+weight: 5
 status: "I arbeid"
 ---
 
