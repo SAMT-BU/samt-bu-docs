@@ -1,6 +1,6 @@
 ---
-title: "Behov"
-linkTitle: "Behov"
+title: "Brukerbehov"
+linkTitle: "Brukerbehov"
 weight: 10
 status: "I arbeid"
 ---

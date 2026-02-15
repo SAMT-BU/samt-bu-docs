@@ -1,6 +1,6 @@
 ---
-title: "Use cases"
-linkTitle: "Use cases"
+title: "Case/Scenario"
+linkTitle: "Case/Scenario"
 weight: 30
 status: "I arbeid"
 ---

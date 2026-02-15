@@ -18,14 +18,14 @@
 <div class="tema-switcher">
   <div class="tema-switcher-toggle" id="tema-toggle">
     <span class="tema-label">Tema:</span>
-    <span class="tema-active">{{ if eq $activeTema "behov" }}Behov{{ else if eq $activeTema "pilotering" }}Pilotering{{ else if eq $activeTema "arkitektur" }}Arkitektur{{ else if eq $activeTema "loesning" }}Løsning{{ else if eq $activeTema "rammeverk" }}Rammeverk{{ else if eq $activeTema "informasjonsmodeller" }}Informasjonsmodeller{{ else }}Velg tema{{ end }}</span>
+    <span class="tema-active">{{ if eq $activeTema "behov" }}Brukerbehov{{ else if eq $activeTema "pilotering" }}Pilotering{{ else if eq $activeTema "arkitektur" }}Arkitektur{{ else if eq $activeTema "loesning" }}Løsning{{ else if eq $activeTema "rammeverk" }}Rammeverk{{ else if eq $activeTema "informasjonsmodeller" }}Informasjonsmodeller{{ else }}Velg tema{{ end }}</span>
     <i class="fa fa-caret-down"></i>
   </div>
   <ul class="tema-switcher-menu" id="tema-menu">
     <li class="{{ if eq $activeTema "behov" }}active{{ end }}">
       <a href="{{ "behov/" | relURL }}">
         <i class="fa fa-lightbulb-o"></i>
-        <span>Behov</span>
+        <span>Brukerbehov</span>
         {{ if eq $activeTema "behov" }}<i class="fa fa-check"></i>{{ end }}
       </a>
     </li>
