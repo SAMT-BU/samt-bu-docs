@@ -1,8 +1,9 @@
 ---
 title: "3. Håndtering av D-nummer og ID-bytte"
-linkTitle: "3. Håndtering av Dnr"
+linkTitle: "◐ 3. Håndtering av Dnr"
 weight: 3
 toc: true
+status: "Første utkast"
 ---
 
 ## Kort beskrivelse

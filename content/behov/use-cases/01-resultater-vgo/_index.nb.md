@@ -1,8 +1,9 @@
 ---
 title: "1. Tilgjengeliggjøring av resultater fra videregående opplæring"
-linkTitle: "1. Resultater fra VGO"
+linkTitle: "◐ 1. Resultater fra VGO"
 weight: 1
 toc: true
+status: "Første utkast"
 ---
 
 ## Kort beskrivelse
