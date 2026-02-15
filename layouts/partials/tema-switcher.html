@@ -1,7 +1,7 @@
 {{/* Determine which tema is active based on the current URL */}}
 {{ $activeTema := "" }}
 {{ $url := .RelPermalink }}
-{{ if findRE "use-cases" $url }}
+{{ if findRE "behov" $url }}
   {{ $activeTema = "behov" }}
 {{ else if findRE "pilotering" $url }}
   {{ $activeTema = "pilotering" }}
@@ -19,7 +19,7 @@
   </div>
   <ul class="tema-switcher-menu" id="tema-menu">
     <li class="{{ if eq $activeTema "behov" }}active{{ end }}">
-      <a href="{{ "use-cases/" | relURL }}">
+      <a href="{{ "behov/" | relURL }}">
         <i class="fa fa-lightbulb-o"></i>
         <span>Behov</span>
         {{ if eq $activeTema "behov" }}<i class="fa fa-check"></i>{{ end }}
