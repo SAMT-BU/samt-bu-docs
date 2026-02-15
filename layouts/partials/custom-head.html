@@ -1,0 +1,60 @@
+<!-- Partial intended to be overwritten to add CSS -->
+<link href="{{"css/altinndigitalisering.css" | relURL}}" rel="stylesheet">
+<link href="{{"css/altinn.css" | relURL}}" rel="stylesheet">
+
+<style>
+  /* Language switcher */
+  .lang-switcher {
+    position: relative;
+  }
+  .lang-switcher-toggle {
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+  }
+  .lang-switcher-toggle:hover {
+    opacity: 0.8;
+  }
+  .lang-switcher-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    list-style: none;
+    margin: 4px 0 0 0;
+    padding: 4px 0;
+    min-width: 150px;
+    z-index: 1000;
+  }
+  .lang-switcher-menu.open {
+    display: block;
+  }
+  .lang-switcher-menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .lang-switcher-menu li a:hover {
+    background: #f0f0f0;
+  }
+  .lang-switcher-menu li.active a {
+    font-weight: bold;
+  }
+  .lang-switcher-menu li.active a .fa-check {
+    color: #17c;
+    margin-left: 8px;
+  }
+</style>

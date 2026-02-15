@@ -1,0 +1,34 @@
+{{ if gt (len .Site.Languages) 1 }}
+<div class="lang-switcher">
+  <div class="lang-switcher-toggle" id="lang-toggle">
+    <i class="fa fa-globe"></i>
+    <span>{{ .Site.Language.LanguageName }}</span>
+    <i class="fa fa-caret-down"></i>
+  </div>
+  <ul class="lang-switcher-menu" id="lang-menu">
+    {{ $currentPage := . }}
+    {{ range .Site.Languages }}
+      {{ $lang := . }}
+      {{ $translation := index ($currentPage.Translations | default slice) 0 }}
+      <li class="{{ if eq $lang.Lang $currentPage.Language.Lang }}active{{ end }}">
+        {{ if eq $lang.Lang $currentPage.Language.Lang }}
+          <a href="{{ $currentPage.RelPermalink }}">
+            {{ $lang.LanguageName }}
+            <i class="fa fa-check"></i>
+          </a>
+        {{ else }}
+          {{ with $currentPage.Translations }}
+            {{ range . }}
+              {{ if eq .Language.Lang $lang.Lang }}
+                <a href="{{ .RelPermalink }}">{{ $lang.LanguageName }}</a>
+              {{ end }}
+            {{ end }}
+          {{ else }}
+            <a href="{{ $lang.Lang | relLangURL }}">{{ $lang.LanguageName }}</a>
+          {{ end }}
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

@@ -9,11 +9,12 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <nav class="a-globalNav" id="primary-nav">
+        <nav class="a-globalNav" id="primary-nav" style="display: flex; align-items: center; justify-content: space-between;">
           <a href="{{ with .Site.GetPage "/" }}{{ .RelPermalink }}{{ end }}" class="a-globalNav-logo" style="display: flex; align-items: center; text-decoration: none;">
             <img src="{{ "images/SAMT-BU-logo.png" | relURL }}" alt="SAMT-BU logo" class="a-logo a-modal-top-logo" style="height: 40px; width: auto; margin-right: 10px; filter: brightness(0) invert(1);">
-            <span style="color: #fff; font-size: 1.8rem; font-weight: bold;">SAMT-BU Dokumentasjon</span>
+            <span style="color: #fff; font-size: 1.8rem; font-weight: bold;">{{ .Site.Title }}</span>
           </a>
+          {{ partial "lang-switcher.html" . }}
         </nav>
       </div>
     </div>
