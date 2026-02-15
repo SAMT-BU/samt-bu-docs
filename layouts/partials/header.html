@@ -65,8 +65,10 @@
                 </span>
                 <span class="links">
                   <a href="{{ "/" | relURL }}" class="breadcrumb-home"><i class="fa fa-home"></i></a>
-                  {{if not .IsHome}}
                   <span class="adocs-breadcrumb-divider"> / </span>
+                  {{if .IsHome}}
+                  <span>{{ .Title }}</span>
+                  {{else}}
                   {{if eq .Kind "taxonomy"}}
                     <a href="/docs/tags/">Tags</a> /
                   {{end}}
