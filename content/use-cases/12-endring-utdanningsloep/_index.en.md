@@ -2,6 +2,7 @@
 title: "12. Changing Educational Pathway or Study Programme"
 linkTitle: "12. Changing Pathway"
 weight: 12
+toc: true
 ---
 
 {{% notice info %}}

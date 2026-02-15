@@ -2,6 +2,7 @@
 title: "11. Digital Dialogue Between Kindergarten/School and Home"
 linkTitle: "11. Digital Home Dialogue"
 weight: 11
+toc: true
 ---
 
 {{% notice info %}}

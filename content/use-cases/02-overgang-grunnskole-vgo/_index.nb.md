@@ -2,6 +2,7 @@
 title: "2. Sømløs overgang fra grunnskole til videregående opplæring"
 linkTitle: "2. Overgang grunnskole–VGO"
 weight: 2
+toc: true
 ---
 
 {{% notice info %}}

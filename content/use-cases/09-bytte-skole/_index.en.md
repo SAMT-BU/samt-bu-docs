@@ -2,6 +2,7 @@
 title: "9. Changing School or Place of Study"
 linkTitle: "9. Changing School"
 weight: 9
+toc: true
 ---
 
 {{% notice info %}}

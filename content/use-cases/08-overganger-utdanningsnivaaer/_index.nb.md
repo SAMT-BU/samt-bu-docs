@@ -2,6 +2,7 @@
 title: "8. Overganger mellom utdanningsnivåer"
 linkTitle: "8. Overganger utdanningsnivåer"
 weight: 8
+toc: true
 ---
 
 {{% notice info %}}

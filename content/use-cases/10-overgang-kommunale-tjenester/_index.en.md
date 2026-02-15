@@ -2,6 +2,7 @@
 title: "10. Transition to Other Municipal Services"
 linkTitle: "10. Municipal Services"
 weight: 10
+toc: true
 ---
 
 {{% notice info %}}

@@ -96,9 +96,11 @@
             {{end}}
           {{end}}
 
-          {{ if and (gt .WordCount 100 ) (.Params.toc) }}
-            <h2>På denne siden:</h2>
+          {{ if .Params.toc }}
+            <aside id="page-toc">
+              <h3>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
               {{ .TableOfContents }}
+            </aside>
           {{ end }}
 
 {{define "breadcrumb"}}

@@ -2,6 +2,7 @@
 title: "3. ID-håndtering av flyktninger og bruk av D-nummer"
 linkTitle: "3. ID-håndtering flyktninger"
 weight: 3
+toc: true
 ---
 
 {{% notice info %}}

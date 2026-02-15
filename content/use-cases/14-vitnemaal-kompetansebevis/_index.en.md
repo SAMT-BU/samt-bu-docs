@@ -2,6 +2,7 @@
 title: "14. Documentation and Sharing of Diplomas and Certificates"
 linkTitle: "14. Diplomas & Certificates"
 weight: 14
+toc: true
 ---
 
 {{% notice info %}}

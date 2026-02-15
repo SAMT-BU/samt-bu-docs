@@ -2,6 +2,7 @@
 title: "15. Anskaffelser av fag- og støttesystemer"
 linkTitle: "15. Anskaffelser fagsystemer"
 weight: 15
+toc: true
 ---
 
 {{% notice info %}}

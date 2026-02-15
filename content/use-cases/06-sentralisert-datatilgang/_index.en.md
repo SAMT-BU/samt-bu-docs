@@ -2,6 +2,7 @@
 title: "6. Centralized Access to Data Parents Need"
 linkTitle: "6. Data Access for Parents"
 weight: 6
+toc: true
 ---
 
 {{% notice info %}}
