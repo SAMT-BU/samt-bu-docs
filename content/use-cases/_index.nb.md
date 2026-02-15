@@ -1,6 +1,9 @@
 ---
-title: "Use Cases"
-draft: false
+title: "Brukssaker"
+linkTitle: "Brukssaker"
+weight: 30
 ---
 
-Oversikt over use cases.
+Oversikt over identifiserte brukssaker for samhandling innen oppvekst og utdanning.
+
+Velg en brukssak nedenfor for mer informasjon.
