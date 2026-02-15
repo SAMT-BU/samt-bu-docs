@@ -210,12 +210,18 @@
     border-bottom: 1px solid #000 !important;
     padding-bottom: 1px;
   }
-  /* Page meta info: "Sist endret" + "Endre denne siden" */
-  .page-meta-info {
-    text-align: right;
+  /* Top bar: breadcrumbs left, "Sist endret" right */
+  #top-bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .page-meta-lastmod {
     font-size: 13px;
     color: #666;
-    margin-bottom: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* Edit-on-GitHub link at bottom */
