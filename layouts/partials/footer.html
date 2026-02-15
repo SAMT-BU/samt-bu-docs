@@ -63,6 +63,13 @@
 
         </section>
 
+          {{ if .Params.toc }}
+            <aside id="page-toc">
+              <h3>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
+              {{ .TableOfContents }}
+            </aside>
+          {{ end }}
+        </div><!-- End body-toc-wrapper -->
 
         </div> <!-- End col-sm-12 -->
       </div> <!-- End row -->
