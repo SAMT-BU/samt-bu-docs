@@ -2,7 +2,6 @@
 title: "Behov"
 linkTitle: "Behov"
 weight: 10
-alwaysopen: true
 status: "I arbeid"
 ---
 

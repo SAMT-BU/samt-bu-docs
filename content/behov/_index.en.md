@@ -2,7 +2,6 @@
 title: "Needs"
 linkTitle: "Needs"
 weight: 10
-alwaysopen: true
 status: "I arbeid"
 ---
 
