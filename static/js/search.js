@@ -22,9 +22,17 @@ function initLunr() {
                 this.field("tags", { boost: 5 });
                 this.field("content");
 
+                var builder = this;
                 data.forEach(function (page) {
-                    this.add(page);
-                }, this);
+                    // lunr expects string fields - convert tags array to string
+                    builder.add({
+                        uri: page.uri,
+                        title: page.title,
+                        tags: (page.tags || []).join(" "),
+                        content: page.content || "",
+                        description: page.description || ""
+                    });
+                });
             });
         })
         .fail(function (jqxhr, textStatus, error) {
@@ -43,11 +51,28 @@ function search(query) {
     if (!lunrIndex) {
         return [];
     }
-    return lunrIndex.search(query).map(function (result) {
+
+    var results = [];
+    try {
+        // Add wildcard to support partial word matching
+        var wildcardQuery = query.split(/\s+/).map(function (term) {
+            return term + "*";
+        }).join(" ");
+        results = lunrIndex.search(wildcardQuery);
+    } catch (e) {
+        // Fall back to plain query if wildcard syntax fails
+        try {
+            results = lunrIndex.search(query);
+        } catch (e2) {
+            return [];
+        }
+    }
+
+    return results.map(function (result) {
         return pagesIndex.filter(function (page) {
             return page.uri === result.ref;
         })[0];
-    });
+    }).filter(function (r) { return r; });
 }
 
 // Let's get started
