@@ -1,7 +1,11 @@
 baseURL = "https://samt-bu.github.io/samt-bu-docs/"
 title = "SAMT-BU Dokumentasjon"
 languageCode = "nb"
+defaultContentLanguage = "nb"
 theme = "hugo-theme-altinn"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [params]
   # tilpasses senere
