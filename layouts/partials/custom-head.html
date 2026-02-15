@@ -186,13 +186,25 @@
     padding-left: 0;
     margin: 0;
   }
+  #page-toc #TableOfContents ul ul {
+    padding-left: 12px;
+    margin-bottom: 0;
+  }
   #page-toc #TableOfContents li {
     margin-bottom: 4px;
-    padding-left: 0;
+    padding-left: 0 !important;
+  }
+  /* Override theme bullets (content: '•') on nested items */
+  #page-toc #TableOfContents li::before {
+    content: none !important;
+    display: none !important;
   }
   #page-toc #TableOfContents a {
     color: #000;
     text-decoration: none;
+    font-weight: normal !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   #page-toc #TableOfContents a:hover {
     border-bottom: 1px solid #000 !important;
