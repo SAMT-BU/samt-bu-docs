@@ -1,0 +1,21 @@
+<nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til meny</a></li>
+  </ul>
+</nav>
+
+<header class="a-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="a-globalNav" id="primary-nav">
+          <a href="{{ with .Site.GetPage "/" }}{{ .RelPermalink }}{{ end }}" class="a-globalNav-logo" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="{{ "images/samt-bu-logo.svg" | relURL }}" alt="SAMT-BU logo" class="a-logo a-modal-top-logo" style="height: 40px; width: auto; margin-right: 10px;">
+            <span style="color: #fff; font-size: 1.8rem; font-weight: bold;">SAMT-BU Dokumentasjon</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
