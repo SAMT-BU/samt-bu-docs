@@ -1,0 +1,47 @@
+{{/* Determine which tema is active based on the current URL */}}
+{{ $activeTema := "" }}
+{{ $url := .RelPermalink }}
+{{ if findRE "use-cases" $url }}
+  {{ $activeTema = "behov" }}
+{{ else if findRE "pilotering" $url }}
+  {{ $activeTema = "pilotering" }}
+{{ else if findRE "arkitektur" $url }}
+  {{ $activeTema = "arkitektur" }}
+{{ else if findRE "loesning" $url }}
+  {{ $activeTema = "loesning" }}
+{{ end }}
+
+<div class="tema-switcher">
+  <div class="tema-switcher-toggle" id="tema-toggle">
+    <span class="tema-label">Tema:</span>
+    <span class="tema-active">{{ if eq $activeTema "behov" }}Behov{{ else if eq $activeTema "pilotering" }}Pilotering{{ else if eq $activeTema "arkitektur" }}Arkitektur{{ else if eq $activeTema "loesning" }}Løsning{{ else }}Velg tema{{ end }}</span>
+    <i class="fa fa-caret-down"></i>
+  </div>
+  <ul class="tema-switcher-menu" id="tema-menu">
+    <li class="{{ if eq $activeTema "behov" }}active{{ end }}">
+      <a href="{{ "use-cases/" | relURL }}">
+        <i class="fa fa-lightbulb-o"></i>
+        <span>Behov</span>
+        {{ if eq $activeTema "behov" }}<i class="fa fa-check"></i>{{ end }}
+      </a>
+    </li>
+    <li class="disabled">
+      <span class="tema-disabled-item">
+        <i class="fa fa-flask"></i>
+        <span>Pilotering</span>
+      </span>
+    </li>
+    <li class="disabled">
+      <span class="tema-disabled-item">
+        <i class="fa fa-sitemap"></i>
+        <span>Arkitektur</span>
+      </span>
+    </li>
+    <li class="disabled">
+      <span class="tema-disabled-item">
+        <i class="fa fa-cogs"></i>
+        <span>Løsning</span>
+      </span>
+    </li>
+  </ul>
+</div>

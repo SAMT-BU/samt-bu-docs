@@ -62,6 +62,83 @@
     vertical-align: bottom;
   }
 
+  /* Tema switcher (component selector) */
+  .tema-switcher {
+    position: relative;
+  }
+  .tema-switcher-toggle {
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+  }
+  .tema-switcher-toggle:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  .tema-label {
+    opacity: 0.7;
+  }
+  .tema-active {
+    font-weight: bold;
+  }
+  .tema-switcher-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    list-style: none;
+    margin: 4px 0 0 0;
+    padding: 4px 0;
+    min-width: 180px;
+    z-index: 1000;
+  }
+  .tema-switcher-menu.open {
+    display: block;
+  }
+  .tema-switcher-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+    border-bottom: none !important;
+  }
+  .tema-switcher-menu li a:hover {
+    background: #f0f0f0;
+  }
+  .tema-switcher-menu li.active a {
+    font-weight: bold;
+  }
+  .tema-switcher-menu li a .fa-check {
+    color: #17c;
+    margin-left: auto;
+  }
+  .tema-switcher-menu li.disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  .tema-disabled-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: #999;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
   /* Header actions: search + language switcher side by side */
   .a-header-actions {
     display: flex;
