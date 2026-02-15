@@ -210,18 +210,14 @@
     border-bottom: 1px solid #000 !important;
     padding-bottom: 1px;
   }
-  /* Top bar: breadcrumbs left, "Sist endret" right */
-  #top-bar {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .page-meta-lastmod {
+  /* Page metadata row below title (extensible with status etc.) */
+  .page-meta {
     font-size: 13px;
     color: #666;
-    white-space: nowrap;
-    flex-shrink: 0;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
   /* Edit-on-GitHub link at bottom */
