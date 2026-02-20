@@ -324,25 +324,25 @@
     border-left: 2px solid #e0e0e0;
     max-height: 85vh;
     overflow-y: auto;
-    scrollbar-width: none;        /* Firefox: hidden by default */
-    -ms-overflow-style: none;     /* IE/Edge */
-  }
-  #page-toc::-webkit-scrollbar {
-    width: 0;                     /* Chrome/Safari: hidden by default */
+    scrollbar-width: thin;                /* Firefox: always thin */
+    scrollbar-color: transparent transparent; /* Firefox: invisible by default */
   }
   #page-toc:hover {
-    scrollbar-width: thin;        /* Firefox: show thin scrollbar on hover */
-    scrollbar-color: #ccc transparent;
+    scrollbar-color: rgba(0,0,0,0.25) transparent; /* Firefox: visible on hover */
   }
-  #page-toc:hover::-webkit-scrollbar {
-    width: 4px;
+  #page-toc::-webkit-scrollbar {
+    width: 6px;                           /* Chrome/Safari: always present */
+  }
+  #page-toc::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  #page-toc::-webkit-scrollbar-thumb {
+    background-color: transparent;        /* Invisible by default */
+    border-radius: 3px;
+    transition: background-color 0.2s;
   }
   #page-toc:hover::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
-  }
-  #page-toc:hover::-webkit-scrollbar-track {
-    background: transparent;
+    background-color: rgba(0,0,0,0.25);  /* Visible on hover */
   }
   #page-toc h3 {
     font-size: 14px;
