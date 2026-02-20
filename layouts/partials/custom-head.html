@@ -249,8 +249,11 @@
     color: #000;
   }
 
-  #page-toc a {
-    border-bottom: none !important;
+  #page-toc a,
+  #page-toc a:hover,
+  #page-toc a:active,
+  #page-toc a:focus {
+    border: none !important;
   }
 
   /* 3-column proportional flex layout: sidebar | content | TOC
@@ -344,13 +347,19 @@
   }
   #page-toc #TableOfContents a {
     color: #000;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: normal !important;
     padding: 0 !important;
     margin: 0 !important;
+    border: none !important;
   }
-  #page-toc #TableOfContents a:hover {
-    border-bottom: 1px solid #000 !important;
+  #page-toc #TableOfContents a:hover,
+  #page-toc #TableOfContents a:active,
+  #page-toc #TableOfContents a:focus {
+    color: #000;
+    text-decoration: underline !important;
+    border: none !important;
+  }
     padding-bottom: 1px;
   }
   /* Page metadata row below title (extensible with status etc.) */
