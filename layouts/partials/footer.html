@@ -92,20 +92,6 @@
     <script src="{{"js/altinndocs.js" | relURL}}"></script>
     <script src="{{"js/altinndocs-learn.js" | relURL}}"></script>
 
-    <script src="{{"js/stickysidebar/rAF.js" | relURL}}"></script>
-    <script src="{{"js/stickysidebar/ResizeSensor.js" | relURL}}"></script>
-    <script src="{{"js/stickysidebar/sticky-sidebar.js" | relURL}}"></script>
-    
-    <script>
-      var a = new StickySidebar('#sidebar', {
-        topSpacing: 20,
-        bottomSpacing: 60,
-        containerSelector: '.adocs-scrollcontainer',
-        innerWrapperSelector: '.sidebar__inner',
-        minWidth: 768
-      });
-    </script>
-
     <link href="{{"mermaid/mermaid.css" | relURL}}" type="text/css" rel="stylesheet"/>
     <script src="{{"mermaid/mermaid.js" | relURL}}"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
@@ -113,20 +99,25 @@
     {{ partial "custom-footer.html" . }}
 
     <script>
-    // TOC scroll-hint: hide fade when scrolled to bottom, show when more content below
+    // Scroll-hint fade for TOC and sidebar
     (function() {
-      var toc = document.getElementById('page-toc');
-      if (!toc) return;
-      var fade = toc.querySelector('.toc-scroll-fade');
-      if (!fade) return;
-      function update() {
-        var atBottom = toc.scrollHeight - toc.scrollTop - toc.clientHeight < 4;
-        var noOverflow = toc.scrollHeight <= toc.clientHeight;
-        fade.classList.toggle('hidden', atBottom || noOverflow);
+      function setupFade(container, fadeSelector) {
+        if (!container) return;
+        var fade = container.querySelector(fadeSelector);
+        if (!fade) return;
+        function update() {
+          var atBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 4;
+          var noOverflow = container.scrollHeight <= container.clientHeight;
+          fade.classList.toggle('hidden', atBottom || noOverflow);
+        }
+        container.addEventListener('scroll', update);
+        window.addEventListener('resize', update);
+        // Re-check when menu items expand/collapse (height changes)
+        new MutationObserver(update).observe(container, { childList: true, subtree: true, attributes: true });
+        update();
       }
-      toc.addEventListener('scroll', update);
-      window.addEventListener('resize', update);
-      update();
+      setupFade(document.getElementById('page-toc'), '.toc-scroll-fade');
+      setupFade(document.getElementById('sidebar'), '.sidebar-scroll-fade');
     })();
     </script>
 
