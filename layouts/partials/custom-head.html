@@ -324,6 +324,11 @@
     border-left: 2px solid #e0e0e0;
     max-height: 85vh;
     overflow-y: auto;
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/Edge */
+  }
+  #page-toc::-webkit-scrollbar {
+    display: none;                /* Chrome/Safari */
   }
   #page-toc h3 {
     font-size: 14px;
