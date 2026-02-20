@@ -99,25 +99,36 @@
     {{ partial "custom-footer.html" . }}
 
     <script>
-    // Scroll-hint fade for TOC and sidebar
+    // Scroll-hint fade for TOC (uses child div) and sidebar (uses ::after pseudo-element)
     (function() {
-      function setupFade(container, fadeSelector) {
-        if (!container) return;
-        var fade = container.querySelector(fadeSelector);
-        if (!fade) return;
-        function update() {
-          var atBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 4;
-          var noOverflow = container.scrollHeight <= container.clientHeight;
-          fade.classList.toggle('hidden', atBottom || noOverflow);
+      // TOC: toggle .hidden on the fade div
+      var toc = document.getElementById('page-toc');
+      if (toc) {
+        var tocFade = toc.querySelector('.toc-scroll-fade');
+        if (tocFade) {
+          function updateToc() {
+            var atBottom = toc.scrollHeight - toc.scrollTop - toc.clientHeight < 4;
+            var noOverflow = toc.scrollHeight <= toc.clientHeight;
+            tocFade.classList.toggle('hidden', atBottom || noOverflow);
+          }
+          toc.addEventListener('scroll', updateToc);
+          window.addEventListener('resize', updateToc);
+          updateToc();
         }
-        container.addEventListener('scroll', update);
-        window.addEventListener('resize', update);
-        // Re-check when menu items expand/collapse (height changes)
-        new MutationObserver(update).observe(container, { childList: true, subtree: true, attributes: true });
-        update();
       }
-      setupFade(document.getElementById('page-toc'), '.toc-scroll-fade');
-      setupFade(document.getElementById('sidebar'), '.sidebar-scroll-fade');
+      // Sidebar: toggle .fade-hidden on #sidebar itself (controls ::after)
+      var sb = document.getElementById('sidebar');
+      if (sb) {
+        function updateSb() {
+          var atBottom = sb.scrollHeight - sb.scrollTop - sb.clientHeight < 4;
+          var noOverflow = sb.scrollHeight <= sb.clientHeight;
+          sb.classList.toggle('fade-hidden', atBottom || noOverflow);
+        }
+        sb.addEventListener('scroll', updateSb);
+        window.addEventListener('resize', updateSb);
+        new MutationObserver(updateSb).observe(sb, { childList: true, subtree: true, attributes: true });
+        updateSb();
+      }
     })();
     </script>
 
