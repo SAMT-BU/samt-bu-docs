@@ -287,6 +287,11 @@
     #sidebar::-webkit-scrollbar {
       display: none;                      /* Chrome/Safari */
     }
+    /* Override theme.css .highlightable so #sidebar owns the scroll */
+    #sidebar .highlightable {
+      overflow: visible;
+      height: auto;
+    }
     .body-toc-wrapper {
       flex: 1;
       min-width: 0;
