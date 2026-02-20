@@ -308,6 +308,7 @@
       min-width: 180px;
       max-width: 260px;
       font-size: 15px;
+      padding-top: 12px;               /* vertical align with TOC heading */
       overflow-y: auto;
       scrollbar-width: none;             /* Firefox */
     }
@@ -359,14 +360,14 @@
     padding: 2px 6px !important;
   }
 
-  /* Left sidebar heading (matches #page-toc h3) */
+  /* Left sidebar heading — aligned with menu items and TOC heading */
   #sidebar .sidebar-heading {
     font-size: 14px;
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     color: #333;
-    padding-left: 16px;
+    padding-left: 9px;          /* flush with menu-item text (2px + 9px padding on <a>) */
   }
 
   /* Right-side Table of Contents (visual styling only; layout in @media above) */
