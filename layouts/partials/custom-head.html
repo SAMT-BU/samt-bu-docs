@@ -281,6 +281,21 @@
     /* Header / footer keep their natural size */
     .a-jumpnav, .a-header, .a-footer { flex-shrink: 0; }
 
+    /* Reduce header height by ~1/3 (100px → ~66px), keep content centered */
+    .a-header {
+      height: auto !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .a-header .container,
+    .a-header .row,
+    .a-header .col-12 {
+      height: 100%;
+    }
+    .a-header #primary-nav {
+      padding: 13px 0;           /* ~66px total with 40px logo */
+    }
+
     /* Container between header and footer fills remaining space */
     body.a-page > .container {
       flex: 1;
