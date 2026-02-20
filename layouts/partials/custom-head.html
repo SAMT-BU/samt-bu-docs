@@ -198,8 +198,31 @@
   /* Tighter spacing for bullet/numbered lists */
   .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) {
     margin-top: 4px !important;
+    margin-left: 0 !important;
+    padding-left: 2em !important;
+    list-style: disc !important;
   }
-  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
+  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
+    padding-left: 0 !important;
+    margin-bottom: 4px !important;
+  }
+  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
+    display: none !important;
+  }
+  /* Nested list levels */
+  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) ul {
+    list-style: circle !important;
+    padding-left: 2em !important;
+    margin-top: 4px !important;
+  }
+  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) ul ul {
+    list-style: square !important;
+  }
+  /* Ordered lists */
+  .a-text ol {
+    padding-left: 2em !important;
+    margin-left: 0 !important;
+  }
   .a-text ol li,
   #body ul li,
   #body ol li {
