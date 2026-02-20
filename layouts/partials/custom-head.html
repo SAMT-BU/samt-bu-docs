@@ -324,11 +324,25 @@
     border-left: 2px solid #e0e0e0;
     max-height: 85vh;
     overflow-y: auto;
-    scrollbar-width: none;        /* Firefox */
+    scrollbar-width: none;        /* Firefox: hidden by default */
     -ms-overflow-style: none;     /* IE/Edge */
   }
   #page-toc::-webkit-scrollbar {
-    display: none;                /* Chrome/Safari */
+    width: 0;                     /* Chrome/Safari: hidden by default */
+  }
+  #page-toc:hover {
+    scrollbar-width: thin;        /* Firefox: show thin scrollbar on hover */
+    scrollbar-color: #ccc transparent;
+  }
+  #page-toc:hover::-webkit-scrollbar {
+    width: 4px;
+  }
+  #page-toc:hover::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  #page-toc:hover::-webkit-scrollbar-track {
+    background: transparent;
   }
   #page-toc h3 {
     font-size: 14px;
