@@ -365,9 +365,13 @@
     font-size: 14px;
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: 4px;
+    margin-bottom: 2px;           /* symmetric with padding above first menu item */
     color: #333;
-    padding-left: 9px;          /* flush with menu-item text (2px + 9px padding on <a>) */
+    padding-left: 9px;            /* flush with menu-item text */
+  }
+  /* Override theme's 36px margin-top so heading↔line↔menu spacing is tight */
+  #sidebar ul.topics {
+    margin-top: 0 !important;
   }
 
   /* Right-side Table of Contents (visual styling only; layout in @media above) */
