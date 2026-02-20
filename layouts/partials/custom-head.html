@@ -302,6 +302,12 @@
       min-height: 0;           /* allow flex child to shrink below content */
       display: flex;
       flex-direction: column;
+      padding-top: 0.5rem !important;  /* halve gray gap (was pt-md-3 = 1rem) */
+    }
+    @media (min-width: 992px) {
+      body.a-page > .container {
+        padding-top: 1.5rem !important; /* halve gray gap (was pt-lg-5 = 3rem) */
+      }
     }
     .adocs-scrollcontainer {
       flex: 1;
