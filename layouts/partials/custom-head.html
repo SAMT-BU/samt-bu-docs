@@ -324,25 +324,26 @@
     border-left: 2px solid #e0e0e0;
     max-height: 85vh;
     overflow-y: auto;
-    scrollbar-width: thin;                /* Firefox: always thin */
-    scrollbar-color: transparent transparent; /* Firefox: invisible by default */
-  }
-  #page-toc:hover {
-    scrollbar-color: rgba(0,0,0,0.25) transparent; /* Firefox: visible on hover */
+    /* Completely hidden scrollbar */
+    scrollbar-width: none;               /* Firefox */
   }
   #page-toc::-webkit-scrollbar {
-    width: 6px;                           /* Chrome/Safari: always present */
+    display: none;                        /* Chrome/Safari */
   }
-  #page-toc::-webkit-scrollbar-track {
-    background: transparent;
+  /* Scroll-hint: gradient fade at bottom when more content below */
+  .toc-scroll-fade {
+    pointer-events: none;
+    position: sticky;
+    bottom: 0;
+    display: block;
+    height: 36px;
+    margin: 0 -16px;           /* stretch to fill padding */
+    padding: 0 16px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,1) 100%);
+    transition: opacity 0.3s;
   }
-  #page-toc::-webkit-scrollbar-thumb {
-    background-color: transparent;        /* Invisible by default */
-    border-radius: 3px;
-    transition: background-color 0.2s;
-  }
-  #page-toc:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.25);  /* Visible on hover */
+  .toc-scroll-fade.hidden {
+    opacity: 0;
   }
   #page-toc h3 {
     font-size: 14px;
