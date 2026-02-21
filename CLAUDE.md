@@ -139,6 +139,12 @@ Utvidet fra standard Bootstrap: `max-width: 1400px / 95%` ved ≥1200px, `1600px
 - Tema-switcher-funksjonalitet (filtrerer innhold etter dokumentasjonskategori)
 - Eventuelt ytterligere visuell polering
 
+## Verktøy
+
+- **GitHub CLI (`gh`):** Installert (`winget`), versjon 2.87.2. Autentisert mot GitHub.
+  - Ikke i PATH i alle shell-kontekster – bruk full sti: `"/c/Program Files/GitHub CLI/gh.exe"`
+  - Eksempel: `"/c/Program Files/GitHub CLI/gh.exe" repo rename nytt-navn --repo org/gammelt-navn`
+
 ## Viktige tips for ny sesjon
 
 1. **All tilpasset CSS er i `layouts/partials/custom-head.html`** – dette er filen du oftest må redigere for layout/styling-endringer
