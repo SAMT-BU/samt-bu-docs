@@ -116,6 +116,27 @@
           updateToc();
         }
       }
+      // TOC scroll-spy: bold the active heading link
+      var body = document.getElementById('body');
+      var tocEl = document.getElementById('TableOfContents');
+      if (body && tocEl) {
+        var headings = body.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
+        var tocLinks = tocEl.querySelectorAll('a[href^="#"]');
+        function updateActiveToc() {
+          var scrollTop = body.scrollTop;
+          var active = null;
+          headings.forEach(function(h) {
+            if (h.offsetTop - body.offsetTop <= scrollTop + 40) active = h.id;
+          });
+          tocLinks.forEach(function(a) {
+            var isActive = active && a.getAttribute('href') === '#' + active;
+            a.classList.toggle('toc-active', !!isActive);
+          });
+        }
+        body.addEventListener('scroll', updateActiveToc);
+        window.addEventListener('resize', updateActiveToc);
+        updateActiveToc();
+      }
       // Sidebar: toggle .fade-hidden on #sidebar itself (controls ::after)
       var sb = document.getElementById('sidebar');
       if (sb) {
