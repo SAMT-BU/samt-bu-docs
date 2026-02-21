@@ -11,7 +11,7 @@ Publiseres til GitHub Pages på `https://samt-bu.github.io/samt-bu-docs/`.
 ## Teknisk oppsett
 
 - **Rammeverk:** Hugo (Go-basert statisk nettstedsgenerator)
-- **Tema:** `hugo-theme-altinn` (git submodule fra `github.com/samt-bu/hugo-theme-altinn`, basert på Docdock)
+- **Tema:** `hugo-theme-samt-bu` (git submodule fra `github.com/samt-bu/hugo-theme-samt-bu`, basert på Docdock/Altinn-tema)
   - Initialiseres ved kloning: `git submodule update --init --recursive`
   - Go-modul (`go.mod`/`go.sum`) styrer også tema-avhengigheten
 - **Konfigurasjon:** `hugo.toml` (baseURL, språk, tema, outputs, editURL)
