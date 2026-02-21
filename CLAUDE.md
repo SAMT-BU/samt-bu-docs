@@ -1,25 +1,36 @@
-# CLAUDE.md – Prosjektkontekst for Claude Code
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Hva er dette?
 
-SAMT-BU Dokumentasjon – et Hugo-basert dokumentasjonsnettsted for SAMT-BU-prosjektet.
+SAMT-BU Dokumentasjon – et Hugo-basert dokumentasjonsnettsted for SAMT-BU-prosjektet
+(Samhandling og digitalisering innen oppvekst og utdanning).
 Publiseres til GitHub Pages på `https://samt-bu.github.io/samt-bu-docs/`.
 
 ## Teknisk oppsett
 
 - **Rammeverk:** Hugo (Go-basert statisk nettstedsgenerator)
 - **Tema:** `hugo-theme-altinn` (git submodule fra `github.com/samt-bu/hugo-theme-altinn`, basert på Docdock)
-- **Konfigurasjon:** `hugo.toml`
+  - Initialiseres ved kloning: `git submodule update --init --recursive`
+  - Go-modul (`go.mod`/`go.sum`) styrer også tema-avhengigheten
+- **Konfigurasjon:** `hugo.toml` (baseURL, språk, tema, outputs, editURL)
 - **Språk:** Tospråklig – norsk bokmål (standard) og engelsk. Innhold i `_index.nb.md` / `_index.en.md`
 - **Søk:** Lunr.js med Horsey.js autocomplete (`static/js/search.js`), generert fra Hugo JSON-output
-- **Go-modul:** `go.mod` peker til tema-avhengigheten
+- **Git-info:** `enableGitInfo = true` – sist-endret-datoer hentes fra commit-historikk
 
 ### Bygge og forhåndsvise
 
 ```bash
-hugo          # Bygg til public/
 hugo server   # Lokal forhåndsvisning på http://localhost:1313/samt-bu-docs/
+hugo          # Bygg til public/
+hugo -D       # Bygg inkludert utkast (draft: true)
+
+# Produksjonsbygg (brukes av CI)
+hugo --gc --minify --baseURL "https://samt-bu.github.io/samt-bu-docs/"
 ```
+
+CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automatisk ved push til `main`. Hugo-versjon i CI: **0.155.3 extended**.
 
 ## Filstruktur – det viktigste
 
@@ -27,7 +38,11 @@ hugo server   # Lokal forhåndsvisning på http://localhost:1313/samt-bu-docs/
 hugo.toml                          # Hugo-konfigurasjon (baseURL, språk, tema)
 content/                           # Alt innhold (Markdown med TOML frontmatter)
   arkitektur/                      # Arkitekturdokumentasjon
-  behov/                           # Brukerbehov (brukerhistorier, epos, features, use-cases)
+  behov/                           # Brukerbehov
+    use-cases/                     # 19 nummererte use cases (01–19)
+    brukerhistorie/                # Brukerhistorier
+    epos/                          # Epos
+    feature/                       # Features
   informasjonsmodeller/            # Informasjonsmodeller
   loesning/                        # Løsningsbeskrivelser
   pilotering/                      # Piloteringsdokumentasjon
@@ -52,6 +67,13 @@ static/
   js/search.js                     # Lunr.js søkeimplementasjon
 i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret")
 ```
+
+## Innholdskonvensjoner
+
+- Alle seksjoner har `_index.nb.md` og `_index.en.md`
+- Frontmatter-felter: `weight` (sorteringsrekkefølge), `status`, `draft: true` for upublisert innhold
+- `editURL` i `hugo.toml` genererer "Rediger på GitHub"-lenker: `https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/`
+- **Commit-meldinger skrives på norsk** (se git-historikken for stil)
 
 ## Arkitekturbeslutninger
 
@@ -81,9 +103,13 @@ Den viktigste arkitekturbeslutningen. Implementert i `custom-head.html` (linje ~
 - Bootstrap-klasser `pt-md-3 pt-lg-5` på containeren overstyres til halve verdier
 - `padding-top: 0.5rem` (768px+) og `1.5rem` (992px+)
 
+### CSS-lagmodell
+
+Tre lag der sistnevnte vinner: `designsystem.css` → `theme.css` → `custom-head.html`
+
 ### Container-bredde
 
-- Utvidet fra standard Bootstrap: `max-width: 1400px / 95%` ved ≥1200px, `1600px` ved ≥1600px
+Utvidet fra standard Bootstrap: `max-width: 1400px / 95%` ved ≥1200px, `1600px` ved ≥1600px
 
 ### Typografi
 
@@ -103,7 +129,7 @@ Den viktigste arkitekturbeslutningen. Implementert i `custom-head.html` (linje ~
 - Header med logo, tittel, tema-switcher, søk, språkvelger
 - Scroll-fade-indikatorer i sidebar og TOC
 - 6 innholdskategorier med tomt skjelettinnhold
-- 16 use cases under brukerbehov
+- 19 use cases under brukerbehov
 - Omfattende CSS-finjustering (font, avstand, scrollbar, bredde)
 
 ### Hva gjenstår / pågår
