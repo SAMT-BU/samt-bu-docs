@@ -1,6 +1,6 @@
 baseURL = "https://samt-bu.github.io/samt-bu-docs/"
 title = "SAMT-BU Dokumentasjon"
-theme = "hugo-theme-altinn"
+theme = "hugo-theme-samt-bu"
 defaultContentLanguage = "nb"
 defaultContentLanguageInSubdir = false
 enableGitInfo = true
