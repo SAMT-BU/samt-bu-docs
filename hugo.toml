@@ -20,5 +20,8 @@ enableGitInfo = true
     title = "SAMT-BU Documentation"
     weight = 2
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
   editURL = "https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/"
