@@ -167,6 +167,16 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 |-------|------|---------------|--------|
 | `github.com/SAMT-BU/samt-bu-innspill` | [samt-bu-innspill](https://github.com/SAMT-BU/samt-bu-innspill) | `content/innspill/` | Innspill |
 | `github.com/SAMT-BU/samt-bu-innsikt` | [samt-bu-innsikt](https://github.com/SAMT-BU/samt-bu-innsikt) | `content/innsikt/` | Felles innsikt |
+| `github.com/SAMT-BU/samt-bu-org-digdir` | samt-bu-org-digdir | `content/innspill/digdir/` | Digdir |
+| `github.com/SAMT-BU/samt-bu-org-ks` | samt-bu-org-ks | `content/innspill/ks/` | KS |
+| `github.com/SAMT-BU/samt-bu-org-ks-digital` | samt-bu-org-ks-digital | `content/innspill/ks-digital/` | KS Digital |
+| `github.com/SAMT-BU/samt-bu-org-hk-dir` | samt-bu-org-hk-dir | `content/innspill/hk-dir/` | HK-dir |
+| `github.com/SAMT-BU/samt-bu-org-udir` | samt-bu-org-udir | `content/innspill/udir/` | Udir |
+| `github.com/SAMT-BU/samt-bu-org-sikt` | samt-bu-org-sikt | `content/innspill/sikt/` | Sikt |
+| `github.com/SAMT-BU/samt-bu-org-staf` | samt-bu-org-staf | `content/innspill/staf/` | STAF |
+| `github.com/SAMT-BU/samt-bu-org-ssb` | samt-bu-org-ssb | `content/innspill/ssb/` | SSB |
+| `github.com/SAMT-BU/samt-bu-org-novari` | samt-bu-org-novari | `content/innspill/novari/` | Novari |
+| `github.com/SAMT-BU/samt-bu-org-andre` | samt-bu-org-andre | `content/innspill/andre/` | Andre |
 
 **Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<navn>/"`.
 
