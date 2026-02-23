@@ -25,3 +25,10 @@ enableGitInfo = true
 
 [params]
   editURL = "https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/"
+
+[module]
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-innspill"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill"
