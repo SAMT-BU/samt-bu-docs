@@ -115,6 +115,14 @@ Tre lag der sistnevnte vinner: `designsystem.css` → `theme.css` → `custom-he
 
 Utvidet fra standard Bootstrap: `width: 95vw; max-width: 1400px` ved ≥1200px, `1600px` ved ≥1600px
 
+### Tema-switcher (`layouts/partials/tema-switcher.html`)
+
+Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
+
+- **Aktiv-deteksjon:** `findRE "<seksjon>" .RelPermalink` – fungerer uavhengig av URL-dybde
+- **Lenker:** Peker på `temaer/<seksjon>/` – husk å oppdatere disse hvis seksjonene flyttes igjen
+- **Viktig:** Hvis innholdsstrukturen endres, må `href`-attributtene i tema-switcher oppdateres manuelt
+
 ### Typografi
 
 - Brødtekst: 16px, Helvetica Neue / Helvetica / Arial
