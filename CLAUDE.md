@@ -37,7 +37,10 @@ CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automati
 ```
 hugo.toml                          # Hugo-konfigurasjon (baseURL, språk, tema)
 content/                           # Alt innhold (Markdown med TOML frontmatter)
-  om/                              # Om SAMT-BU og nettstedet (weight 1)
+  om/                              # «Om» – intro-seksjon (weight 1)
+    om-samt-bu.*                   # Om SAMT-BU (weight 1)
+    om-dette-nettstedet.*          # Om dette nettstedet (weight 2)
+    hvordan-bidra.*                # Hvordan bidra (weight 3)
   temaer/                          # Toppnivå-seksjon som grupperer faglige temaer (weight 5)
     arkitektur/                    # Arkitekturdokumentasjon
     behov/                         # Brukerbehov
@@ -142,7 +145,7 @@ Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
 - Header med logo, tittel, tema-switcher, søk, språkvelger
 - Scroll-fade-indikatorer i sidebar og TOC (plassert ved visuell bunn)
 - Scroll-spy i TOC: aktiv seksjon markeres med bold
-- «Om SAMT-BU» som første seksjon (`content/om/`, weight 1)
+- «Om» som første seksjon (`content/om/`, weight 1) med tre underkapitler
 - 6 innholdskategorier med tomt skjelettinnhold, gruppert under «Temaer»
 - Hugo Module-integrasjon: samt-bu-innspill (Innspill) og samt-bu-innsikt (Felles innsikt)
 - 19 use cases under brukerbehov
