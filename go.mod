@@ -3,6 +3,7 @@ module github.com/samt-bu/samt-bu-docs
 go 1.25.6
 
 require (
+	github.com/SAMT-BU/samt-bu-innsikt v0.0.0-20260223204941-fe466949ae7c // indirect
 	github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a // indirect
 	github.com/altinn/hugo-theme-altinn v0.0.0-20260126142206-f5ed793b496b // indirect
 )
