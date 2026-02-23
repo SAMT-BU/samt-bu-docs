@@ -34,6 +34,66 @@ enableGitInfo = true
       target = "content/innspill"
 
   [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-digdir"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/digdir"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-ks"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/ks"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-ks-digital"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/ks-digital"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-hk-dir"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/hk-dir"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-udir"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/udir"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-sikt"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/sikt"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-staf"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/staf"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-ssb"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/ssb"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-novari"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/novari"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-org-andre"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/innspill/andre"
+
+  [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-innsikt"
     [[module.imports.mounts]]
       source = "content"
