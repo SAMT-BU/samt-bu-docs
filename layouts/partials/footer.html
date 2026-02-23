@@ -63,13 +63,13 @@
 
         </section>
 
-          {{ if .Params.toc }}
-            <aside id="page-toc">
+          <aside id="page-toc">
+            {{ if .TableOfContents }}
               <h3>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
               {{ .TableOfContents }}
-              <div class="toc-scroll-fade" aria-hidden="true"></div>
-            </aside>
-          {{ end }}
+            {{ end }}
+            <div class="toc-scroll-fade" aria-hidden="true"></div>
+          </aside>
         </div><!-- End body-toc-wrapper -->
 
         </div> <!-- End col-sm-12 -->
