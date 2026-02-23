@@ -42,16 +42,17 @@ content/                           # Alt innhold (Markdown med TOML frontmatter)
     om-dette-nettstedet.*          # Om dette nettstedet (weight 2)
     hvordan-bidra.*                # Hvordan bidra (weight 3)
   temaer/                          # Toppnivå-seksjon som grupperer faglige temaer (weight 5)
-    arkitektur/                    # Arkitekturdokumentasjon
-    behov/                         # Brukerbehov
-      use-cases/                   # 19 nummererte use cases (01–19)
-      brukerhistorie/              # Brukerhistorier
-      epos/                        # Epos
-      feature/                     # Features
-    informasjonsmodeller/          # Informasjonsmodeller
-    loesning/                      # Løsningsbeskrivelser
-    pilotering/                    # Piloteringsdokumentasjon
-    rammeverk/                     # Rammeverk
+    behov/                         # Behov (weight 10)
+      use-cases/                   # Case – 19 nummererte use cases (01–19)
+      annet/                       # Annet (foreløpig)
+    loesning/                      # Løsninger (weight 40)
+    pilotering/                    # Piloter (weight 20)
+    rammeverk/                     # Rammeverk (weight 50)
+      arkitektur/                  # Arkitektur (weight 30)
+      informasjonsmodeller/        # Informasjonsmodeller (weight 60)
+      metodikk/                    # Metodikk (weight 30)
+      juss/                        # Juss (weight 40)
+      styring/                     # Styring (weight 50)
   innspill/                        # Montert fra Hugo Module samt-bu-innspill (weight 10)
   innsikt/                         # Montert fra Hugo Module samt-bu-innsikt (weight 20)
 layouts/                           # Hugo layout-overrides (overstyrer tema)
