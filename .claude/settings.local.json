@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(winget upgrade:*)",
+      "Bash(git add:*)",
+      "Bash(git stash drop:*)",
+      "Bash(git commit:*)",
+      "Bash(hugo server:*)",
+      "Bash(git submodule:*)",
+      "Bash(git push:*)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo:*)",
+      "WebFetch(domain:samt-bu.github.io)",
+      "Bash(hugo version:*)",
+      "Bash(git clone:*)",
+      "Bash(cd:*)",
+      "Bash(cd \"S:/app-data/github/samt-bu-repos/samt-bu-docs\" && hugo 2>&1)",
+      "Bash(cd \"S:/app-data/github/samt-bu-repos/samt-bu-docs\" && hugo mod get github.com/SAMT-BU/samt-bu-innsikt@latest && hugo 2>&1)",
+      "Bash(cd \"S:/app-data/github/samt-bu-repos/samt-bu-docs\" && git mv content/behov content/temaer/behov 2>&1)"
+    ]
+  }
+}

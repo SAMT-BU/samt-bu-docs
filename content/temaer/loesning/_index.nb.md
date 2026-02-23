@@ -1,6 +1,6 @@
 ---
-title: "Løsning"
-linkTitle: "Løsning"
+title: "Løsninger"
+linkTitle: "Løsninger"
 weight: 40
 status: "Ikke påbegynt"
 ---
