@@ -37,16 +37,19 @@ CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automati
 ```
 hugo.toml                          # Hugo-konfigurasjon (baseURL, språk, tema)
 content/                           # Alt innhold (Markdown med TOML frontmatter)
-  arkitektur/                      # Arkitekturdokumentasjon
-  behov/                           # Brukerbehov
-    use-cases/                     # 19 nummererte use cases (01–19)
-    brukerhistorie/                # Brukerhistorier
-    epos/                          # Epos
-    feature/                       # Features
-  informasjonsmodeller/            # Informasjonsmodeller
-  loesning/                        # Løsningsbeskrivelser
-  pilotering/                      # Piloteringsdokumentasjon
-  rammeverk/                       # Rammeverk
+  temaer/                          # Toppnivå-seksjon som grupperer faglige temaer (weight 5)
+    arkitektur/                    # Arkitekturdokumentasjon
+    behov/                         # Brukerbehov
+      use-cases/                   # 19 nummererte use cases (01–19)
+      brukerhistorie/              # Brukerhistorier
+      epos/                        # Epos
+      feature/                     # Features
+    informasjonsmodeller/          # Informasjonsmodeller
+    loesning/                      # Løsningsbeskrivelser
+    pilotering/                    # Piloteringsdokumentasjon
+    rammeverk/                     # Rammeverk
+  innspill/                        # Montert fra Hugo Module samt-bu-innspill (weight 10)
+  innsikt/                         # Montert fra Hugo Module samt-bu-innsikt (weight 20)
 layouts/                           # Hugo layout-overrides (overstyrer tema)
   partials/
     custom-head.html               # ⭐ HOVEDDELEN – all tilpasset CSS (~525 linjer)
@@ -130,7 +133,7 @@ Utvidet fra standard Bootstrap: `width: 95vw; max-width: 1400px` ved ≥1200px, 
 - Header med logo, tittel, tema-switcher, søk, språkvelger
 - Scroll-fade-indikatorer i sidebar og TOC (plassert ved visuell bunn)
 - Scroll-spy i TOC: aktiv seksjon markeres med bold
-- 6 innholdskategorier med tomt skjelettinnhold
+- 6 innholdskategorier med tomt skjelettinnhold, gruppert under «Temaer»
 - Hugo Module-integrasjon: samt-bu-innspill (Innspill) og samt-bu-innsikt (Felles innsikt)
 - 19 use cases under brukerbehov
 - Omfattende CSS-finjustering (font, avstand, scrollbar, bredde)
