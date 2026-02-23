@@ -1,5 +1,5 @@
 ---
-title: "Om SAMT-BU"
-linkTitle: "Om SAMT-BU"
+title: "Om"
+linkTitle: "Om"
 weight: 1
 ---

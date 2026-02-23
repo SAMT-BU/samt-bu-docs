@@ -1,5 +1,5 @@
 ---
-title: "About SAMT-BU"
-linkTitle: "About SAMT-BU"
+title: "About"
+linkTitle: "About"
 weight: 1
 ---
