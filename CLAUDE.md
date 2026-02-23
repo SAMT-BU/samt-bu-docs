@@ -88,7 +88,8 @@ Den viktigste arkitekturbeslutningen. Implementert i `custom-head.html` (linje ~
   2. **Midten (#body):** flex 1 – innholdsområde
   3. **Høyre (#page-toc):** 18% bredde, maks 240px – innholdsfortegnelse (TOC)
 - **Scrollbarer er skjult** (`scrollbar-width: none` + `::-webkit-scrollbar { display: none }`)
-- **Scroll-fade:** Gradient-fade nederst i sidebar og TOC viser at det er mer innhold under (JS i `custom-footer.html`)
+- **Scroll-fade:** Gradient-fade plassert ved visuell bunn av sidebar og TOC viser at det er mer innhold under (JS i `custom-footer.html`)
+- **Scroll-spy i TOC:** Aktiv seksjon markeres med bold i TOC-kolonnen mens bruker scroller
 - **Mobil:** TOC skjules, single-column layout, vanlig sidescroll
 
 ### Header (det mørkeblå feltet)
@@ -109,7 +110,7 @@ Tre lag der sistnevnte vinner: `designsystem.css` → `theme.css` → `custom-he
 
 ### Container-bredde
 
-Utvidet fra standard Bootstrap: `max-width: 1400px / 95%` ved ≥1200px, `1600px` ved ≥1600px
+Utvidet fra standard Bootstrap: `width: 95vw; max-width: 1400px` ved ≥1200px, `1600px` ved ≥1600px
 
 ### Typografi
 
@@ -127,8 +128,10 @@ Utvidet fra standard Bootstrap: `max-width: 1400px / 95%` ved ≥1200px, `1600px
 - Hugo-oppsett med tema, tospråklig konfigurasjon, søk
 - 3-kolonne layout med uavhengig scroll fungerer
 - Header med logo, tittel, tema-switcher, søk, språkvelger
-- Scroll-fade-indikatorer i sidebar og TOC
+- Scroll-fade-indikatorer i sidebar og TOC (plassert ved visuell bunn)
+- Scroll-spy i TOC: aktiv seksjon markeres med bold
 - 6 innholdskategorier med tomt skjelettinnhold
+- Hugo Module-integrasjon: samt-bu-innspill (Innspill) og samt-bu-innsikt (Felles innsikt)
 - 19 use cases under brukerbehov
 - Omfattende CSS-finjustering (font, avstand, scrollbar, bredde)
 
@@ -138,6 +141,28 @@ Utvidet fra standard Bootstrap: `max-width: 1400px / 95%` ved ≥1200px, `1600px
 - Finjustere responsiv design for mobil/tablet
 - Tema-switcher-funksjonalitet (filtrerer innhold etter dokumentasjonskategori)
 - Eventuelt ytterligere visuell polering
+
+## Hugo Modules – innholdsmoduler
+
+Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `hugo.toml`).
+
+| Modul | Repo | Montert under | Tittel |
+|-------|------|---------------|--------|
+| `github.com/SAMT-BU/samt-bu-innspill` | [samt-bu-innspill](https://github.com/SAMT-BU/samt-bu-innspill) | `content/innspill/` | Innspill |
+| `github.com/SAMT-BU/samt-bu-innsikt` | [samt-bu-innsikt](https://github.com/SAMT-BU/samt-bu-innsikt) | `content/innsikt/` | Felles innsikt |
+
+**Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<navn>/"`.
+
+**Oppdatere en modul** (etter push til modulrepoet):
+```bash
+hugo mod get github.com/SAMT-BU/samt-bu-innspill@latest
+```
+
+**Legge til ny modul:**
+1. Opprett repo, `hugo mod init github.com/SAMT-BU/<navn>`, lag `content/_index.nb.md` + `_index.en.md`, push
+2. Legg til `[[module.imports]]`-blokk i `hugo.toml`
+3. Kjør `hugo mod get github.com/SAMT-BU/<navn>@latest`
+4. Verifiser med `hugo`, commit `hugo.toml` + `go.mod` + `go.sum`
 
 ## Verktøy
 
