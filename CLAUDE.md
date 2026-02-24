@@ -45,7 +45,7 @@ content/                           # Alt innhold (Markdown med TOML frontmatter)
     behov/                         # Behov (weight 10)
       use-cases/                   # Case – 19 nummererte use cases (01–19)
       annet/                       # Annet (foreløpig)
-    arkitektur/                    # Arkitektur (weight 30)
+    arkitektur/                    # Arkitektur (weight 30) – Hugo Module samt-bu-arkitektur
     loesning/                      # Løsninger (weight 40)
     pilotering/                    # Piloter (weight 20)
     rammeverk/                     # Rammeverk (weight 50) – generisk rammeverk
@@ -167,6 +167,7 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 |-------|------|---------------|--------|
 | `github.com/SAMT-BU/samt-bu-innspill` | [samt-bu-innspill](https://github.com/SAMT-BU/samt-bu-innspill) | `content/innspill/` | Innspill |
 | `github.com/SAMT-BU/samt-bu-innsikt` | [samt-bu-innsikt](https://github.com/SAMT-BU/samt-bu-innsikt) | `content/innsikt/` | Felles innsikt |
+| `github.com/SAMT-BU/samt-bu-arkitektur` | [samt-bu-arkitektur](https://github.com/SAMT-BU/samt-bu-arkitektur) | `content/temaer/arkitektur/` | Arkitektur |
 | `github.com/SAMT-BU/samt-bu-org-digdir` | samt-bu-org-digdir | `content/innspill/digdir/` | Digdir |
 | `github.com/SAMT-BU/samt-bu-org-ks` | samt-bu-org-ks | `content/innspill/ks/` | KS |
 | `github.com/SAMT-BU/samt-bu-org-ks-digital` | samt-bu-org-ks-digital | `content/innspill/ks-digital/` | KS Digital |
