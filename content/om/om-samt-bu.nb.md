@@ -8,7 +8,7 @@ SAMT-BU er et samarbeidsprosjekt om datadrevet tjenesteutvikling og sammenhengen
 
 Prosjektets fulle tittel er **«Felles loft: Sammenhengende tjenester for barn og unge»**, og løper fra oktober 2025 til desember 2027.
 
-![Illustrasjon: SAMT-BU – fra barnehage til høyere utdanning](samt-bu-fra-barnehage-til-høyere-utdanning.png)
+![Illustrasjon: SAMT-BU – fra barnehage til høyere utdanning](/samt-bu-docs/images/samt-bu-fra-barnehage-til-hoyere-utdanning.png)
 
 ## Bakgrunn
 
