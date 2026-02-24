@@ -8,7 +8,7 @@ SAMT-BU is a collaborative project on data-driven service development and joined
 
 The project's full title is **"Felles loft: Joined-up services for children and young people"**, running from October 2025 to December 2027.
 
-![Illustration: SAMT-BU – from kindergarten to higher education](/samt-bu-docs/images/samt-bu-fra-barnehage-til-hoyere-utdanning.png)
+![Illustration: SAMT-BU – from kindergarten to higher education](samt-bu-fra-barnehage-til-hoyere-utdanning.png)
 
 ## Background
 
