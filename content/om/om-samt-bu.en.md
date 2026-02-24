@@ -8,6 +8,8 @@ SAMT-BU is a collaborative project on data-driven service development and joined
 
 The project's full title is **"Felles loft: Joined-up services for children and young people"**, running from October 2025 to December 2027.
 
+![Illustration: SAMT-BU – from kindergarten to higher education](samt-bu-fra-barnehage-til-høyere-utdanning.png)
+
 ## Background
 
 A root cause of the lack of interoperability across the public sector is a fragmented data infrastructure, insufficient coordination, and limited systematic reuse of data and solutions. This is particularly evident within the education and childcare sector, where information about pupils, parents, staff, institutions and subjects is scattered across many specialist systems.
