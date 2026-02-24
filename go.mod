@@ -3,6 +3,7 @@ module github.com/samt-bu/samt-bu-docs
 go 1.25.6
 
 require (
+	github.com/SAMT-BU/samt-bu-arkitektur v0.0.0-20260224083902-3b4c55ba2887 // indirect
 	github.com/SAMT-BU/samt-bu-innsikt v0.0.0-20260223204941-fe466949ae7c // indirect
 	github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a // indirect
 	github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260223231355-a5e4c878132d // indirect

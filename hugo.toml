@@ -98,3 +98,9 @@ enableGitInfo = true
     [[module.imports.mounts]]
       source = "content"
       target = "content/innsikt"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-arkitektur"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/temaer/arkitektur"
