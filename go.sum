@@ -6,6 +6,8 @@ github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a h1:E4rTHa
 github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a/go.mod h1:in5RxF3kcwNbbgpij0Fz8fTmkc5+Yjc4RG5zEMCUOJA=
 github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260223231355-a5e4c878132d h1:nQ1J1xVaV8mjpcCM4PFzM0ZCcGPz08/a6aXKGBOpDCk=
 github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260223231355-a5e4c878132d/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
+github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224233907-223f880e8959 h1:TIwwGPKHLlEN7HspiW/3hmCN+VW6ro/dpTw4ypdspWM=
+github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224233907-223f880e8959/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
 github.com/SAMT-BU/samt-bu-org-digdir v0.0.0-20260223231329-e7ab1f561ac5 h1:E3f8CLl1djTfyHaH4sygwyPjv5EK4TMzi3BsREpOZeY=
 github.com/SAMT-BU/samt-bu-org-digdir v0.0.0-20260223231329-e7ab1f561ac5/go.mod h1:khPQew1OXbsxFXxo9jh5FJVUiwWVm89PKAMWHhSVQCQ=
 github.com/SAMT-BU/samt-bu-org-hk-dir v0.0.0-20260223231338-2c282035e83d h1:oy9KtQ7IjSn2uWzNQvmMOQMsFc+L8nOQEMvYV3Wh65s=
