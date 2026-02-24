@@ -6,7 +6,7 @@ require (
 	github.com/SAMT-BU/samt-bu-arkitektur v0.0.0-20260224083902-3b4c55ba2887 // indirect
 	github.com/SAMT-BU/samt-bu-innsikt v0.0.0-20260223204941-fe466949ae7c // indirect
 	github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a // indirect
-	github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224233907-223f880e8959 // indirect
+	github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224235713-89eaf93c4917 // indirect
 	github.com/SAMT-BU/samt-bu-org-digdir v0.0.0-20260223231329-e7ab1f561ac5 // indirect
 	github.com/SAMT-BU/samt-bu-org-hk-dir v0.0.0-20260223231338-2c282035e83d // indirect
 	github.com/SAMT-BU/samt-bu-org-ks v0.0.0-20260223231332-481b493026a6 // indirect
