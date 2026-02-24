@@ -64,10 +64,8 @@
         </section>
 
           <aside id="page-toc">
-            {{ if .TableOfContents }}
-              <h3>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
-              {{ .TableOfContents }}
-            {{ end }}
+            <h3 {{ if not .TableOfContents }}style="color: #bbb;"{{ end }}>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
+            {{ .TableOfContents }}
             <div class="toc-scroll-fade" aria-hidden="true"></div>
           </aside>
         </div><!-- End body-toc-wrapper -->
