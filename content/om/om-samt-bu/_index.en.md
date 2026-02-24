@@ -73,3 +73,7 @@ The project will deliver seven main products, developed iteratively throughout t
 - Follow-through on inputs to legislative changes
 - A holistic approach through practical testing, not just desk exercises
 - Ongoing knowledge sharing for competence-building and wider adoption
+
+## See also
+
+- [Project description SAMT Children and young people](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FSAMT-BU%2Fsamt-bu-files%2Fmain%2Fdrafts%2FProsjektbeskrivelse%20SAMT%20Barn%20og%20unge.docx&ui=en-US&rs=en-US) – preliminary, more comprehensive project description based on the co-financing application ([download](https://github.com/SAMT-BU/samt-bu-files/raw/main/drafts/Prosjektbeskrivelse%20SAMT%20Barn%20og%20unge.docx))

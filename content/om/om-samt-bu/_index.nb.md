@@ -73,3 +73,7 @@ Prosjektet skal levere sju hovedprodukter, utviklet iterativt gjennom prosjektl�
 - At innspill til regelverksendringer følges opp
 - Helhetlig tilnærming gjennom praktisk utprøving, ikke bare skrivebordsøvelse
 - Løpende erfaringsdeling for kompetansebygging og utbredelse
+
+## Se også
+
+- [Prosjektbeskrivelse SAMT Barn og unge](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FSAMT-BU%2Fsamt-bu-files%2Fmain%2Fdrafts%2FProsjektbeskrivelse%20SAMT%20Barn%20og%20unge.docx&ui=nb-NO&rs=nb-NO) – foreløpig, mer omfattende prosjektbeskrivelse basert på medfinansieringssøknaden ([last ned](https://github.com/SAMT-BU/samt-bu-files/raw/main/drafts/Prosjektbeskrivelse%20SAMT%20Barn%20og%20unge.docx))
