@@ -69,10 +69,16 @@
             {{ if .Sections }}
               {{ $children = $children | union .Sections }}
             {{ end }}
-            {{ $hasChildren := gt (len $children) 0 }}
-
-            {{ if and (not $hasToc) $hasChildren }}
-              <h3>{{ cond (eq .Page.Language.Lang "nb") "I denne seksjonen" "In this section" }}</h3>
+            {{ $showChildren := and (not $hasToc) (gt (len $children) 0) }}
+            <div class="toc-heading-row">
+              {{ if $showChildren }}
+                <h3>{{ cond (eq .Page.Language.Lang "nb") "I denne seksjonen" "In this section" }}</h3>
+              {{ else }}
+                <h3 {{ if not $hasToc }}style="color: #bbb;"{{ end }}>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
+              {{ end }}
+              <button id="toggle-right" class="sidebar-toggle-btn" title="{{ cond (eq .Page.Language.Lang "nb") "Skjul/vis" "Show/hide" }}">›</button>
+            </div>
+            {{ if $showChildren }}
               <ul id="SectionChildren">
                 {{ range $children.ByWeight }}
                   {{ if not .Params.hidden }}
@@ -81,7 +87,6 @@
                 {{ end }}
               </ul>
             {{ else }}
-              <h3 {{ if not $hasToc }}style="color: #bbb;"{{ end }}>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
               {{ .TableOfContents }}
             {{ end }}
             <div class="toc-scroll-fade" aria-hidden="true"></div>
@@ -153,6 +158,36 @@
         window.addEventListener('resize', updateActiveToc);
         updateActiveToc();
       }
+      // Sidebar collapse toggles
+      (function() {
+        var body = document.body;
+        function setLeft(hidden) {
+          body.classList.toggle('left-hidden', hidden);
+          localStorage.setItem('leftHidden', hidden ? '1' : '0');
+          var tl = document.getElementById('toggle-left');
+          if (tl) tl.textContent = hidden ? '›' : '‹';
+        }
+        function setRight(hidden) {
+          body.classList.toggle('right-hidden', hidden);
+          localStorage.setItem('rightHidden', hidden ? '1' : '0');
+          var tr = document.getElementById('toggle-right');
+          if (tr) tr.textContent = hidden ? '‹' : '›';
+        }
+        // Restore saved state
+        if (localStorage.getItem('leftHidden')  === '1') setLeft(true);
+        if (localStorage.getItem('rightHidden') === '1') setRight(true);
+        // Toggle buttons (inside sidebars)
+        var tl = document.getElementById('toggle-left');
+        if (tl) tl.addEventListener('click', function() { setLeft(!body.classList.contains('left-hidden')); });
+        var tr = document.getElementById('toggle-right');
+        if (tr) tr.addEventListener('click', function() { setRight(!body.classList.contains('right-hidden')); });
+        // Restore buttons (fixed at viewport edge)
+        var rl = document.getElementById('restore-left');
+        if (rl) rl.addEventListener('click', function() { setLeft(false); });
+        var rr = document.getElementById('restore-right');
+        if (rr) rr.addEventListener('click', function() { setRight(false); });
+      })();
+
       // Sidebar: toggle .fade-hidden on #sidebar itself (controls ::after)
       var sb = document.getElementById('sidebar');
       if (sb) {

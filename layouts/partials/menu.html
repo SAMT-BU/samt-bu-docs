@@ -1,13 +1,14 @@
 <nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
 
-
-
 {{ $currentNode := . }}
 {{ $showvisitedlinks := .Site.Params.showVisitedLinks }}
 <div class="highlightable">
   <div id="header-wrapper">
   </div>
-  <h3 class="sidebar-heading">{{ cond (eq .Site.Language.Lang "nb") "INNHOLD" "CONTENTS" }}</h3>
+  <div class="sidebar-heading-row">
+    <h3 class="sidebar-heading">{{ cond (eq .Site.Language.Lang "nb") "INNHOLD" "CONTENTS" }}</h3>
+    <button id="toggle-left" class="sidebar-toggle-btn" title="{{ cond (eq .Site.Language.Lang "nb") "Skjul/vis navigasjonsmeny" "Show/hide navigation" }}">‹</button>
+  </div>
 
     <ul id="docsmenu" class="topics">
 
