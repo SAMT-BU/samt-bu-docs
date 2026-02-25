@@ -11,12 +11,13 @@
 {{ end }}
 {{ if gt (len $children) 0 }}
 <div class="section-children">
-  {{ range $children.ByWeight }}
-    {{ if not .Params.hidden }}
-    <h2 id="{{ .LinkTitle | urlize }}"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  <ul>
+    {{ range $children.ByWeight }}
+      {{ if not .Params.hidden }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ with .Description }}<span class="section-child-desc"> – {{ . }}</span>{{ end }}</li>
+      {{ end }}
     {{ end }}
-  {{ end }}
+  </ul>
 </div>
 {{ end }}
 
