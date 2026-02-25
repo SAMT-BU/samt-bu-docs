@@ -54,6 +54,8 @@ content/                           # Alt innhold (Markdown med TOML frontmatter)
       styring/                     # Styring (weight 50)
     informasjonsmodeller/          # Informasjonsmodeller (weight 60)
   innspill/                        # Montert fra Hugo Module samt-bu-innspill (weight 10)
+    prosjektpartnere/              # Org-moduler: digdir, ks, ks-digital, hk-dir, udir, sikt, staf, ssb, novari
+    andre/                         # samt-bu-org-andre; inkl. kommuneforlaget/brukstilfelle-analyse/
   innsikt/                         # Montert fra Hugo Module samt-bu-innsikt (weight 20)
 layouts/                           # Hugo layout-overrides (overstyrer tema)
   partials/
@@ -96,9 +98,10 @@ Den viktigste arkitekturbeslutningen. Implementert i `custom-head.html` (linje ~
   2. **Midten (#body):** flex 1 – innholdsområde
   3. **Høyre (#page-toc):** 18% bredde, maks 240px – innholdsfortegnelse (TOC)
 - **Scrollbarer er skjult** (`scrollbar-width: none` + `::-webkit-scrollbar { display: none }`)
-- **Scroll-fade:** Gradient-fade plassert ved visuell bunn av sidebar og TOC viser at det er mer innhold under (JS i `custom-footer.html`)
+- **Scroll-fade:** Gradient-fade plassert ved visuell bunn av sidebar og TOC viser at det er mer innhold under (JS i `footer.html`)
 - **Scroll-spy i TOC:** Aktiv seksjon markeres med bold i TOC-kolonnen mens bruker scroller
 - **Mobil:** TOC skjules, single-column layout, vanlig sidescroll
+- **Collapsible sidebars:** Toggle-knapper i heading-rad (`#toggle-left` / `#toggle-right`) kollapser kolonnen til 0px. Restore-tabs (`#restore-left` / `#restore-right`) er `position: fixed` direkte i `<body>` (i `header.html`). Tilstand lagres i localStorage.
 
 ### Header (det mørkeblå feltet)
 
@@ -146,9 +149,12 @@ Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
 - Header med logo, tittel, tema-switcher, søk, språkvelger
 - Scroll-fade-indikatorer i sidebar og TOC (plassert ved visuell bunn)
 - Scroll-spy i TOC: aktiv seksjon markeres med bold
+- Collapsible sidebars med localStorage-persistens og restore-tabs
+- Barn-liste på seksjonssider: midt-kolonne (`list.html`) + høyre TOC-kolonne (`footer.html`)
 - «Om» som første seksjon (`content/om/`, weight 1) med tre underkapitler
 - 6 innholdskategorier med tomt skjelettinnhold, gruppert under «Temaer»
-- Hugo Module-integrasjon: samt-bu-innspill (Innspill) og samt-bu-innsikt (Felles innsikt)
+- Hugo Module-integrasjon: samtlige org-moduler montert; Prosjektpartnere-gruppering under Innspill
+- Kommuneforlaget (KF) under Andre – inkl. full Brukstilfelle-analyse (Word→Markdown, 19 use cases)
 - 19 use cases under brukerbehov
 - Omfattende CSS-finjustering (font, avstand, scrollbar, bredde)
 
