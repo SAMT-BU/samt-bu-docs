@@ -1,8 +1,37 @@
 <!-- Partial intended to be overwritten to add CSS -->
+
+<!-- Preload DIN fonts so browser starts downloading before CSS is parsed -->
+<link rel="preload" href="{{"fonts/d-din-bold-webfont.woff2" | relURL}}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{"fonts/d-din-webfont.woff2" | relURL}}" as="font" type="font/woff2" crossorigin>
+
 <link href="{{"css/altinndigitalisering.css" | relURL}}" rel="stylesheet">
 <link href="{{"css/altinn.css" | relURL}}" rel="stylesheet">
 
 <style>
+  /* Override font-display: auto → swap so text is visible immediately
+     instead of being hidden (FOIT) while DIN fonts load */
+  @font-face {
+    font-family: 'DIN-bold';
+    font-display: swap;
+    src: url('{{ "fonts/d-din-bold-webfont.woff2" | relURL }}') format('woff2'),
+         url('{{ "fonts/d-din-bold-webfont.woff" | relURL }}') format('woff');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'DIN-reg';
+    font-display: swap;
+    src: url('{{ "fonts/d-din-webfont.woff2" | relURL }}') format('woff2'),
+         url('{{ "fonts/d-din-webfont.woff" | relURL }}') format('woff');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'DIN-medium';
+    font-display: swap;
+    src: url('{{ "fonts/d-din-webfont.woff2" | relURL }}') format('woff2'),
+         url('{{ "fonts/d-din-webfont.woff" | relURL }}') format('woff');
+    font-weight: normal;
+  }
+
   /* Language switcher */
   .lang-switcher {
     position: relative;
