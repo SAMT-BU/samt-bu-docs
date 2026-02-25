@@ -37,55 +37,55 @@ enableGitInfo = true
     path = "github.com/SAMT-BU/samt-bu-org-digdir"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/digdir"
+      target = "content/innspill/prosjektpartnere/digdir"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-ks"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/ks"
+      target = "content/innspill/prosjektpartnere/ks"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-ks-digital"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/ks-digital"
+      target = "content/innspill/prosjektpartnere/ks-digital"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-hk-dir"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/hk-dir"
+      target = "content/innspill/prosjektpartnere/hk-dir"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-udir"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/udir"
+      target = "content/innspill/prosjektpartnere/udir"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-sikt"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/sikt"
+      target = "content/innspill/prosjektpartnere/sikt"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-staf"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/staf"
+      target = "content/innspill/prosjektpartnere/staf"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-ssb"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/ssb"
+      target = "content/innspill/prosjektpartnere/ssb"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-novari"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/innspill/novari"
+      target = "content/innspill/prosjektpartnere/novari"
 
   [[module.imports]]
     path = "github.com/SAMT-BU/samt-bu-org-andre"
