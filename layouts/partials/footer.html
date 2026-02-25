@@ -65,8 +65,25 @@
 
           <aside id="page-toc">
             {{ $hasToc := strings.Contains .TableOfContents "<li>" }}
-            <h3 {{ if not $hasToc }}style="color: #bbb;"{{ end }}>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
-            {{ .TableOfContents }}
+            {{ $children := .Pages }}
+            {{ if .Sections }}
+              {{ $children = $children | union .Sections }}
+            {{ end }}
+            {{ $hasChildren := gt (len $children) 0 }}
+
+            {{ if and (not $hasToc) $hasChildren }}
+              <h3>{{ cond (eq .Page.Language.Lang "nb") "I denne seksjonen" "In this section" }}</h3>
+              <ul id="SectionChildren">
+                {{ range $children.ByWeight }}
+                  {{ if not .Params.hidden }}
+                  <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                  {{ end }}
+                {{ end }}
+              </ul>
+            {{ else }}
+              <h3 {{ if not $hasToc }}style="color: #bbb;"{{ end }}>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
+              {{ .TableOfContents }}
+            {{ end }}
             <div class="toc-scroll-fade" aria-hidden="true"></div>
           </aside>
         </div><!-- End body-toc-wrapper -->

@@ -5,6 +5,21 @@
 {{ $finalContent := .Content | replaceRE $regExpIn $regExpOut | safeHTML }}
 {{ $finalContent }}
 
+{{ $children := .Pages }}
+{{ if .Sections }}
+  {{ $children = $children | union .Sections }}
+{{ end }}
+{{ if gt (len $children) 0 }}
+<div class="section-children">
+  {{ range $children.ByWeight }}
+    {{ if not .Params.hidden }}
+    <h2 id="{{ .LinkTitle | urlize }}"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
+
 <footer class=" footline" >
 	{{with .Params.LastModifierDisplayName}}
 	    <i class='fa fa-user'></i> <a href="mailto:{{ $.Params.LastModifierEmail }}">{{ . }}</a> {{with $.Date}} <i class='fa fa-calendar'></i> {{ .Format "02/01/2006" }}{{end}}
