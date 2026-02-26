@@ -1,6 +1,6 @@
 ---
 title: "12. Endring av utdanningsløp eller studieretning"
-linkTitle: "☐ 12. Endring utdanningsløp"
+linkTitle: "○ 12. Endring utdanningsløp"
 weight: 12
 toc: true
 status: "Detaljering gjenstår"

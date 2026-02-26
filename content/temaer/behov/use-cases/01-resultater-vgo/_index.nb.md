@@ -1,6 +1,6 @@
 ---
 title: "1. Tilgjengeliggjøring av resultater fra opplæring"
-linkTitle: "◐ 1. Resultater fra opplæring"
+linkTitle: "◵ 1. Resultater fra opplæring"
 weight: 1
 toc: true
 status: "Første utkast"
