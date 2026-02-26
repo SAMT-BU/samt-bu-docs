@@ -10,7 +10,7 @@ toc: true
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Pågår"
+status: "Til QA"
 ---
 
 ## Hvem har spilt inn dette som en case prosjektet SAMT–BU bør jobbe med

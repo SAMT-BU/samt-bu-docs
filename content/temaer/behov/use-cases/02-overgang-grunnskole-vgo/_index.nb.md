@@ -10,7 +10,7 @@ toc: true
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Første utkast"
+status: "Godkjent"
 ---
 
 ## Kort beskrivelse
