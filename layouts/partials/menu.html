@@ -55,7 +55,7 @@
         {{if .Params.alwaysopen}}parent{{end}}
         ">
       <a href="{{ .RelPermalink}}">
-        <span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
+        <span>{{safeHTML .Params.Pre}}{{ partial "status-symbol.html" . }}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
 
         {{if .Params.titleSup }}
           <sup>{{.Params.titleSup}}</sup>
@@ -106,7 +106,7 @@
      {{if eq .RelPermalink $currentNode.RelPermalink}}active{{end}}
       ">
         <a href="{{ .RelPermalink}}">
-        <span>{{safeHTML .Params.Pre}}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
+        <span>{{safeHTML .Params.Pre}}{{ partial "status-symbol.html" . }}{{.LinkTitle}}{{safeHTML .Params.Post}}</span>
         {{ if $showvisitedlinks}}<i style="color:grey" class="fa fa-circle-thin read-icon"></i>{{end}}
         </a></li>
      {{ end }}

@@ -1,0 +1,10 @@
+{{- $symbols := dict
+    "Detaljering gjenstår" "◯"
+    "Første utkast"        "◔"
+    "Pågår"                "◐"
+    "Til QA"               "◕"
+    "Godkjent"             "⏺"
+    "Avbrutt"              "⨂"
+-}}
+{{- $symbol := index $symbols .Params.status -}}
+{{- if $symbol -}}{{ $symbol }} {{- end -}}

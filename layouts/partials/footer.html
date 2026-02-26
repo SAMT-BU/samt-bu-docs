@@ -82,7 +82,7 @@
               <ul id="SectionChildren">
                 {{ range $children.ByWeight }}
                   {{ if not .Params.hidden }}
-                  <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                  <li><a href="{{ .RelPermalink }}">{{ partial "status-symbol.html" . }}{{ .LinkTitle }}</a></li>
                   {{ end }}
                 {{ end }}
               </ul>

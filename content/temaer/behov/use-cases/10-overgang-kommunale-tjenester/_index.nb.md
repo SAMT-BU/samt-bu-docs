@@ -1,6 +1,6 @@
 ---
 title: "10. Overgang til andre kommunale tjenester"
-linkTitle: "◯ 10. Kommunale tjenester"
+linkTitle: "10. Kommunale tjenester"
 weight: 10
 toc: true
 # Gyldige statusverdier:

@@ -1,6 +1,6 @@
 ---
 title: "13. Avbrutt utdanning (frafall)"
-linkTitle: "◯ 13. Avbrutt utdanning"
+linkTitle: "13. Avbrutt utdanning"
 weight: 13
 toc: true
 # Gyldige statusverdier:
