@@ -1,0 +1,101 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.content.publicFolder": "static",
+
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Use Cases – Behov",
+      "path": "[[workspace]]/content/temaer/behov/use-cases",
+      "contentTypes": ["use-case"],
+      "filePrefix": "",
+      "defaultLocale": "nb"
+    },
+    {
+      "title": "Alt innhold",
+      "path": "[[workspace]]/content",
+      "excludedFolders": ["temaer/behov/use-cases"]
+    }
+  ],
+
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "use-case",
+      "fileMatch": ["**/_index.nb.md"],
+      "fields": [
+        {
+          "title": "Tittel",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Menytittel (inkl. statussymbol)",
+          "name": "linkTitle",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Vekt (sorteringsrekkefølge)",
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "choice",
+          "choices": [
+            "Detaljering gjenstår",
+            "Første utkast",
+            "Pågår",
+            "Til QA",
+            "Godkjent",
+            "Avbrutt"
+          ]
+        },
+        {
+          "title": "Vis innholdsfortegnelse (TOC)",
+          "name": "toc",
+          "type": "boolean"
+        },
+        {
+          "title": "Utkast (skjult fra prod)",
+          "name": "draft",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "page",
+      "fields": [
+        {
+          "title": "Tittel",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Menytittel",
+          "name": "linkTitle",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Vekt (sorteringsrekkefølge)",
+          "name": "weight",
+          "type": "number"
+        },
+        {
+          "title": "Vis innholdsfortegnelse (TOC)",
+          "name": "toc",
+          "type": "boolean"
+        },
+        {
+          "title": "Utkast (skjult fra prod)",
+          "name": "draft",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}
