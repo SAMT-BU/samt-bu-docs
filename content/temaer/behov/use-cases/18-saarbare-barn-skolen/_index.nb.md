@@ -1,6 +1,6 @@
 ---
 title: "18. Innspill fra Utdanningsetaten i Oslo kommune"
-linkTitle: "◐ 18. UDE Oslo"
+linkTitle: "18. UDE Oslo"
 weight: 18
 toc: true
 status: "Første utkast"
