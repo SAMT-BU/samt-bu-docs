@@ -67,7 +67,6 @@
             <aside id="page-toc">
               <h3>{{ cond (eq .Page.Language.Lang "nb") "På denne siden" "On this page" }}</h3>
               {{ .TableOfContents }}
-              <div class="toc-scroll-fade" aria-hidden="true"></div>
             </aside>
           {{ end }}
         </div><!-- End body-toc-wrapper -->
@@ -92,45 +91,25 @@
     <script src="{{"js/altinndocs.js" | relURL}}"></script>
     <script src="{{"js/altinndocs-learn.js" | relURL}}"></script>
 
+    <script src="{{"js/stickysidebar/rAF.js" | relURL}}"></script>
+    <script src="{{"js/stickysidebar/ResizeSensor.js" | relURL}}"></script>
+    <script src="{{"js/stickysidebar/sticky-sidebar.js" | relURL}}"></script>
+    
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+
     <link href="{{"mermaid/mermaid.css" | relURL}}" type="text/css" rel="stylesheet"/>
     <script src="{{"mermaid/mermaid.js" | relURL}}"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
 
     {{ partial "custom-footer.html" . }}
-
-    <script>
-    // Scroll-hint fade for TOC (uses child div) and sidebar (uses ::after pseudo-element)
-    (function() {
-      // TOC: toggle .hidden on the fade div
-      var toc = document.getElementById('page-toc');
-      if (toc) {
-        var tocFade = toc.querySelector('.toc-scroll-fade');
-        if (tocFade) {
-          function updateToc() {
-            var atBottom = toc.scrollHeight - toc.scrollTop - toc.clientHeight < 4;
-            var noOverflow = toc.scrollHeight <= toc.clientHeight;
-            tocFade.classList.toggle('hidden', atBottom || noOverflow);
-          }
-          toc.addEventListener('scroll', updateToc);
-          window.addEventListener('resize', updateToc);
-          updateToc();
-        }
-      }
-      // Sidebar: toggle .fade-hidden on #sidebar itself (controls ::after)
-      var sb = document.getElementById('sidebar');
-      if (sb) {
-        function updateSb() {
-          var atBottom = sb.scrollHeight - sb.scrollTop - sb.clientHeight < 4;
-          var noOverflow = sb.scrollHeight <= sb.clientHeight;
-          sb.classList.toggle('fade-hidden', atBottom || noOverflow);
-        }
-        sb.addEventListener('scroll', updateSb);
-        window.addEventListener('resize', updateSb);
-        new MutationObserver(updateSb).observe(sb, { childList: true, subtree: true, attributes: true });
-        updateSb();
-      }
-    })();
-    </script>
 
   </body>
 </html>

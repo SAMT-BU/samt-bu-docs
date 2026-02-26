@@ -195,39 +195,6 @@
     font-size: 16px !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   }
-  /* Tighter spacing for bullet/numbered lists */
-  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) {
-    margin-top: 4px !important;
-    margin-left: 0 !important;
-    padding-left: 2em !important;
-    list-style: disc !important;
-  }
-  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
-    padding-left: 0 !important;
-    margin-bottom: 4px !important;
-  }
-  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
-    display: none !important;
-  }
-  /* Nested list levels */
-  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) ul {
-    list-style: circle !important;
-    padding-left: 2em !important;
-    margin-top: 4px !important;
-  }
-  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) ul ul {
-    list-style: square !important;
-  }
-  /* Ordered lists */
-  .a-text ol {
-    padding-left: 2em !important;
-    margin-left: 0 !important;
-  }
-  .a-text ol li,
-  #body ul li,
-  #body ol li {
-    margin-bottom: 4px !important;
-  }
 
   /* Remove blue border-bottom from breadcrumb and TOC links
      (designsystem.css sets border-bottom: 2px solid #1EAEF7 on all <a>) */
@@ -249,189 +216,61 @@
     color: #000;
   }
 
-  #page-toc a,
-  #page-toc a:hover,
-  #page-toc a:active,
-  #page-toc a:focus {
-    border: none !important;
+  #page-toc a {
     border-bottom: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    padding-bottom: 0 !important;
-  }
-  #page-toc #TableOfContents,
-  #page-toc #TableOfContents ul,
-  #page-toc #TableOfContents li {
-    border: none !important;
   }
 
-  /* 3-column independent-scroll layout: sidebar | content | TOC
-     Each column scrolls on its own; the page itself does NOT scroll.
-     Header and footer stay fixed at top/bottom of the viewport. */
+  /* 3-column proportional flex layout: sidebar | content | TOC
+     Uses percentages so column ratios hold when zooming */
   @media (min-width: 768px) {
-    /* Lock the viewport — no page-level scroll */
-    html, body.a-page {
-      height: 100%;
-      overflow: hidden;
-    }
-    body.a-page {
-      display: flex;
-      flex-direction: column;
-    }
-    /* Header / footer keep their natural size */
-    .a-jumpnav, .a-header, .a-footer { flex-shrink: 0; }
-
-    /* Reduce header height by ~1/3 (100px → ~66px), keep content centered */
-    .a-header {
-      height: auto !important;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-    }
-    .a-header .container,
-    .a-header .row,
-    .a-header .col-12 {
-      height: 100%;
-    }
-    .a-header #primary-nav {
-      padding: 13px 0;           /* ~66px total with 40px logo */
-    }
-
-    /* Container between header and footer fills remaining space */
-    body.a-page > .container {
-      flex: 1;
-      min-height: 0;           /* allow flex child to shrink below content */
-      display: flex;
-      flex-direction: column;
-      padding-top: 0.5rem !important;  /* halve gray gap (was pt-md-3 = 1rem) */
-    }
-    @media (min-width: 992px) {
-      body.a-page > .container {
-        padding-top: 1.5rem !important; /* halve gray gap (was pt-lg-5 = 3rem) */
-      }
-    }
-    .adocs-scrollcontainer {
-      flex: 1;
-      min-height: 0;
-    }
-    .adocs-scrollcontainer .row {
-      height: 100%;
-    }
     .adocs-scrollcontainer .row > .col-sm-12 {
       display: flex;
-      align-items: stretch;    /* columns fill full height */
-      height: 100%;
+      align-items: flex-start;
     }
-
-    /* --- Left column: sidebar --- */
     #sidebar {
       float: none !important;
       flex: 0 0 20%;
       min-width: 180px;
       max-width: 260px;
-      font-size: 15px;
-      padding-top: 12px;               /* vertical align with TOC heading */
-      overflow-y: auto;
-      scrollbar-width: none;             /* Firefox */
+      font-size: 13px;
     }
-    #sidebar::-webkit-scrollbar {
-      display: none;                      /* Chrome/Safari */
-    }
-    /* Override theme.css .highlightable so #sidebar owns the scroll */
-    #sidebar .highlightable {
-      overflow: visible;
-      height: auto;
-    }
-
-    /* --- Middle + right wrapper --- */
     .body-toc-wrapper {
       flex: 1;
       min-width: 0;
-      min-height: 0;
       display: flex;
-      align-items: stretch;
+      align-items: flex-start;
       margin-left: 16px;
     }
-
-    /* --- Middle column: main content --- */
     .body-toc-wrapper #body {
       flex: 1;
       min-width: 0;
-      overflow-y: auto;
       margin-left: 0 !important;
     }
-
-    /* --- Right column: table of contents --- */
-    #page-toc {
-      flex: 0 0 18%;
-      min-width: 150px;
-      max-width: 240px;
-      overflow-y: auto;
-      scrollbar-width: none;             /* Firefox */
-    }
-    #page-toc::-webkit-scrollbar {
-      display: none;                      /* Chrome/Safari */
-    }
   }
 
-  /* Tighter spacing for sidebar menu items */
-  #sidebar ul li a {
-    padding: 2px 9px !important;
-  }
-  #sidebar ul ul li > a {
-    padding: 2px 6px !important;
-  }
-
-  /* Left sidebar heading — aligned with menu items and TOC heading */
+  /* Left sidebar heading (matches #page-toc h3) */
   #sidebar .sidebar-heading {
     font-size: 14px;
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: 2px;           /* symmetric with padding above first menu item */
+    margin-bottom: 8px;
     color: #333;
-    padding-left: 9px;            /* flush with menu-item text */
-  }
-  /* Override theme's 36px margin-top so heading↔line↔menu spacing is tight */
-  #sidebar ul.topics {
-    margin-top: 0 !important;
+    padding-left: 16px;
   }
 
-  /* Right-side Table of Contents (visual styling only; layout in @media above) */
+  /* Right-side Table of Contents */
   #page-toc {
-    padding: 12px 16px 0;
+    position: sticky;
+    top: 20px;
+    flex: 0 0 18%;
+    min-width: 150px;
+    max-width: 240px;
+    padding: 12px 16px;
     margin-left: 16px;
     font-size: 13px;
     border-left: 2px solid #e0e0e0;
-  }
-  /* Scroll-hint: gradient fade at bottom when more content below */
-  .toc-scroll-fade {
-    pointer-events: none;
-    position: sticky;
-    bottom: 0;
-    display: block;
-    height: 36px;
-    margin: 0 -16px;           /* stretch to fill #page-toc padding */
-    padding: 0 16px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,1) 100%);
-    transition: opacity 0.3s;
-  }
-  .toc-scroll-fade.hidden {
-    opacity: 0;
-  }
-  /* Sidebar fade: pseudo-element = direct child of scroll container */
-  #sidebar::after {
-    content: '';
-    pointer-events: none;
-    position: sticky;
-    bottom: 0;
-    display: block;
-    height: 36px;
-    margin-top: -36px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,1) 100%);
-    transition: opacity 0.3s;
-    z-index: 1;
-  }
-  #sidebar.fade-hidden::after {
-    opacity: 0;
+    max-height: 85vh;
+    overflow-y: auto;
   }
   #page-toc h3 {
     font-size: 14px;
@@ -443,8 +282,6 @@
   #page-toc #TableOfContents {
     font-size: 13px;
     padding: 0;
-    overflow: visible !important;
-    max-height: none !important;
   }
   #page-toc #TableOfContents ul {
     list-style: none;
@@ -466,20 +303,14 @@
   }
   #page-toc #TableOfContents a {
     color: #000;
-    text-decoration: none !important;
+    text-decoration: none;
     font-weight: normal !important;
     padding: 0 !important;
     margin: 0 !important;
-    border: none !important;
   }
-  #page-toc #TableOfContents a:hover,
-  #page-toc #TableOfContents a:active,
-  #page-toc #TableOfContents a:focus {
-    color: #000;
-    text-decoration: underline !important;
-    border: none !important;
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
+  #page-toc #TableOfContents a:hover {
+    border-bottom: 1px solid #000 !important;
+    padding-bottom: 1px;
   }
   /* Page metadata row below title (extensible with status etc.) */
   .page-meta {
