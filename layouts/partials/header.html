@@ -39,8 +39,6 @@
   </head>
   <body class="a-page" data-url="{{ .RelPermalink }}">
     {{ partial "topbar.html" . }}
-    <button id="restore-left"  class="sidebar-restore-btn" title="{{ cond (eq .Site.Language.Lang "nb") "Vis navigasjonsmeny" "Show navigation" }}">›</button>
-    <button id="restore-right" class="sidebar-restore-btn" title="{{ cond (eq .Site.Language.Lang "nb") "Vis innholdsfortegnelse" "Show table of contents" }}">‹</button>
 
     {{ if and (.IsHome) (.Params.jumbotron) }}
       {{ partial "jumbotron.html" . }}

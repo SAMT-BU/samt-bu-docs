@@ -173,8 +173,13 @@
   /* Wider container to use more screen space */
   @media (min-width: 1200px) {
     .container {
-      max-width: 95vw;
+      max-width: 1400px;
       width: 95%;
+    }
+  }
+  @media (min-width: 1600px) {
+    .container {
+      max-width: 1600px;
     }
   }
 
@@ -222,139 +227,6 @@
   #body ul li,
   #body ol li {
     margin-bottom: 4px !important;
-  }
-
-  /* ── Sidebar collapse toggle buttons ─────────────────────────────── */
-
-  /* Heading rows: button sits inline with the heading */
-  .sidebar-heading-row,
-  .toc-heading-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4px;
-  }
-  .sidebar-heading-row .sidebar-heading,
-  .toc-heading-row h3 {
-    margin: 0 !important;
-    flex: 1;
-  }
-
-  /* Toggle buttons (inside heading rows) */
-  .sidebar-toggle-btn {
-    flex-shrink: 0;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 12px;
-    width: 20px;
-    height: 20px;
-    line-height: 18px;
-    text-align: center;
-    padding: 0;
-    color: #666;
-    margin-left: 6px;
-  }
-  .sidebar-toggle-btn:hover {
-    background: #ddd;
-    color: #000;
-  }
-
-  /* Collapsed: sidebar collapses to 0 – middle column fills all space */
-  body.left-hidden #sidebar {
-    flex: 0 0 0 !important;
-    min-width: 0 !important;
-    max-width: 0 !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-  }
-  body.right-hidden #page-toc {
-    flex: 0 0 0 !important;
-    min-width: 0 !important;
-    max-width: 0 !important;
-    overflow: hidden !important;
-    padding: 0 !important;
-  }
-
-  /* Restore tabs: fixed at viewport edge, visible only when collapsed */
-  .sidebar-restore-btn {
-    display: none;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 9999;
-    background: #1b4f8a;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    width: 20px;
-    height: 56px;
-    padding: 0;
-    color: #fff;
-    line-height: 1;
-  }
-  .sidebar-restore-btn:hover { background: #1362ae; }
-  #restore-left  { left: 0;  border-radius: 0 5px 5px 0; }
-  #restore-right { right: 0; border-radius: 5px 0 0 5px; }
-  body.left-hidden  #restore-left  { display: block; }
-  body.right-hidden #restore-right { display: block; }
-
-  /* Smooth transitions */
-  @media (min-width: 768px) {
-    #sidebar  { transition: flex-basis 0.2s ease, max-width 0.2s ease; }
-    #page-toc { transition: flex-basis 0.2s ease, max-width 0.2s ease; }
-  }
-
-  /* Children list in right TOC column (section index pages without in-page TOC) */
-  #SectionChildren {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 13px;
-  }
-  #SectionChildren li {
-    margin-bottom: 4px;
-  }
-  #SectionChildren a {
-    color: #000;
-    border-bottom: none !important;
-    text-decoration: none;
-  }
-  #SectionChildren a:hover {
-    text-decoration: underline;
-  }
-
-  /* Section children list (auto-generated on section index pages) */
-  .section-children {
-    margin-top: 1.5rem;
-    border-top: 1px solid #ddd;
-    padding-top: 0.75rem;
-  }
-  .section-children ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .section-children ul li {
-    margin-bottom: 4px !important;
-    font-size: 15px !important;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  }
-  .section-children ul li::before {
-    content: none !important;
-  }
-  .section-children ul li a {
-    color: #000 !important;
-    border-bottom: none !important;
-    text-decoration: none;
-  }
-  .section-children ul li a:hover {
-    text-decoration: underline;
-  }
-  .section-child-desc {
-    color: #555;
-    font-size: 0.9em;
   }
 
   /* Remove blue border-bottom from breadcrumb and TOC links
@@ -599,9 +471,6 @@
     padding: 0 !important;
     margin: 0 !important;
     border: none !important;
-  }
-  #page-toc #TableOfContents a.toc-active {
-    font-weight: bold !important;
   }
   #page-toc #TableOfContents a:hover,
   #page-toc #TableOfContents a:active,
