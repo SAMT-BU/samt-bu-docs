@@ -3,6 +3,13 @@ title: "18. Innspill fra Utdanningsetaten i Oslo kommune"
 linkTitle: "◵ 18. UDE Oslo"
 weight: 18
 toc: true
+# Gyldige statusverdier:
+# ○ Detaljering gjenstår
+# ◵ Første utkast
+# ◐ Pågår
+# ◕ Til QA
+# ● Godkjent
+# ⊘ Avbrutt
 status: "Første utkast"
 ---
 

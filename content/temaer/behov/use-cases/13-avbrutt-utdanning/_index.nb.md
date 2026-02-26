@@ -3,6 +3,13 @@ title: "13. Avbrutt utdanning (frafall)"
 linkTitle: "○ 13. Avbrutt utdanning"
 weight: 13
 toc: true
+# Gyldige statusverdier:
+# ○ Detaljering gjenstår
+# ◵ Første utkast
+# ◐ Pågår
+# ◕ Til QA
+# ● Godkjent
+# ⊘ Avbrutt
 status: "Detaljering gjenstår"
 ---
 
