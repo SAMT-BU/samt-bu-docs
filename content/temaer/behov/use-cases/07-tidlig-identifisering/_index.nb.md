@@ -1,14 +1,14 @@
 ---
 title: "7. Tidlig identifisering av elever i faresonen"
-linkTitle: "○ 7. Tidlig identifisering"
+linkTitle: "◯ 7. Tidlig identifisering"
 weight: 7
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Detaljering gjenstår"
 ---

@@ -4,11 +4,11 @@ linkTitle: "◵ 2. Overgang grunnskole–VGO"
 weight: 2
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Første utkast"
 ---

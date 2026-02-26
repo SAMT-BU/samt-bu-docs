@@ -1,14 +1,14 @@
 ---
 title: "17. Hendelsesdrevet og automatisert rapportering"
-linkTitle: "○ 17. Automatisert rapportering"
+linkTitle: "◯ 17. Automatisert rapportering"
 weight: 17
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Detaljering gjenstår"
 ---

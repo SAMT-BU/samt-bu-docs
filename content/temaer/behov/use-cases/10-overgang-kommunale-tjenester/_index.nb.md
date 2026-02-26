@@ -1,14 +1,14 @@
 ---
 title: "10. Overgang til andre kommunale tjenester"
-linkTitle: "○ 10. Kommunale tjenester"
+linkTitle: "◯ 10. Kommunale tjenester"
 weight: 10
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Detaljering gjenstår"
 ---

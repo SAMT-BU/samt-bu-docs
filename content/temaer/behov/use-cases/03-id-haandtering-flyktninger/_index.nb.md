@@ -4,11 +4,11 @@ linkTitle: "◵ 3. Håndtering av Dnr"
 weight: 3
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Første utkast"
 ---

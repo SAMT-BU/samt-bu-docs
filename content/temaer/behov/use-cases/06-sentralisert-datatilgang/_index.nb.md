@@ -1,14 +1,14 @@
 ---
 title: "6. Sentralisert tilgang til data foreldrene trenger"
-linkTitle: "○ 6. Datatilgang for foreldre"
+linkTitle: "◯ 6. Datatilgang for foreldre"
 weight: 6
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Detaljering gjenstår"
 ---

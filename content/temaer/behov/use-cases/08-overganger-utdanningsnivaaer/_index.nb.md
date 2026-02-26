@@ -1,14 +1,14 @@
 ---
 title: "8. Overganger mellom utdanningsnivåer"
-linkTitle: "○ 8. Overganger utdanningsnivåer"
+linkTitle: "◯ 8. Overganger utdanningsnivåer"
 weight: 8
 toc: true
 # Gyldige statusverdier:
-# ○ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◵ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ● Godkjent
+# ⬤ Godkjent
 # ⊘ Avbrutt
 status: "Detaljering gjenstår"
 ---
