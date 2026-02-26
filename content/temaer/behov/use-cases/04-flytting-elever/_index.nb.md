@@ -4,7 +4,7 @@ linkTitle: "4. Flytting av elever"
 weight: 4
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA

@@ -4,7 +4,7 @@ linkTitle: "7. Tidlig identifisering"
 weight: 7
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA

@@ -4,7 +4,7 @@ linkTitle: "19. StatPed-søknader"
 weight: 19
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA

@@ -4,7 +4,7 @@ linkTitle: "10. Kommunale tjenester"
 weight: 10
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA

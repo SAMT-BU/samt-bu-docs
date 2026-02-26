@@ -4,7 +4,7 @@ linkTitle: "9. Bytte skole/studiested"
 weight: 9
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA

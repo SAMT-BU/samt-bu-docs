@@ -4,7 +4,7 @@ linkTitle: "11. Digital dialog hjem"
 weight: 11
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA

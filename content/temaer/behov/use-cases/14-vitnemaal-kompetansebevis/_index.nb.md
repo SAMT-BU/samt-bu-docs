@@ -4,7 +4,7 @@ linkTitle: "14. Vitnemål og kompetansebevis"
 weight: 14
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
+# ◍ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA
