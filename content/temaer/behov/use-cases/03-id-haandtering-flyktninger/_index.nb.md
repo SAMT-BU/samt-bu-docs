@@ -1,15 +1,15 @@
 ---
 title: "3. Håndtering av D-nummer og ID-bytte"
-linkTitle: "◵ 3. Håndtering av Dnr"
+linkTitle: "◔ 3. Håndtering av Dnr"
 weight: 3
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
-# ◵ Første utkast
+# ○ Detaljering gjenstår
+# ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ⬤ Godkjent
-# ⊘ Avbrutt
+# ⏺ Godkjent
+# ⨂ Avbrutt
 status: "Første utkast"
 ---
 

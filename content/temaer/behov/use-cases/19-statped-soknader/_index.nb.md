@@ -1,15 +1,15 @@
 ---
 title: "19. StatPed – søknader fra PP-tjenesten"
-linkTitle: "◯ 19. StatPed-søknader"
+linkTitle: "○ 19. StatPed-søknader"
 weight: 19
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
-# ◵ Første utkast
+# ○ Detaljering gjenstår
+# ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ⬤ Godkjent
-# ⊘ Avbrutt
+# ⏺ Godkjent
+# ⨂ Avbrutt
 status: "Detaljering gjenstår"
 ---
 

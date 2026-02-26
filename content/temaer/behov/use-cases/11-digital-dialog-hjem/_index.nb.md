@@ -1,15 +1,15 @@
 ---
 title: "11. Digital dialog mellom barnehage/skole og hjemmet"
-linkTitle: "◯ 11. Digital dialog hjem"
+linkTitle: "○ 11. Digital dialog hjem"
 weight: 11
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
-# ◵ Første utkast
+# ○ Detaljering gjenstår
+# ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ⬤ Godkjent
-# ⊘ Avbrutt
+# ⏺ Godkjent
+# ⨂ Avbrutt
 status: "Detaljering gjenstår"
 ---
 

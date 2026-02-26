@@ -1,15 +1,15 @@
 ---
 title: "1. Tilgjengeliggjøring av resultater fra opplæring"
-linkTitle: "◵ 1. Resultater fra opplæring"
+linkTitle: "◔ 1. Resultater fra opplæring"
 weight: 1
 toc: true
 # Gyldige statusverdier:
-# ◯ Detaljering gjenstår
-# ◵ Første utkast
+# ○ Detaljering gjenstår
+# ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA
-# ⬤ Godkjent
-# ⊘ Avbrutt
+# ⏺ Godkjent
+# ⨂ Avbrutt
 status: "Pågår"
 ---
 
