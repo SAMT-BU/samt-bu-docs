@@ -4,13 +4,13 @@ linkTitle: "12. Endring utdanningsløp"
 weight: 12
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Detaljering gjenstår"
+status: "Ny"
 ---
 
 

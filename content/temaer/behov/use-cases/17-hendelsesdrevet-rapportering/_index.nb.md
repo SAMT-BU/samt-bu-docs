@@ -4,13 +4,13 @@ linkTitle: "17. Automatisert rapportering"
 weight: 17
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Detaljering gjenstår"
+status: "Ny"
 ---
 
 

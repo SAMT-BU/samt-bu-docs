@@ -4,7 +4,7 @@ linkTitle: "8. Overganger utdanningsnivåer"
 weight: 8
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA

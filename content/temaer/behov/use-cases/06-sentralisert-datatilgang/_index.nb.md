@@ -4,7 +4,7 @@ linkTitle: "6. Datatilgang for foreldre"
 weight: 6
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA

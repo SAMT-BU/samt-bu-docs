@@ -4,13 +4,13 @@ linkTitle: "13. Avbrutt utdanning"
 weight: 13
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Detaljering gjenstår"
+status: "Ny"
 ---
 
 

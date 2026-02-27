@@ -4,7 +4,7 @@ linkTitle: "3. Håndtering av Dnr"
 weight: 3
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA

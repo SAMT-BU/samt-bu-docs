@@ -4,7 +4,7 @@ linkTitle: "18. UDE Oslo"
 weight: 18
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA

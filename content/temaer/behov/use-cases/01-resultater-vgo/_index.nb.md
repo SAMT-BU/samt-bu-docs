@@ -4,7 +4,7 @@ linkTitle: "1. Resultater fra opplæring"
 weight: 1
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◍ Ny
 # ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA

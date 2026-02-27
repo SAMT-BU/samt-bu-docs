@@ -93,7 +93,7 @@ Redaktøren trenger kun endre `status:`-feltet:
 
 | Symbol | Statusverdi |
 |--------|-------------|
-| ◍ | Detaljering gjenstår |
+| ◍ | Ny |
 | ◔ | Tidlig utkast |
 | ◐ | Pågår |
 | ◕ | Til QA |
