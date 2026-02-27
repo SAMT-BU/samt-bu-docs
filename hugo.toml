@@ -25,6 +25,44 @@ enableGitInfo = true
 
 [params]
   editURL = "https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/"
+  navSwitcherLabel = "Tema"
+  navSwitcherPlaceholder = "Velg tema"
+
+[[params.navSwitcher]]
+  id = "behov"
+  title = "Behov"
+  url = "temaer/behov/"
+  icon = "fa-lightbulb-o"
+
+[[params.navSwitcher]]
+  id = "pilotering"
+  title = "Piloter"
+  url = "temaer/pilotering/"
+  icon = "fa-flask"
+
+[[params.navSwitcher]]
+  id = "arkitektur"
+  title = "Arkitektur"
+  url = "temaer/arkitektur/"
+  icon = "fa-sitemap"
+
+[[params.navSwitcher]]
+  id = "loesning"
+  title = "Løsninger"
+  url = "temaer/loesning/"
+  icon = "fa-cogs"
+
+[[params.navSwitcher]]
+  id = "rammeverk"
+  title = "Rammeverk"
+  url = "temaer/rammeverk/"
+  icon = "fa-cubes"
+
+[[params.navSwitcher]]
+  id = "informasjonsmodeller"
+  title = "Informasjonsmodeller"
+  url = "temaer/informasjonsmodeller/"
+  icon = "fa-database"
 
 [module]
   [[module.imports]]
