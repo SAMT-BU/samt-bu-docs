@@ -10,11 +10,11 @@ toc: true
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Detaljering gjenstår"
+status: "Test feil verdi"
 ---
 
 
 ## Foreløpig beskrivelse
 
-Overganger mellom utdanningsnivåer – fra barnehage til grunnskole, videre til videregående og høyere utdanning. For eksempel utveksling av elevinformasjon ved skolebytte.
+Overganger mellom utdanningsnivåer – fra barnehage til grunnskole, videre til videregående og høyere utdanning.     For eksempel utveksling av elevinformasjon ved skolebytte.
 

@@ -4,7 +4,7 @@ linkTitle: "5. Samtykkeportal"
 weight: 5
 toc: true
 # Gyldige statusverdier:
-# ◍ Detaljering gjenstår
+# ◯ Detaljering gjenstår
 # ◔ Første utkast
 # ◐ Pågår
 # ◕ Til QA
@@ -17,4 +17,3 @@ status: "Avbrutt"
 ## Foreløpig beskrivelse
 
 Samtykkeportal – sentralisert oversikt over samtykker. Videreutvikling av FIKS samtykke?
-
