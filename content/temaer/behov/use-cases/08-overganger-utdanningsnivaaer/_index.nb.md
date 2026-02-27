@@ -10,7 +10,7 @@ toc: true
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Test feil verdi"
+status: "Ny"
 ---
 
 
