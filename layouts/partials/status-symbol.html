@@ -6,5 +6,4 @@
     "Godkjent"             "⏺"
     "Avbrutt"              "⨂"
 -}}
-{{- $symbol := index $symbols (default "" .Params.status) -}}
-{{- if $symbol -}}{{ $symbol }} {{- end -}}
+{{- if not (isset .Params "status") -}}◌ {{- else -}}{{- $symbol := index $symbols .Params.status -}}{{- if $symbol -}}{{ $symbol }} {{- else -}}﹖ {{- end -}}{{- end -}}
