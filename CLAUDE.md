@@ -94,7 +94,7 @@ Redaktøren trenger kun endre `status:`-feltet:
 | Symbol | Statusverdi |
 |--------|-------------|
 | ◍ | Detaljering gjenstår |
-| ◔ | Første utkast |
+| ◔ | Tidlig utkast |
 | ◐ | Pågår |
 | ◕ | Til QA |
 | ⏺ | Godkjent |

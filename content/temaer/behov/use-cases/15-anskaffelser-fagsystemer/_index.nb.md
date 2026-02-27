@@ -5,7 +5,7 @@ weight: 15
 toc: true
 # Gyldige statusverdier:
 # ◍ Detaljering gjenstår
-# ◔ Første utkast
+# ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA
 # ⏺ Godkjent

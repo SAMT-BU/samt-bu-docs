@@ -5,12 +5,12 @@ weight: 3
 toc: true
 # Gyldige statusverdier:
 # ◍ Detaljering gjenstår
-# ◔ Første utkast
+# ◔ Tidlig utkast
 # ◐ Pågår
 # ◕ Til QA
 # ⏺ Godkjent
 # ⨂ Avbrutt
-status: "Første utkast"
+status: "Tidlig utkast"
 ---
 
 ## Kort beskrivelse
