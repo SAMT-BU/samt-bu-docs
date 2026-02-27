@@ -69,6 +69,7 @@ layouts/                           # Hugo layout-overrides (overstyrer tema)
     tema-switcher.html             # Dropdown for dokumentasjonstema (6 kategorier)
     lang-switcher.html             # Språkvelger (flaggikoner nb/en)
     search.html                    # Søkefelt-integrasjon
+    status-symbol.html             # Slår opp statussymbol fra .Params.status → brukes i menu.html og footer.html
   _default/list.html               # Override for listesider
   shortcodes/                      # children.html, header.html, relref.html
 static/
@@ -84,6 +85,22 @@ i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret"
 - Frontmatter-felter: `weight` (sorteringsrekkefølge), `status`, `draft: true` for upublisert innhold
 - `editURL` i `hugo.toml` genererer "Rediger på GitHub"-lenker: `https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/`
 - **Commit-meldinger skrives på norsk** (se git-historikken for stil)
+
+### Statussymboler for use cases
+
+Symbolet genereres **automatisk** av `status-symbol.html` fra `status`-feltet – **ikke** lagret i `linkTitle`.
+Redaktøren trenger kun endre `status:`-feltet:
+
+| Symbol | Statusverdi |
+|--------|-------------|
+| ◍ | Detaljering gjenstår |
+| ◔ | Første utkast |
+| ◐ | Pågår |
+| ◕ | Til QA |
+| ⏺ | Godkjent |
+| ⨂ | Avbrutt |
+
+Alle use case-filer har en kommentarblokk i frontmatter som viser gyldige verdier.
 
 ## Arkitekturbeslutninger
 
