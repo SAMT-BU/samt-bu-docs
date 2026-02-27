@@ -1,3 +1,6 @@
+# Hugo binary (Windows)
+hugo.exe
+
 # Hugo build output
 public/
 resources/
