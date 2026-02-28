@@ -1,8 +1,9 @@
 ---
-title: "2. Seamless Transition from Primary to Upper Secondary Education"
-linkTitle: "2. Primary to Upper Secondary"
+title: 2. Seamless Transition from Primary to Upper Secondary Education
+linkTitle: 2. Primary to Upper Secondary
 weight: 2
 toc: true
+status: Pågår
 ---
 
 {{% notice info %}}
