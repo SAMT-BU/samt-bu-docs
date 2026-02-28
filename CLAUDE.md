@@ -36,7 +36,7 @@ CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automati
 
 ```
 hugo.toml                          # Hugo-konfigurasjon (baseURL, språk, tema)
-content/                           # Alt innhold (Markdown med TOML frontmatter)
+content/                           # Alt innhold (Markdown med YAML frontmatter)
   om/                              # «Om» – intro-seksjon (weight 1)
     om-samt-bu.*                   # Om SAMT-BU (weight 1)
     om-dette-nettstedet.*          # Om dette nettstedet (weight 2)
@@ -76,8 +76,24 @@ static/
   images/SAMT-BU-logo.png          # Logo (vises invertert i header)
   images/nb.svg, en.svg            # Flaggikoner for språkvelger
   js/search.js                     # Lunr.js søkeimplementasjon
+  admin/                           # Decap CMS-portal (innholdsredigering)
+    index.html                     # Portal/meny – velg seksjon
+    use-cases/
+      index.html                   # Decap CMS for use cases
+      config.yml                   # CMS-konfigurasjon (nb+en, status-dropdown)
+cloudflare-worker/
+  oauth-worker.js                  # GitHub OAuth-proxy (deployet på Cloudflare Workers)
 i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret")
 ```
+
+## Decap CMS – innholdsredigering
+
+- **Portal (produksjon):** `https://samt-bu.github.io/samt-bu-docs/admin/`
+- **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
+- **Lokal testing:** `npx decap-server` (Git Bash) + `hugo server` → `http://localhost:1313/samt-bu-docs/admin/`
+- **Ny seksjon:** lag `static/admin/<seksjon>/index.html` + `config.yml`, legg til kort i `static/admin/index.html`
+- **Frontmatter-format:** YAML (`---`) – ikke TOML. Decap CMS fjerner kommentarer ved lagring.
+- **Script-plassering:** Decap CMS-scriptet må ligge i `<body>`, ikke `<head>`
 
 ## Innholdskonvensjoner
 
