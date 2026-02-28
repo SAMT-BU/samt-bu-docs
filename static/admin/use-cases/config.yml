@@ -2,7 +2,7 @@ backend:
   name: github
   repo: SAMT-BU/samt-bu-docs
   branch: main
-  base_url: https://PLACEHOLDER.example.com  # Erstattes med OAuth-proxy-URL (steg 4)
+  base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev
 
 local_backend: true  # Muliggjør lokal testing uten OAuth (npx decap-server)
 
