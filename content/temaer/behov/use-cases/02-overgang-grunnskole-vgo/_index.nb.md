@@ -3,8 +3,9 @@ title: 2. Sømløs overgang fra grunnskole til videregående opplæring
 linkTitle: 2. Overgang grunnskole–VGO
 weight: 2
 toc: true
-status: Pågår
+status: Ny
 ---
+
 ## Kort beskrivelse
 
 Dette caset tar for seg overgangen fra ungdomsskole til videregående opplæring -- en av de mest sentrale overgangene i barn og unges livsløp. Overgangen innebærer både et skifte i skolehverdag og et formelt ansvarsskifte fra kommune til fylkeskommune, og berører mange aktører, tjenester og systemer.
