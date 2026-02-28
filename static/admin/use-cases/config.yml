@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: SAMT-BU/samt-bu-docs
+  branch: main
+  base_url: https://PLACEHOLDER.example.com  # Erstattes med OAuth-proxy-URL (steg 4)
+
+local_backend: true  # Muliggjør lokal testing uten OAuth (npx decap-server)
+
+media_folder: static/images
+public_folder: /samt-bu-docs/images
+
+i18n:
+  structure: multiple_files  # _index.nb.md og _index.en.md i samme mappe
+  locales: [nb, en]
+  default_locale: nb
+
+collections:
+  - name: use-cases
+    label: "Use cases"
+    label_singular: "Use case"
+    folder: content/temaer/behov/use-cases
+    path: "{{slug}}/_index"  # genererer <mappenavn>/_index.{locale}.md
+    create: true
+    i18n: true
+    summary: "{{fields.linkTitle}} [{{fields.status}}]"
+    fields:
+      - label: Tittel
+        name: title
+        widget: string
+        i18n: true
+
+      - label: Navigasjonstitel
+        name: linkTitle
+        widget: string
+        i18n: true
+        hint: "Kortere tittel for navigasjonsmenyen (uten statussymbol)"
+
+      - label: Sorteringsrekkefølge
+        name: weight
+        widget: number
+        value_type: int
+        i18n: duplicate
+
+      - label: Innholdsfortegnelse
+        name: toc
+        widget: boolean
+        default: true
+        i18n: duplicate
+
+      - label: Status
+        name: status
+        widget: select
+        options:
+          - { label: "◍ Ny", value: "Ny" }
+          - { label: "◔ Tidlig utkast", value: "Tidlig utkast" }
+          - { label: "◐ Pågår", value: "Pågår" }
+          - { label: "◕ Til QA", value: "Til QA" }
+          - { label: "⏺ Godkjent", value: "Godkjent" }
+          - { label: "⨂ Avbrutt", value: "Avbrutt" }
+        required: false
+        i18n: duplicate
+        hint: "Symbolet genereres automatisk av nettstedet – ikke legg det til i linkTitle"
+
+      - label: Innhold
+        name: body
+        widget: markdown
+        i18n: true

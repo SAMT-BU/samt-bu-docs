@@ -1,8 +1,9 @@
 ---
-title: "1. Making Results from Upper Secondary Education Accessible"
-linkTitle: "1. Results from Upper Secondary"
+title: 1. Making Results from Upper Secondary Education Accessible
+linkTitle: 1. Results from Upper Secondary
 weight: 1
 toc: true
+status: Pågår
 ---
 
 {{% notice info %}}

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>SAMT-BU – innholdsredigering</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      background: #f5f7fa;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1b4f8a;
+      color: #fff;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    header .subtitle {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 32px;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    main > p.intro {
+      color: #555;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #dde3ec;
+      border-radius: 6px;
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1b4f8a;
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: #555;
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    .card a.btn {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 8px 16px;
+      background: #1b4f8a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      align-self: flex-start;
+      transition: background 0.15s;
+    }
+
+    .card a.btn:hover { background: #154075; }
+
+    footer {
+      padding: 20px 32px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #dde3ec;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer a { color: #1b4f8a; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>SAMT-BU – innholdsredigering</h1>
+      <div class="subtitle">Velg en seksjon for å redigere innhold</div>
+    </div>
+  </header>
+
+  <main>
+    <p class="intro">
+      Dette er et internt verktøy for redaktører. Velg seksjonen du vil redigere nedenfor.
+      Du vil bli bedt om å logge inn med GitHub-kontoen din.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h2>Use cases / Behov</h2>
+        <p>Rediger de 19 behovsbaserte use casene under «Temaer → Behov».</p>
+        <a class="btn" href="use-cases/">Åpne editor &rarr;</a>
+      </div>
+
+      <!-- Legg til flere kort etter hvert som flere seksjoner konfigureres:
+
+      <div class="card">
+        <h2>Arkitektur</h2>
+        <p>Rediger arkitekturinnhold (samt-bu-arkitektur).</p>
+        <a class="btn" href="arkitektur/">Åpne editor &rarr;</a>
+      </div>
+
+      <div class="card">
+        <h2>Rammeverk</h2>
+        <p>Rediger rammeverk-seksjonen (metodikk, juss, styring).</p>
+        <a class="btn" href="rammeverk/">Åpne editor &rarr;</a>
+      </div>
+
+      <div class="card">
+        <h2>Felles innsikt</h2>
+        <p>Rediger innhold i samt-bu-innsikt.</p>
+        <a class="btn" href="innsikt/">Åpne editor &rarr;</a>
+      </div>
+
+      -->
+
+    </div>
+  </main>
+
+  <footer>
+    <span>Drevet av <a href="https://sveltia.com/cms" target="_blank" rel="noopener">Sveltia CMS</a></span>
+    <a href="/samt-bu-docs/">&larr; Tilbake til nettstedet</a>
+  </footer>
+</body>
+</html>
