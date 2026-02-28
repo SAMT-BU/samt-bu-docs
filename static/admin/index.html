@@ -83,9 +83,15 @@
       line-height: 1.5;
     }
 
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
     .card a.btn {
       display: inline-block;
-      margin-top: 6px;
       padding: 8px 16px;
       background: #1b4f8a;
       color: #fff;
@@ -93,11 +99,18 @@
       border-radius: 4px;
       font-size: 0.875rem;
       font-weight: 500;
-      align-self: flex-start;
       transition: background 0.15s;
     }
 
     .card a.btn:hover { background: #154075; }
+
+    .card a.btn-outline {
+      background: #fff;
+      color: #1b4f8a;
+      border: 1px solid #1b4f8a;
+    }
+
+    .card a.btn-outline:hover { background: #eef2f8; }
 
     footer {
       padding: 20px 32px;
@@ -134,7 +147,10 @@
       <div class="card">
         <h2>Use cases / Behov</h2>
         <p>Rediger de 19 behovsbaserte use casene under «Temaer → Behov».</p>
-        <a class="btn" href="use-cases/">Åpne editor &rarr;</a>
+        <div class="btn-row">
+          <a class="btn" href="use-cases-nb/">Norsk &rarr;</a>
+          <a class="btn btn-outline" href="use-cases-en/">English &rarr;</a>
+        </div>
       </div>
 
       <!-- Legg til flere kort etter hvert som flere seksjoner konfigureres:

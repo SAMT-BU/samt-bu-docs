@@ -4,44 +4,44 @@ backend:
   branch: main
   base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev
 
-local_backend: true  # Muliggjør lokal testing uten OAuth (npx decap-server)
+local_backend: true
 
 media_folder: static/images
 public_folder: /samt-bu-docs/images
 
 i18n:
-  structure: multiple_files  # _index.nb.md og _index.en.md i samme mappe
-  locales: [nb, en]
-  default_locale: nb
+  structure: multiple_files
+  locales: [en]
+  default_locale: en
 
 collections:
   - name: use-cases
     label: "Use cases"
     label_singular: "Use case"
     folder: content/temaer/behov/use-cases
-    path: "{{slug}}/_index"  # genererer <mappenavn>/_index.{locale}.md
+    path: "{{slug}}/_index"
     create: true
     i18n: true
     summary: "{{fields.linkTitle}} [{{fields.status}}]"
     fields:
-      - label: Tittel
+      - label: Title
         name: title
         widget: string
         i18n: true
 
-      - label: Navigasjonstitel
+      - label: Navigation title
         name: linkTitle
         widget: string
         i18n: true
-        hint: "Kortere tittel for navigasjonsmenyen (uten statussymbol)"
+        hint: "Shorter title for the navigation menu (without status symbol)"
 
-      - label: Sorteringsrekkefølge
+      - label: Sort order
         name: weight
         widget: number
         value_type: int
         i18n: duplicate
 
-      - label: Innholdsfortegnelse
+      - label: Table of contents
         name: toc
         widget: boolean
         default: true
@@ -51,17 +51,17 @@ collections:
         name: status
         widget: select
         options:
-          - { label: "◍ Ny", value: "Ny" }
-          - { label: "◔ Tidlig utkast", value: "Tidlig utkast" }
-          - { label: "◐ Pågår", value: "Pågår" }
-          - { label: "◕ Til QA", value: "Til QA" }
-          - { label: "⏺ Godkjent", value: "Godkjent" }
-          - { label: "⨂ Avbrutt", value: "Avbrutt" }
+          - { label: "◍ New", value: "Ny" }
+          - { label: "◔ Early draft", value: "Tidlig utkast" }
+          - { label: "◐ In progress", value: "Pågår" }
+          - { label: "◕ For QA", value: "Til QA" }
+          - { label: "⏺ Approved", value: "Godkjent" }
+          - { label: "⨂ Cancelled", value: "Avbrutt" }
         required: false
         i18n: duplicate
-        hint: "Symbolet genereres automatisk av nettstedet – ikke legg det til i linkTitle"
+        hint: "The symbol is generated automatically by the site – do not add it to linkTitle"
 
-      - label: Innhold
+      - label: Content
         name: body
         widget: markdown
         i18n: true
