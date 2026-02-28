@@ -14,8 +14,8 @@ collections:
     label: "Use cases"
     label_singular: "Use case"
     folder: content/temaer/behov/use-cases
-    path: "{{slug}}/_index.en"
-    extension: md
+    path: "{{slug}}/_index"
+    extension: "en.md"
     create: true
     summary: "{{fields.linkTitle}} [{{fields.status}}]"
     fields:
