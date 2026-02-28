@@ -76,7 +76,7 @@ static/
   images/SAMT-BU-logo.png          # Logo (vises invertert i header)
   images/nb.svg, en.svg            # Flaggikoner for språkvelger
   js/search.js                     # Lunr.js søkeimplementasjon
-  admin/                           # Decap CMS-portal (innholdsredigering)
+  edit/                            # Sveltia CMS-portal (innholdsredigering)
     index.html                     # Portal/meny – velg seksjon
     use-cases/
       index.html                   # Decap CMS for use cases
@@ -86,14 +86,13 @@ cloudflare-worker/
 i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret")
 ```
 
-## Decap CMS – innholdsredigering
+## Sveltia CMS – innholdsredigering
 
-- **Portal (produksjon):** `https://samt-bu.github.io/samt-bu-docs/admin/`
+- **Portal (produksjon):** `https://samt-bu.github.io/samt-bu-docs/edit/`
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
-- **Lokal testing:** `npx decap-server` (Git Bash) + `hugo server` → `http://localhost:1313/samt-bu-docs/admin/`
-- **Ny seksjon:** lag `static/admin/<seksjon>/index.html` + `config.yml`, legg til kort i `static/admin/index.html`
-- **Frontmatter-format:** YAML (`---`) – ikke TOML. Decap CMS fjerner kommentarer ved lagring.
-- **Script-plassering:** Decap CMS-scriptet må ligge i `<body>`, ikke `<head>`
+- **Lokal testing:** `hugo server` + «Work with Local Repository» i nettleseren → `http://localhost:1313/samt-bu-docs/edit/`
+- **Ny seksjon:** lag `static/edit/<seksjon>-nb/` + `static/edit/<seksjon>-en/` med `index.html` + `config.yml`, legg til kort i `static/edit/index.html`
+- **Frontmatter-format:** YAML (`---`) – ikke TOML.
 
 ## Innholdskonvensjoner
 
