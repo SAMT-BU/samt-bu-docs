@@ -4,16 +4,18 @@ title: "11. Digital Dialogue Between Kindergarten/School and Home"
 linkTitle: "11. Digital Home Dialogue"
 weight: 11
 toc: true
+# Valid status values:
+# ◍ New
+# ◔ Early draft
+# ◐ In progress
+# ◕ For QA
+# ⏺ Approved
+# ⨂ Cancelled
+status: "New"
 ---
 
-{{% notice info %}}
-This use case is under development.
-{{% /notice %}}
 
-## Description
+## Preliminary Description
 
-Digital dialogue and increased involvement between kindergarten/school and the home (parents and students).
+Digital dialogue and increased involvement between kindergarten/school and the home (parents/guardians and pupils).
 
-## Status
-
-Not started.

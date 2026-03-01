@@ -4,16 +4,11 @@ title: "17. Event-Driven and Automated Reporting"
 linkTitle: "17. Automated Reporting"
 weight: 17
 toc: true
+status: "New"
 ---
 
-{{% notice info %}}
-This use case is under development.
-{{% /notice %}}
 
-## Description
+## Preliminary Description
 
-Event-driven and automated reporting with MVP on a new solution – for example reporting to Statistics Norway (SSB/KOSTRA).
+Event-driven and automated reporting with an MVP for a new solution in this area – for example, reporting to Statistics Norway (SSB/KOSTRA).
 
-## Status
-
-Not started.

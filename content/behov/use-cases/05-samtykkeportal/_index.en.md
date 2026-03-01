@@ -1,19 +1,12 @@
 ---
 id: "6d3f8395-0b35-43b7-9141-a069bbbc8506"
-title: "5. Consent Portal"
-linkTitle: "5. Consent Portal"
+title: 5. Consent Portal
+linkTitle: 5. Consent Portal
 weight: 5
 toc: true
+status: New
 ---
 
-{{% notice info %}}
-This use case is under development.
-{{% /notice %}}
+## Preliminary description
 
-## Description
-
-Consent portal – centralized overview of consents. Further development of FIKS consent?
-
-## Status
-
-Not started.
+Consent portal – centralised overview of consents. Further development of FIKS consent?

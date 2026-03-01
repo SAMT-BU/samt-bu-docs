@@ -4,16 +4,10 @@ title: "8. Transitions Between Education Levels"
 linkTitle: "8. Education Level Transitions"
 weight: 8
 toc: true
+status: "New"
 ---
 
-{{% notice info %}}
-This use case is under development.
-{{% /notice %}}
 
-## Description
+## Preliminary Description
 
-Transitions between education levels – from kindergarten to primary school, on to upper secondary and higher education. For example, exchange of student information when changing schools.
-
-## Status
-
-Not started.
+Transitions between education levels – from early childhood education and care to primary school, onwards to upper secondary and higher education. For example, the exchange of pupil information when changing schools.

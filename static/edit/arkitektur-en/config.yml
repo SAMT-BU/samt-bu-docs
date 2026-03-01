@@ -57,14 +57,14 @@ collections:
         name: status
         widget: select
         options:
-          - { label: "◍ New", value: "Ny" }
-          - { label: "◔ Early draft", value: "Tidlig utkast" }
-          - { label: "◐ In progress", value: "Pågår" }
-          - { label: "◕ For QA", value: "Til QA" }
-          - { label: "⏺ Approved", value: "Godkjent" }
-          - { label: "⨂ Cancelled", value: "Avbrutt" }
+          - { label: "◍ New", value: "New" }
+          - { label: "◔ Early draft", value: "Early draft" }
+          - { label: "◐ In progress", value: "In progress" }
+          - { label: "◕ For QA", value: "For QA" }
+          - { label: "⏺ Approved", value: "Approved" }
+          - { label: "⨂ Cancelled", value: "Cancelled" }
         required: false
-        i18n: duplicate
+        i18n: true
         hint: "The symbol is generated automatically by the website"
 
       - label: Content

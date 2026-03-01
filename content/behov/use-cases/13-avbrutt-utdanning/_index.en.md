@@ -4,16 +4,18 @@ title: "13. Interrupted Education (Dropout)"
 linkTitle: "13. Interrupted Education"
 weight: 13
 toc: true
+# Valid status values:
+# ◍ New
+# ◔ Early draft
+# ◐ In progress
+# ◕ For QA
+# ⏺ Approved
+# ⨂ Cancelled
+status: "New"
 ---
 
-{{% notice info %}}
-This use case is under development.
-{{% /notice %}}
 
-## Description
+## Preliminary Description
 
 Interrupted education (dropout).
 
-## Status
-
-Not started.
