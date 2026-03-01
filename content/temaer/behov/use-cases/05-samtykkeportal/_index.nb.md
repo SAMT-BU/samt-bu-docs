@@ -1,18 +1,10 @@
 ---
-title: "5. Samtykkeportal"
-linkTitle: "5. Samtykkeportal"
+title: 5. Samtykkeportal
+linkTitle: 5. Samtykkeportal
 weight: 5
 toc: true
-# Gyldige statusverdier:
-# ◯ Ny
-# ◔ Tidlig utkast
-# ◐ Pågår
-# ◕ Til QA
-# ⏺ Godkjent
-# ⨂ Avbrutt
-status: "Avbrutt"
+status: Ny
 ---
-
 
 ## Foreløpig beskrivelse
 
