@@ -22,5 +22,28 @@
 <body>
   <a id="back-to-portal" href="../en/">← Back to editing overview</a>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    /* Readonly widget: displays UUID value without allowing edits */
+    (function () {
+      var h = React.createElement;
+      CMS.registerWidget('readonly',
+        function (props) {
+          return h('div', {
+            style: {
+              padding: '8px 12px',
+              background: '#f5f5f5',
+              border: '1px solid #e0e0e0',
+              borderRadius: '4px',
+              fontFamily: 'monospace',
+              fontSize: '13px',
+              color: '#555',
+              userSelect: 'all'
+            }
+          }, props.value || '(auto-generated)');
+        },
+        function (props) { return h('span', {}, props.value || ''); }
+      );
+    })();
+  </script>
 </body>
 </html>

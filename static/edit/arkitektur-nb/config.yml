@@ -31,9 +31,11 @@ collections:
     public_folder: ""
     sortable_fields: ['weight', 'title']
     fields:
-      - name: id
-        widget: hidden
+      - label: "Unik ID"
+        name: id
+        widget: readonly
         i18n: duplicate
+        required: false
 
       - label: Tittel
         name: title
@@ -71,3 +73,4 @@ collections:
         name: body
         widget: markdown
         i18n: true
+        required: false
