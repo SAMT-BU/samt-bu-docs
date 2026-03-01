@@ -90,7 +90,7 @@ i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret"
 
 - **Portal (produksjon):** `https://samt-bu.github.io/samt-bu-docs/edit/`
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
-- **Lokal testing:** `hugo server` + «Work with Local Repository» i nettleseren → `http://localhost:1313/samt-bu-docs/edit/`
+- **Lokal testing:** `hugo server` + åpne `http://localhost:1313/samt-bu-docs/edit/use-cases-nb/` → «Work with Local Repository»
 - **Ny seksjon:** lag `static/edit/<seksjon>-nb/` med `index.html` + `config.yml` (`locales: [nb]`, `default_locale: nb`), legg til kort i `static/edit/index.html`
 - **Tospråklig støtte:** ikke i bruk – Sveltia håndterer ikke `_index.en.md` via GitHub API. Engelsk redigeres manuelt.
 - **Frontmatter-format:** YAML (`---`) – ikke TOML.
