@@ -57,10 +57,10 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
     prosjektpartnere/              # Org-moduler: digdir, ks, ks-digital, hk-dir, udir, sikt, staf, ssb, novari
     andre/                         # samt-bu-org-andre; inkl. kommuneforlaget/brukstilfelle-analyse/
   innsikt/                         # Montert fra Hugo Module samt-bu-innsikt (weight 20)
-layouts/                           # Hugo layout-overrides (overstyrer tema)
-  partials/
-    custom-head.html               # ⭐ HOVEDDELEN – all tilpasset CSS (~525 linjer)
-    topbar.html                    # Header-bar med logo, tittel, "under etablering"-banner
+themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogikk ligger her
+  layouts/partials/
+    custom-head.html               # ⭐ HOVEDDELEN – all tilpasset CSS
+    topbar.html                    # Header-bar med logo, tittel, Rediger/Edit-knapp
     header.html                    # HTML-skjelett: <head>, <body>, 3-kolonne wrapper
     menu.html                      # Venstre sidebar-navigasjon (hierarkisk meny)
     footer.html                    # Footer med prev/next-nav, GitHub-redigeringslenke, TOC
@@ -69,31 +69,35 @@ layouts/                           # Hugo layout-overrides (overstyrer tema)
     tema-switcher.html             # Dropdown for dokumentasjonstema (6 kategorier)
     lang-switcher.html             # Språkvelger (flaggikoner nb/en)
     search.html                    # Søkefelt-integrasjon
-    status-symbol.html             # Slår opp statussymbol fra .Params.status → brukes i menu.html og footer.html
-  _default/list.html               # Override for listesider
-  shortcodes/                      # children.html, header.html, relref.html
+    status-symbol.html             # Slår opp statussymbol fra .Params.status
+  layouts/_default/list.html       # Override for listesider
+  layouts/shortcodes/              # children.html, header.html, relref.html
 static/
   images/SAMT-BU-logo.png          # Logo (vises invertert i header)
   images/nb.svg, en.svg            # Flaggikoner for språkvelger
   js/search.js                     # Lunr.js søkeimplementasjon
-  edit/                            # Sveltia CMS-portal (innholdsredigering)
-    index.html                     # Portal/meny – velg seksjon
-    use-cases-nb/
-      index.html                   # Sveltia CMS loader
-      config.yml                   # CMS-konfigurasjon (nb-only)
+  edit/                            # Decap CMS – innholdsredigering
+    index.html                     # Norsk portalside («English →»-lenke i header)
+    en/index.html                  # Engelsk portalside («Norsk →»-lenke i header)
+    docs-nb/, arkitektur-nb/, innsikt-nb/    # Norske CMS-portaler (locales: [nb])
+    docs-en/, arkitektur-en/, innsikt-en/    # Engelske CMS-portaler (locales: [en])
 cloudflare-worker/
   oauth-worker.js                  # GitHub OAuth-proxy (deployet på Cloudflare Workers)
 i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret")
 ```
 
-## Sveltia CMS – innholdsredigering
+## Decap CMS – innholdsredigering
 
-- **Portal (produksjon):** `https://samt-bu.github.io/samt-bu-docs/edit/`
+- **Norsk portal:** `https://samt-bu.github.io/samt-bu-docs/edit/`
+- **Engelsk portal:** `https://samt-bu.github.io/samt-bu-docs/edit/en/`
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
-- **Lokal testing:** `hugo server` + åpne `http://localhost:1313/samt-bu-docs/edit/use-cases-nb/` → «Work with Local Repository»
-- **Ny seksjon:** lag `static/edit/<seksjon>-nb/` med `index.html` + `config.yml` (`locales: [nb]`, `default_locale: nb`), legg til kort i `static/edit/index.html`
-- **Tospråklig støtte:** ikke i bruk – Sveltia håndterer ikke `_index.en.md` via GitHub API. Engelsk redigeres manuelt.
+- **Lokal testing:** `hugo server` + åpne portalen i nettleser → «Work with Local Repository» (`local_backend: true` i config.yml)
+- **config.yml-mal:** `backend.name: github`, `repo: SAMT-BU/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
+- **Ny norsk seksjon:** mappe `static/edit/<seksjon>-nb/` med `index.html` (← Portal → `../`) + `config.yml` (`locales: [nb]`) + kort i `edit/index.html`
+- **Ny engelsk seksjon:** mappe `static/edit/<seksjon>-en/` med `index.html` (← Portal → `../en/`) + `config.yml` (`locales: [en]`) + kort i `edit/en/index.html`
+- **Header-knapp:** Norske sider → «Rediger» → `/edit/`; engelske sider → «Edit» → `/edit/en/` (styrt av `.Site.Language.Lang` i `topbar.html`)
 - **Frontmatter-format:** YAML (`---`) – ikke TOML.
+- **OBS:** CMS-sesjoner kan legge igjen testinnhold – sjekk `git diff` før push.
 
 ## Innholdskonvensjoner
 
@@ -141,7 +145,7 @@ Den viktigste arkitekturbeslutningen. Implementert i `custom-head.html` (linje ~
 - Tema-CSS setter `height: 100px; padding-top: 32px` ved ≥768px
 - Overstyrt i `custom-head.html` til `height: auto; padding: 13px 0` (~66px total)
 - Innholdet er vertikalt midtstilt med `display: flex; align-items: center` (inline i `topbar.html`)
-- Inneholder: logo, tittel, "⚒ Nettsted under etablering"-banner, tema-switcher, søk, språkvelger
+- Inneholder: logo, tittel, tema-switcher, søk, språkvelger, Rediger/Edit-knapp
 
 ### Grått mellomrom (header → kolonner)
 
@@ -173,30 +177,24 @@ Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
 
 ## Nåværende status
 
-**Nettstedet er under etablering** (synlig banner i header).
-
 ### Hva er ferdig
 
-- Hugo-oppsett med tema, tospråklig konfigurasjon, søk
-- 3-kolonne layout med uavhengig scroll fungerer
-- Header med logo, tittel, tema-switcher, søk, språkvelger
-- Scroll-fade-indikatorer i sidebar og TOC (plassert ved visuell bunn)
-- Scroll-spy i TOC: aktiv seksjon markeres med bold
-- Collapsible sidebars med localStorage-persistens og restore-tabs
-- Barn-liste på seksjonssider: midt-kolonne (`list.html`) + høyre TOC-kolonne (`footer.html`)
-- «Om» som første seksjon (`content/om/`, weight 1) med tre underkapitler
-- 6 innholdskategorier med tomt skjelettinnhold, gruppert under «Temaer»
-- Hugo Module-integrasjon: samtlige org-moduler montert; Prosjektpartnere-gruppering under Innspill
-- Kommuneforlaget (KF) under Andre – inkl. full Brukstilfelle-analyse (Word→Markdown, 19 use cases)
-- 19 use cases under brukerbehov
-- Omfattende CSS-finjustering (font, avstand, scrollbar, bredde)
+- Hugo-oppsett med tema (submodule), tospråklig konfigurasjon, søk
+- 3-kolonne layout med uavhengig scroll
+- Header med logo, tittel, tema-switcher, søk, språkvelger, Rediger/Edit-knapp
+- Scroll-fade, scroll-spy i TOC, collapsible sidebars med localStorage-persistens
+- Barn-liste på seksjonssider (midt- og høyrekolonne)
+- «Om» som første seksjon med tre underkapitler
+- 6 innholdskategorier gruppert under «Temaer»
+- Hugo Module-integrasjon: alle org-moduler montert under Innspill
+- 19 use cases under Behov (inkl. Kommuneforlaget brukstilfelle-analyse)
+- Decap CMS med norsk og engelsk portal, tospråklig redigering bekreftet
 
 ### Hva gjenstår / pågår
 
 - Fylle inn faktisk innhold i alle seksjoner
 - Finjustere responsiv design for mobil/tablet
 - Tema-switcher-funksjonalitet (filtrerer innhold etter dokumentasjonskategori)
-- Eventuelt ytterligere visuell polering
 
 ## Hugo Modules – innholdsmoduler
 
@@ -239,9 +237,10 @@ hugo mod get github.com/SAMT-BU/samt-bu-innspill@latest
 
 ## Viktige tips for ny sesjon
 
-1. **All tilpasset CSS er i `layouts/partials/custom-head.html`** – dette er filen du oftest må redigere for layout/styling-endringer
-2. **Ikke rediger filer i `themes/`** – bruk layout-overrides i `layouts/` i stedet
+1. **All tilpasset CSS er i `themes/hugo-theme-samt-bu/layouts/partials/custom-head.html`** – dette er filen du oftest redigerer for layout/styling
+2. **Layout-filer redigeres i temaet** (`themes/hugo-theme-samt-bu/`) – commit der, deretter oppdater submodule-peker i samt-bu-docs
 3. **Tema-CSS-en har tre lag:** `designsystem.css` → `theme.css` → `custom-head.html` (sistnevnte vinner)
 4. **Bygg med `hugo`** for å verifisere at endringer kompilerer uten feil
 5. **Inline styles i `topbar.html`** – header-nav har mye inline CSS for flex-layout
 6. **Commit-meldinger skrives på norsk** (se git-historikken for stil)
+7. **Submodule-oppdatering:** etter commit i temaet, kjør `git add themes/hugo-theme-samt-bu && git commit` i samt-bu-docs
