@@ -16,8 +16,8 @@ i18n:
 
 collections:
   - name: docs
-    label: "Dokumentasjon"
-    label_singular: "Side"
+    label: "Sider"
+    label_singular: "side"
     folder: content
     nested:
       depth: 10

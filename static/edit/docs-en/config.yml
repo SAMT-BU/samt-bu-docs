@@ -16,8 +16,8 @@ i18n:
 
 collections:
   - name: docs
-    label: "Documentation"
-    label_singular: "Page"
+    label: "Pages"
+    label_singular: "page"
     folder: content
     nested:
       depth: 10
