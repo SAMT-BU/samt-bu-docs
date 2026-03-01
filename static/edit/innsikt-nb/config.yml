@@ -1,13 +1,13 @@
 backend:
   name: github
-  repo: SAMT-BU/samt-bu-docs
+  repo: SAMT-BU/samt-bu-innsikt
   branch: main
   base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev
 
 local_backend: true
 
 media_folder: static/images
-public_folder: /samt-bu-docs/images
+public_folder: /images
 
 i18n:
   structure: multiple_files
@@ -15,16 +15,18 @@ i18n:
   default_locale: nb
 
 collections:
-  - name: use-cases
-    label: "Use cases"
-    label_singular: "Use case"
-    folder: content/temaer/behov/use-cases
-    path: "{{slug}}/_index"
+  - name: innsikt
+    label: "Felles innsikt"
+    label_singular: "Side"
+    folder: content
+    nested:
+      depth: 10
+      summary: "{{title}}"
+    path: "{{dir}}/_index"
     create: true
     i18n: true
     media_folder: ""
     public_folder: ""
-    summary: "{{fields.linkTitle}} [{{fields.status}}]"
     fields:
       - label: Tittel
         name: title
@@ -35,19 +37,14 @@ collections:
         name: linkTitle
         widget: string
         i18n: true
-        hint: "Kortere tittel for navigasjonsmenyen (uten statussymbol)"
+        required: false
 
       - label: Sorteringsrekkefølge
         name: weight
         widget: number
         value_type: int
         i18n: duplicate
-
-      - label: Innholdsfortegnelse
-        name: toc
-        widget: boolean
-        default: true
-        i18n: duplicate
+        required: false
 
       - label: Status
         name: status
