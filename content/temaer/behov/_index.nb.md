@@ -1,8 +1,7 @@
 ---
-title: "Behov"
-linkTitle: "Behov"
+title: Behov
+linkTitle: Behov
 weight: 10
-status: "I arbeid"
+status: I arbeid
 ---
-
-Kartlegging av behov for samhandling innen oppvekst og utdanning.
+Kartlegging av behov.
