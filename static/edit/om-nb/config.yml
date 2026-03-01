@@ -47,3 +47,27 @@ collections:
         name: body
         widget: markdown
         i18n: true
+
+  - name: om-seksjon
+    label: "Om – seksjonsoversikt"
+    files:
+      - label: "Seksjonsoversikt"
+        name: om-index
+        file: content/om/_index.nb.md
+        fields:
+          - label: Tittel
+            name: title
+            widget: string
+
+          - label: Navigasjonstittel
+            name: linkTitle
+            widget: string
+
+          - label: Sorteringsrekkefølge
+            name: weight
+            widget: number
+            value_type: int
+
+          - label: Innhold
+            name: body
+            widget: markdown
