@@ -1,7 +1,7 @@
 ---
-title: "Løsninger"
-linkTitle: "Løsninger"
+title: Løsninger
+linkTitle: Løsninger
 weight: 40
-status: "Ikke påbegynt"
+status: Ikke påbegynt
 ---
-
+Testtekst.
