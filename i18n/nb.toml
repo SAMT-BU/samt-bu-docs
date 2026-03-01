@@ -1,2 +1,8 @@
 [Last-modified]
 other = "Sist endret"
+
+[navSwitcherLabel]
+other = "Innhold"
+
+[navSwitcherPlaceholder]
+other = "Velg seksjon"

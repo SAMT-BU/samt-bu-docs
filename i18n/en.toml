@@ -1,2 +1,8 @@
 [Last-modified]
 other = "Last modified"
+
+[navSwitcherLabel]
+other = "Content"
+
+[navSwitcherPlaceholder]
+other = "Select section"
