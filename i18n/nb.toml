@@ -1,6 +1,15 @@
 [Last-modified]
 other = "Sist endret"
 
+[editSwitcherLabel]
+other = "Endre"
+
+[editSwitcherPage]
+other = "Side"
+
+[editSwitcherOther]
+other = "Annet"
+
 [navSwitcherLabel]
 other = "Innhold"
 

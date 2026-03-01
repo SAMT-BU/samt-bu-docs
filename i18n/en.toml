@@ -1,6 +1,15 @@
 [Last-modified]
 other = "Last modified"
 
+[editSwitcherLabel]
+other = "Edit"
+
+[editSwitcherPage]
+other = "Page"
+
+[editSwitcherOther]
+other = "Other"
+
 [navSwitcherLabel]
 other = "Content"
 
