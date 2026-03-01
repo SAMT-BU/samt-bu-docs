@@ -1,4 +1,5 @@
 ---
+id: "f3c85e96-d5c9-4cd7-b29b-f05bda058448"
 title: "17. Hendelsesdrevet og automatisert rapportering"
 linkTitle: "17. Automatisert rapportering"
 weight: 17

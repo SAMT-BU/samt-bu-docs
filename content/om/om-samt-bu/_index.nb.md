@@ -1,4 +1,5 @@
 ---
+id: "364728ba-fc9d-4605-9511-57acdbb7f9f3"
 title: "Om SAMT-BU"
 linkTitle: "Om SAMT-BU"
 weight: 1

@@ -28,6 +28,13 @@ collections:
     media_folder: ""
     public_folder: ""
     fields:
+      - label: "Unik ID"
+        name: id
+        widget: uuid
+        i18n: duplicate
+        required: false
+        hint: "Auto-generert identifikator – skal aldri endres"
+
       - label: Tittel
         name: title
         widget: string
