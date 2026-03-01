@@ -119,8 +119,12 @@ hugo server
 ```
 content/
   om/                    ← «Om»-seksjonen
-  temaer/                ← Faglige temaer (arkitektur, behov, løsning …)
-  innspill/              ← Innspill fra organisasjoner
+  behov/                 ← Faglig tema: Behov (use cases)
+  pilotering/            ← Faglig tema: Piloter
+  arkitektur/            ← Faglig tema: Arkitektur
+  loesning/              ← Faglig tema: Løsninger
+  rammeverk/             ← Faglig tema: Rammeverk
+  informasjonsmodeller/  ← Faglig tema: Informasjonsmodeller
   innsikt/               ← Felles innsikt
 ```
 
