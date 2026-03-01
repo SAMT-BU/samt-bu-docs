@@ -1,17 +1,7 @@
-github.com/SAMT-BU/samt-bu-arkitektur v0.0.0-20260224083902-3b4c55ba2887 h1:LtKExV/FnCFJDa8I8G0dHpCxNFRuRW+HvQbgfPmqa3Y=
-github.com/SAMT-BU/samt-bu-arkitektur v0.0.0-20260224083902-3b4c55ba2887/go.mod h1:EEGrGJgkUDI52bbOIlihx3TYEiZ9HQhm+hmKHkHwDgU=
 github.com/SAMT-BU/samt-bu-innsikt v0.0.0-20260223204941-fe466949ae7c h1:fhuIekmgN2CxMixLbIXP+sxHGRCBAhj2rbJNJxqxaWk=
 github.com/SAMT-BU/samt-bu-innsikt v0.0.0-20260223204941-fe466949ae7c/go.mod h1:LgS3Mc2T3bgADm07r6ZHj/RGqkWBWfDuN60lKvUTM8k=
 github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a h1:E4rTHaNC0FHTjDuSN0Cp8Iqo3H+qpZA9OBE5LpMKSf0=
 github.com/SAMT-BU/samt-bu-innspill v0.0.0-20260223200440-3014e73b3b0a/go.mod h1:in5RxF3kcwNbbgpij0Fz8fTmkc5+Yjc4RG5zEMCUOJA=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260223231355-a5e4c878132d h1:nQ1J1xVaV8mjpcCM4PFzM0ZCcGPz08/a6aXKGBOpDCk=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260223231355-a5e4c878132d/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224233907-223f880e8959 h1:TIwwGPKHLlEN7HspiW/3hmCN+VW6ro/dpTw4ypdspWM=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224233907-223f880e8959/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224235713-89eaf93c4917 h1:hTw7ackm3iA/3VAx1ZbQQYQGr2eNc1WRwJkOaXaKw/w=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260224235713-89eaf93c4917/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260225000657-d3d040eeebc9 h1:0KJLMRldpxNwyuQjPmHOdGZqt0U0D82oVCU3jPpPyos=
-github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260225000657-d3d040eeebc9/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
 github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260225002130-6ec6dfda4225 h1:m9e+SvBTnWy7EUllVJnJsL7F586wFfCBUH94R0WVa50=
 github.com/SAMT-BU/samt-bu-org-andre v0.0.0-20260225002130-6ec6dfda4225/go.mod h1:LmTo7QONLgXgX8p7VsenzJvYPnxymrQPcvINJQILBaA=
 github.com/SAMT-BU/samt-bu-org-digdir v0.0.0-20260223231329-e7ab1f561ac5 h1:E3f8CLl1djTfyHaH4sygwyPjv5EK4TMzi3BsREpOZeY=
@@ -32,5 +22,3 @@ github.com/SAMT-BU/samt-bu-org-staf v0.0.0-20260223231346-9adece8f8f45 h1:4h7Uqi
 github.com/SAMT-BU/samt-bu-org-staf v0.0.0-20260223231346-9adece8f8f45/go.mod h1:koYXmzeODMhF+ISgVkkvaSth1ZDXpw6E2OmU9KkI7eI=
 github.com/SAMT-BU/samt-bu-org-udir v0.0.0-20260223231341-0ba46421f56a h1:RRXeHbR06+yEfxi83+K5CkqNv7r3wZ8/JbZvuUgjlhs=
 github.com/SAMT-BU/samt-bu-org-udir v0.0.0-20260223231341-0ba46421f56a/go.mod h1:8FRy0PZa5bssylwZTmk8FRz2ShPu1jhN0zHZHKD9zA8=
-github.com/altinn/hugo-theme-altinn v0.0.0-20260126142206-f5ed793b496b h1:WCQTFk7OtL8b9hc6xGum1L6IEh1oq+1MOJiTQkzKjQM=
-github.com/altinn/hugo-theme-altinn v0.0.0-20260126142206-f5ed793b496b/go.mod h1:7p9mXaSDk6GfhI8YakzCoE5wct9QL/z5eUrnofnHS1o=
