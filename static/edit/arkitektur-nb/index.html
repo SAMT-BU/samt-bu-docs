@@ -21,6 +21,7 @@
 </head>
 <body>
   <a id="back-to-portal" href="../">← Tilbake til oversikt (redigering)</a>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
     /* Minimal norsk bokmål-lokale for Decap CMS UI-strenger.
@@ -34,7 +35,8 @@
         collectionTop: { newButton:   'Ny %{collectionLabel}' }
       }
     });
-    /* Readonly-widget: viser UUID-verdien uten redigeringsmulighet */
+    /* Readonly-widget: viser UUID-verdien uten redigeringsmulighet.
+       Må registreres før CMS.init() – derav CMS_MANUAL_INIT over. */
     (function () {
       var h = React.createElement;
       CMS.registerWidget('readonly',
@@ -55,6 +57,7 @@
         function (props) { return h('span', {}, props.value || ''); }
       );
     })();
+    CMS.init();
   </script>
 </body>
 </html>
