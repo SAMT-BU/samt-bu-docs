@@ -1,7 +1,8 @@
 ---
-title: "Arkitektur"
-linkTitle: "Arkitektur"
+title: Arkitektur
+linkTitle: Arkitektur
 weight: 30
-status: "Ny"
+toc: true
+status: null
 ---
-
+Arkitektur...
