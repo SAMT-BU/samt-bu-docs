@@ -5,10 +5,10 @@ other = "Last modified"
 other = "Edit"
 
 [editSwitcherPage]
-other = "Page"
+other = "This page"
 
 [editSwitcherOther]
-other = "Other"
+other = "Other options"
 
 [navSwitcherLabel]
 other = "Content"

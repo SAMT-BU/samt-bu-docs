@@ -5,10 +5,10 @@ other = "Sist endret"
 other = "Endre"
 
 [editSwitcherPage]
-other = "Side"
+other = "Denne siden"
 
 [editSwitcherOther]
-other = "Annet"
+other = "Andre valg"
 
 [navSwitcherLabel]
 other = "Innhold"
