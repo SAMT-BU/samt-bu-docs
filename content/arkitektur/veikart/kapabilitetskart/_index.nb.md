@@ -1,0 +1,6 @@
+---
+id: "92ffe769-ddce-43e2-974b-7d3f057b5f75"
+title: "Kapabilitetskart"
+weight: 1
+toc: true
+---
