@@ -36,8 +36,9 @@
       }
     });
     /* Readonly-widget: viser UUID-verdien uten redigeringsmulighet.
-       Må registreres før CMS.init() – derav CMS_MANUAL_INIT over. */
-    (function () {
+       Må registreres før CMS.init() – derav CMS_MANUAL_INIT over.
+       try/catch sikrer at CMS alltid initialiseres selv om React mangler. */
+    try {
       var h = React.createElement;
       CMS.registerWidget('readonly',
         function (props) {
@@ -56,7 +57,7 @@
         },
         function (props) { return h('span', {}, props.value || ''); }
       );
-    })();
+    } catch (e) { console.warn('readonly widget ikke registrert:', e); }
     CMS.init();
   </script>
 </body>
