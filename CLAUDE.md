@@ -71,8 +71,9 @@ themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogi
     menu.html                      # Venstre sidebar-navigasjon (hierarkisk meny)
     footer.html                    # Footer med prev/next-nav, GitHub-redigeringslenke, TOC
     footer-content.html            # Footer-innhold (misjonserklæring)
-    custom-footer.html             # JS for tema-switcher og språkvelger
+    custom-footer.html             # JS for tema-switcher, edit-switcher og språkvelger
     tema-switcher.html             # Innhold/Content-dropdown (10 seksjoner)
+    edit-switcher.html             # Endre/Edit-dropdown (deep-link til Decap CMS)
     lang-switcher.html             # Språkvelger (flaggikoner nb/en)
     search.html                    # Søkefelt-integrasjon
     status-symbol.html             # Slår opp statussymbol fra .Params.status
@@ -99,7 +100,12 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
 - **Lokal testing:** `hugo server` + åpne portalen i nettleser → «Work with Local Repository» (`local_backend: true` i config.yml)
 - **config.yml-mal:** `backend.name: github`, `repo: SAMT-BU/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
-- **Header-knapp:** Norske sider → «Rediger» → `/edit/`; engelske sider → «Edit» → `/edit/en/` (styrt av `.Site.Language.Lang` i `topbar.html`)
+- **Header-dropdown («Endre»/«Edit»):** Erstatter gammel statisk knapp. Implementert i `edit-switcher.html`.
+  - «Denne siden»/«This page» → deep-link til gjeldende side i Decap: `edit/docs-nb/#/collections/docs/entries/<dir>/_index`
+  - «Andre valg»/«Other options» → CMS-oversikt (`/edit/` eller `/edit/en/`)
+  - Sider fra Hugo Modules (`teams/team-architecture/*`, `utkast/*`) får «Denne siden» deaktivert (fase 1)
+  - **Windows-fallgruve:** `.File.Path` bruker backslash – bruk alltid `path.Dir .File.Path` (normaliserer) fremfor rå `.File.Path` for hasPrefix-sjekker
+  - **Decap entry-ID:** Bruker `{{dir}}/_index` som slug – deep-link må ha `/_index`-suffiks
 - **Frontmatter-format:** YAML (`---`) – ikke TOML.
 - **OBS:** CMS-sesjoner kan legge igjen testinnhold – sjekk `git diff` før push.
 
@@ -180,7 +186,7 @@ Den viktigste arkitekturbeslutningen. Implementert i `custom-head.html` (linje ~
 - Tema-CSS setter `height: 100px; padding-top: 32px` ved ≥768px
 - Overstyrt i `custom-head.html` til `height: auto; padding: 13px 0` (~66px total)
 - Innholdet er vertikalt midtstilt med `display: flex; align-items: center` (inline i `topbar.html`)
-- Inneholder: logo, tittel, tema-switcher, søk, språkvelger, Rediger/Edit-knapp
+- Inneholder: logo, tittel, tema-switcher, søk, språkvelger, Endre/Edit-dropdown
 
 ### Grått mellomrom (header → kolonner)
 
@@ -218,7 +224,7 @@ Dropdown i headeren for å navigere direkte til en av de 10 seksjonene.
 
 - Hugo-oppsett med tema (submodule), tospråklig konfigurasjon, søk
 - 3-kolonne layout med uavhengig scroll
-- Header med logo, tittel, Innhold/Content-dropdown, søk, språkvelger, Rediger/Edit-knapp
+- Header med logo, tittel, Innhold/Content-dropdown, søk, språkvelger, Endre/Edit-dropdown (deep-link til Decap)
 - Scroll-fade, scroll-spy i TOC, collapsible sidebars med localStorage-persistens
 - Barn-liste på seksjonssider (midt- og høyrekolonne)
 - «Om» som første seksjon med tre underkapitler
