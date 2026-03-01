@@ -22,6 +22,8 @@ collections:
     path: "{{slug}}/_index"
     create: true
     i18n: true
+    media_folder: ""
+    public_folder: ""
     summary: "{{fields.linkTitle}} [{{fields.status}}]"
     fields:
       - label: Tittel
