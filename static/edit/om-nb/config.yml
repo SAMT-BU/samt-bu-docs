@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: SAMT-BU/samt-bu-docs
+  branch: main
+  base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev
+
+local_backend: true
+
+media_folder: static/images
+public_folder: /samt-bu-docs/images
+
+i18n:
+  structure: multiple_files
+  locales: [nb]
+  default_locale: nb
+
+collections:
+  - name: om
+    label: "Om SAMT-BU"
+    label_singular: "Side"
+    folder: content/om
+    path: "{{slug}}/_index"
+    create: false
+    i18n: true
+    media_folder: ""
+    public_folder: ""
+    summary: "{{fields.title}}"
+    fields:
+      - label: Tittel
+        name: title
+        widget: string
+        i18n: true
+
+      - label: Navigasjonstittel
+        name: linkTitle
+        widget: string
+        i18n: true
+        hint: "Kortere tittel for navigasjonsmenyen"
+
+      - label: Sorteringsrekkefølge
+        name: weight
+        widget: number
+        value_type: int
+        i18n: duplicate
+
+      - label: Innhold
+        name: body
+        widget: markdown
+        i18n: true
