@@ -144,6 +144,8 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 - Alle seksjoner har `_index.nb.md` og `_index.en.md`
 - Frontmatter-felter: `id` (UUID, delt mellom nb/en), `weight` (sorteringsrekkefølge), `status`, `draft: true` for upublisert innhold
 - **`id`-felt:** UUID v4, samme verdi i `_index.nb.md` og `_index.en.md` for samme side. Aldri endres.
+  Håndteres automatisk av GitHub Actions-workflow (`.github/workflows/ensure-uuids.yml`) i alle tre repoer –
+  aldri sett manuelt. `widget: hidden` i Decap CMS (skjult fra redaktøren).
 - `editURL` i `hugo.toml` genererer "Rediger på GitHub"-lenker: `https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/`
 - **Commit-meldinger skrives på norsk** (se git-historikken for stil)
 
