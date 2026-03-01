@@ -88,6 +88,10 @@ static/
     en/index.html                  # Engelsk portalside («Norsk →»-lenke i header)
     docs-nb/, arkitektur-nb/, utkast-nb/     # Norske CMS-portaler (locales: [nb], locale: nb)
     docs-en/, arkitektur-en/, utkast-en/     # Engelske CMS-portaler (locales: [en])
+.github/
+  workflows/hugo.yml               # CI/CD: bygg og deploy til GitHub Pages
+  workflows/ensure-uuids.yml       # ⭐ UUID-workflow: sikrer id-felt i all frontmatter automatisk
+  scripts/ensure-uuids.py          # Python-skript brukt av UUID-workflow
 cloudflare-worker/
   oauth-worker.js                  # GitHub OAuth-proxy (deployet på Cloudflare Workers)
 i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksjonstitler, «Sist endret»)
@@ -237,6 +241,9 @@ Dropdown i headeren for å navigere direkte til en av de 10 seksjonene.
 - Hugo Module-integrasjon: team-architecture og samt-bu-drafts montert
 - 19 use cases under Behov (inkl. Kommuneforlaget brukstilfelle-analyse)
 - Decap CMS med norsk og engelsk portal, tospråklig redigering bekreftet
+- «Denne siden»/«This page» deep-link i Endre-dropdown for alle sider inkl. modul-sider (teams/team-architecture, utkast)
+- UUID-workflow (`.github/workflows/ensure-uuids.yml`) i alle tre repoer – sikrer id-felt i frontmatter automatisk
+- `widget: hidden` for id-felt i alle 6 Decap-portaler – UUID er usynlig for redaktøren
 
 ### Hva gjenstår / pågår
 
