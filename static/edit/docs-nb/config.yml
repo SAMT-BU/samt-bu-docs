@@ -33,9 +33,10 @@ collections:
     fields:
       - label: "Unik ID"
         name: id
-        widget: readonly
+        widget: string
         i18n: duplicate
         required: false
+        hint: "Administreres automatisk – ikke endre denne verdien"
 
       - label: Tittel
         name: title
