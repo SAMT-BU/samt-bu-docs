@@ -38,25 +38,27 @@ CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automati
 hugo.toml                          # Hugo-konfigurasjon (baseURL, språk, tema)
 content/                           # Alt innhold (Markdown med YAML frontmatter)
   om/                              # «Om» – intro-seksjon (weight 1)
-    om-samt-bu.*                   # Om SAMT-BU (weight 1)
-    om-dette-nettstedet.*          # Om dette nettstedet (weight 2)
-    hvordan-bidra.*                # Hvordan bidra (weight 3)
-  temaer/                          # Toppnivå-seksjon som grupperer faglige temaer (weight 5)
-    behov/                         # Behov (weight 10)
-      use-cases/                   # Case – 19 nummererte use cases (01–19)
-      annet/                       # Annet (foreløpig)
-    arkitektur/                    # Arkitektur (weight 30) – Hugo Module samt-bu-arkitektur
-    loesning/                      # Løsninger (weight 40)
-    pilotering/                    # Piloter (weight 20)
-    rammeverk/                     # Rammeverk (weight 50) – generisk rammeverk
-      metodikk/                    # Metodikk (weight 30)
-      juss/                        # Juss (weight 40)
-      styring/                     # Styring (weight 50)
-    informasjonsmodeller/          # Informasjonsmodeller (weight 60)
-  innspill/                        # Montert fra Hugo Module samt-bu-innspill (weight 10)
-    prosjektpartnere/              # Org-moduler: digdir, ks, ks-digital, hk-dir, udir, sikt, staf, ssb, novari
-    andre/                         # samt-bu-org-andre; inkl. kommuneforlaget/brukstilfelle-analyse/
-  innsikt/                         # Montert fra Hugo Module samt-bu-innsikt (weight 20)
+    om-samt-bu/                    # Om SAMT-BU (weight 1)
+    om-dette-nettstedet/           # Om dette nettstedet (weight 2)
+    hvordan-bidra/                 # Hvordan bidra (weight 3)
+  behov/                           # Behov (weight 10)
+    use-cases/                     # 19 nummererte use cases (01–19)
+    annet/                         # Annet (foreløpig)
+  pilotering/                      # Piloter (weight 20)
+    pilot-1-arkitektur/
+  arkitektur/                      # Arkitektur (weight 30)
+  loesning/                        # Løsninger (weight 40)
+  rammeverk/                       # Rammeverk (weight 50)
+    metodikk/                      # Metodikk (weight 30)
+    juss/                          # Juss (weight 40)
+    styring/                       # Styring (weight 50)
+  informasjonsmodeller/            # Informasjonsmodeller (weight 60)
+  innsikt/                         # Felles innsikt – lokal placeholder (weight 70)
+  teams/                           # Teams (weight 80) – lokalt seksjonshode
+    team-architecture/             # ← montert fra Hugo Module team-architecture
+  utkast/                          # Utkast og innspill (weight 90) – ← montert fra Hugo Module samt-bu-drafts
+    kommuneforlaget/               # Kommuneforlaget (fra samt-bu-org-andre)
+      brukstilfelle-analyse/
 themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogikk ligger her
   layouts/partials/
     custom-head.html               # ⭐ HOVEDDELEN – all tilpasset CSS
@@ -66,7 +68,7 @@ themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogi
     footer.html                    # Footer med prev/next-nav, GitHub-redigeringslenke, TOC
     footer-content.html            # Footer-innhold (misjonserklæring)
     custom-footer.html             # JS for tema-switcher og språkvelger
-    tema-switcher.html             # Dropdown for dokumentasjonstema (6 kategorier)
+    tema-switcher.html             # Innhold/Content-dropdown (10 seksjoner)
     lang-switcher.html             # Språkvelger (flaggikoner nb/en)
     search.html                    # Søkefelt-integrasjon
     status-symbol.html             # Slår opp statussymbol fra .Params.status
@@ -83,7 +85,7 @@ static/
     docs-en/, arkitektur-en/, innsikt-en/    # Engelske CMS-portaler (locales: [en])
 cloudflare-worker/
   oauth-worker.js                  # GitHub OAuth-proxy (deployet på Cloudflare Workers)
-i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret")
+i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksjonstitler, «Sist endret»)
 ```
 
 ## Decap CMS – innholdsredigering
@@ -160,13 +162,15 @@ Tre lag der sistnevnte vinner: `designsystem.css` → `theme.css` → `custom-he
 
 Utvidet fra standard Bootstrap: `width: 95vw; max-width: 1400px` ved ≥1200px, `1600px` ved ≥1600px
 
-### Tema-switcher (`layouts/partials/tema-switcher.html`)
+### Innhold/Content-dropdown (`layouts/partials/tema-switcher.html`)
 
-Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
+Dropdown i headeren for å navigere direkte til en av de 10 seksjonene.
 
-- **Aktiv-deteksjon:** `findRE "<seksjon>" .RelPermalink` – fungerer uavhengig av URL-dybde
-- **Lenker:** Peker på `temaer/<seksjon>/` – husk å oppdatere disse hvis seksjonene flyttes igjen
-- **Viktig:** Hvis innholdsstrukturen endres, må `href`-attributtene i tema-switcher oppdateres manuelt
+- **Etikett:** «Innhold» (nb) / «Content» (en) – styrt av i18n-nøkkel `navSwitcherLabel`
+- **Aktiv-deteksjon:** `findRE (printf "/%s/" .id) .RelPermalink` – matcher hele URL-segment
+- **Titler:** Oversatt via i18n med `.id` som nøkkel, `.title` som norsk fallback
+- **Konfigurasjon:** `[[params.navSwitcher]]` i `hugo.toml` – id, title, url, icon
+- **Legg til ny seksjon:** Ny `[[params.navSwitcher]]`-blokk i `hugo.toml` + i18n-nøkkel i `nb.toml`/`en.toml`
 
 ### Typografi
 
@@ -181,12 +185,12 @@ Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
 
 - Hugo-oppsett med tema (submodule), tospråklig konfigurasjon, søk
 - 3-kolonne layout med uavhengig scroll
-- Header med logo, tittel, tema-switcher, søk, språkvelger, Rediger/Edit-knapp
+- Header med logo, tittel, Innhold/Content-dropdown, søk, språkvelger, Rediger/Edit-knapp
 - Scroll-fade, scroll-spy i TOC, collapsible sidebars med localStorage-persistens
 - Barn-liste på seksjonssider (midt- og høyrekolonne)
 - «Om» som første seksjon med tre underkapitler
-- 6 innholdskategorier gruppert under «Temaer»
-- Hugo Module-integrasjon: alle org-moduler montert under Innspill
+- 10 seksjoner i flat struktur direkte under `content/`
+- Hugo Module-integrasjon: team-architecture og samt-bu-drafts montert
 - 19 use cases under Behov (inkl. Kommuneforlaget brukstilfelle-analyse)
 - Decap CMS med norsk og engelsk portal, tospråklig redigering bekreftet
 
@@ -194,7 +198,6 @@ Dropdown i headeren for å navigere direkte til en av de 6 faglige seksjonene.
 
 - Fylle inn faktisk innhold i alle seksjoner
 - Finjustere responsiv design for mobil/tablet
-- Tema-switcher-funksjonalitet (filtrerer innhold etter dokumentasjonskategori)
 
 ## Hugo Modules – innholdsmoduler
 
@@ -202,25 +205,15 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 
 | Modul | Repo | Montert under | Tittel |
 |-------|------|---------------|--------|
-| `github.com/SAMT-BU/samt-bu-innspill` | [samt-bu-innspill](https://github.com/SAMT-BU/samt-bu-innspill) | `content/innspill/` | Innspill |
-| `github.com/SAMT-BU/samt-bu-innsikt` | [samt-bu-innsikt](https://github.com/SAMT-BU/samt-bu-innsikt) | `content/innsikt/` | Felles innsikt |
-| `github.com/SAMT-BU/samt-bu-arkitektur` | [samt-bu-arkitektur](https://github.com/SAMT-BU/samt-bu-arkitektur) | `content/temaer/arkitektur/` | Arkitektur |
-| `github.com/SAMT-BU/samt-bu-org-digdir` | samt-bu-org-digdir | `content/innspill/digdir/` | Digdir |
-| `github.com/SAMT-BU/samt-bu-org-ks` | samt-bu-org-ks | `content/innspill/ks/` | KS |
-| `github.com/SAMT-BU/samt-bu-org-ks-digital` | samt-bu-org-ks-digital | `content/innspill/ks-digital/` | KS Digital |
-| `github.com/SAMT-BU/samt-bu-org-hk-dir` | samt-bu-org-hk-dir | `content/innspill/hk-dir/` | HK-dir |
-| `github.com/SAMT-BU/samt-bu-org-udir` | samt-bu-org-udir | `content/innspill/udir/` | Udir |
-| `github.com/SAMT-BU/samt-bu-org-sikt` | samt-bu-org-sikt | `content/innspill/sikt/` | Sikt |
-| `github.com/SAMT-BU/samt-bu-org-staf` | samt-bu-org-staf | `content/innspill/staf/` | STAF |
-| `github.com/SAMT-BU/samt-bu-org-ssb` | samt-bu-org-ssb | `content/innspill/ssb/` | SSB |
-| `github.com/SAMT-BU/samt-bu-org-novari` | samt-bu-org-novari | `content/innspill/novari/` | Novari |
-| `github.com/SAMT-BU/samt-bu-org-andre` | samt-bu-org-andre | `content/innspill/andre/` | Andre |
+| `github.com/SAMT-BU/team-architecture` | [team-architecture](https://github.com/SAMT-BU/team-architecture) | `content/teams/team-architecture/` | Team arkitektur |
+| `github.com/SAMT-BU/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-BU/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
 
-**Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<navn>/"`.
+**Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<sti>/"`.
 
 **Oppdatere en modul** (etter push til modulrepoet):
 ```bash
-hugo mod get github.com/SAMT-BU/samt-bu-innspill@latest
+hugo mod get github.com/SAMT-BU/samt-bu-drafts@latest
+hugo mod get github.com/SAMT-BU/team-architecture@latest
 ```
 
 **Legge til ny modul:**
@@ -229,11 +222,16 @@ hugo mod get github.com/SAMT-BU/samt-bu-innspill@latest
 3. Kjør `hugo mod get github.com/SAMT-BU/<navn>@latest`
 4. Verifiser med `hugo`, commit `hugo.toml` + `go.mod` + `go.sum`
 
+**Repo-navnekonvensjon:**
+- `samt-bu-`-prefiks = publisert innhold/produkt (montert i nettstedet)
+- `team-`-prefiks = interne arbeidsrepoer for team
+
 ## Verktøy
 
 - **GitHub CLI (`gh`):** Installert (`winget`), versjon 2.87.2. Autentisert mot GitHub.
   - Ikke i PATH i alle shell-kontekster – bruk full sti: `"/c/Program Files/GitHub CLI/gh.exe"`
   - Eksempel: `"/c/Program Files/GitHub CLI/gh.exe" repo rename nytt-navn --repo org/gammelt-navn`
+  - **Slette repos krever ekstra scope:** Kjør `gh auth refresh -h github.com -s delete_repo` og fullfør nettleserflyt før sletting
 
 ## Viktige tips for ny sesjon
 
