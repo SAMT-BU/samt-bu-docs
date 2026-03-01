@@ -29,12 +29,9 @@ collections:
     public_folder: ""
     sortable_fields: ['weight', 'title']
     fields:
-      - label: "Unique ID"
-        name: id
-        widget: uuid
+      - name: id
+        widget: hidden
         i18n: duplicate
-        required: false
-        hint: "Auto-generated identifier – must never be changed"
 
       - label: Title
         name: title
