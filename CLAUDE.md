@@ -108,8 +108,6 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 | `static/edit/arkitektur-nb/` | `SAMT-BU/team-architecture` | nb | Team arkitektur |
 | `static/edit/arkitektur-en/` | `SAMT-BU/team-architecture` | en | Team architecture |
 
-> **Merk:** `innsikt-nb/` og `innsikt-en/` eksisterer i `static/edit/` men peker på slettet repo `samt-bu-innsikt` – bør fjernes eller oppdateres.
-
 ### Legge til ny CMS-portal
 
 1. Opprett mappe `static/edit/<seksjon>-nb/` med:
