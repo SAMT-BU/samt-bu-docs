@@ -101,11 +101,14 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 - **Lokal testing:** `hugo server` + åpne portalen i nettleser → «Work with Local Repository» (`local_backend: true` i config.yml)
 - **config.yml-mal:** `backend.name: github`, `repo: SAMT-BU/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
 - **Header-dropdown («Endre»/«Edit»):** Erstatter gammel statisk knapp. Implementert i `edit-switcher.html`.
-  - «Denne siden»/«This page» → deep-link til gjeldende side i Decap: `edit/docs-nb/#/collections/docs/entries/<dir>/_index`
+  - «Denne siden»/«This page» → deep-link til gjeldende side i riktig portal
   - «Andre valg»/«Other options» → CMS-oversikt (`/edit/` eller `/edit/en/`)
-  - Sider fra Hugo Modules (`teams/team-architecture/*`, `utkast/*`) får «Denne siden» deaktivert (fase 1)
+  - **Rutinglogikk (tre grener)** basert på `$dir = path.Dir .File.Path`:
+    - `hasPrefix $dir "teams/"` → arkitektur-portal, collection `arkitektur`
+    - `eq/hasPrefix $dir "utkast"` → utkast-portal, collection `utkast`
+    - alt annet → docs-portal, collection `docs`
+  - **Entry-slug:** Full relativ sti inkl. `/_index` (f.eks. `kommuneforlaget/_index`). Rot-sider i moduler bruker `_index` alene. Docs-rot forblir deaktivert (tom slug). URL: `<portal>#/collections/<collection>/entries/<slug>`
   - **Windows-fallgruve:** `.File.Path` bruker backslash – bruk alltid `path.Dir .File.Path` (normaliserer) fremfor rå `.File.Path` for hasPrefix-sjekker
-  - **Decap entry-ID:** Bruker `{{dir}}/_index` som slug – deep-link må ha `/_index`-suffiks
 - **Frontmatter-format:** YAML (`---`) – ikke TOML.
 - **OBS:** CMS-sesjoner kan legge igjen testinnhold – sjekk `git diff` før push.
 
