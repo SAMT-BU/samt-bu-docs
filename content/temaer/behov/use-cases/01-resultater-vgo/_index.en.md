@@ -5,7 +5,6 @@ weight: 1
 toc: true
 status: Pågår
 ---
-
 {{% notice info %}}
 This use case is under development.
 {{% /notice %}}
@@ -16,4 +15,4 @@ Making results from upper secondary education accessible.
 
 ## Status
 
-Not started.
+...
