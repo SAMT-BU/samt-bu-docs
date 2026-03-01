@@ -33,7 +33,7 @@ collections:
         name: id
         widget: string
         i18n: duplicate
-        required: false
+        default: "undefined"
         hint: "Auto-managed – do not edit this value"
 
       - label: Title
