@@ -103,10 +103,12 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 
 | Mappe | Repo | Språk | Tittel |
 |-------|------|-------|--------|
-| `static/edit/docs-nb/` | `SAMT-BU/samt-bu-docs` | nb | SAMT-BU Docs |
-| `static/edit/docs-en/` | `SAMT-BU/samt-bu-docs` | en | SAMT-BU Docs |
+| `static/edit/docs-nb/` | `SAMT-BU/samt-bu-docs` | nb | Gjeldende dokumentasjon |
+| `static/edit/docs-en/` | `SAMT-BU/samt-bu-docs` | en | Current documentation |
 | `static/edit/arkitektur-nb/` | `SAMT-BU/team-architecture` | nb | Team arkitektur |
 | `static/edit/arkitektur-en/` | `SAMT-BU/team-architecture` | en | Team architecture |
+| `static/edit/utkast-nb/` | `SAMT-BU/samt-bu-drafts` | nb | Innspill og utkast |
+| `static/edit/utkast-en/` | `SAMT-BU/samt-bu-drafts` | en | Inputs and drafts |
 
 ### Legge til ny CMS-portal
 
