@@ -22,5 +22,18 @@
 <body>
   <a id="back-to-portal" href="../">← Tilbake til oversikt (redigering)</a>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    /* Minimal norsk bokmål-lokale for Decap CMS UI-strenger.
+       Nøkler hentet fra decap-cms-locales/src/nb_no/index.js (offisiell).
+       Kun de to strengene som ikke kan settes via config.yml.
+       Risiko: nøkkelnavnene kan endre seg mellom Decap-versjoner.
+       Se GitHub-issue for detaljer og løsning ved fremtidig brudd. */
+    CMS.registerLocale('nb', {
+      collection: {
+        sidebar:       { collections: 'Samlinger' },
+        collectionTop: { newButton:   'Ny %{collectionLabel}' }
+      }
+    });
+  </script>
 </body>
 </html>

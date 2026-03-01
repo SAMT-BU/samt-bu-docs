@@ -6,6 +6,8 @@ backend:
 
 local_backend: true
 
+locale: nb
+
 media_folder: static/images
 public_folder: /images
 
