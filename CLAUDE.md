@@ -95,11 +95,28 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
 - **Lokal testing:** `hugo server` + åpne portalen i nettleser → «Work with Local Repository» (`local_backend: true` i config.yml)
 - **config.yml-mal:** `backend.name: github`, `repo: SAMT-BU/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
-- **Ny norsk seksjon:** mappe `static/edit/<seksjon>-nb/` med `index.html` (← Portal → `../`) + `config.yml` (`locales: [nb]`) + kort i `edit/index.html`
-- **Ny engelsk seksjon:** mappe `static/edit/<seksjon>-en/` med `index.html` (← Portal → `../en/`) + `config.yml` (`locales: [en]`) + kort i `edit/en/index.html`
 - **Header-knapp:** Norske sider → «Rediger» → `/edit/`; engelske sider → «Edit» → `/edit/en/` (styrt av `.Site.Language.Lang` i `topbar.html`)
 - **Frontmatter-format:** YAML (`---`) – ikke TOML.
 - **OBS:** CMS-sesjoner kan legge igjen testinnhold – sjekk `git diff` før push.
+
+### Aktive CMS-portaler
+
+| Mappe | Repo | Språk | Tittel |
+|-------|------|-------|--------|
+| `static/edit/docs-nb/` | `SAMT-BU/samt-bu-docs` | nb | SAMT-BU Docs |
+| `static/edit/docs-en/` | `SAMT-BU/samt-bu-docs` | en | SAMT-BU Docs |
+| `static/edit/arkitektur-nb/` | `SAMT-BU/team-architecture` | nb | Team arkitektur |
+| `static/edit/arkitektur-en/` | `SAMT-BU/team-architecture` | en | Team architecture |
+
+> **Merk:** `innsikt-nb/` og `innsikt-en/` eksisterer i `static/edit/` men peker på slettet repo `samt-bu-innsikt` – bør fjernes eller oppdateres.
+
+### Legge til ny CMS-portal
+
+1. Opprett mappe `static/edit/<seksjon>-nb/` med:
+   - `index.html` (← Portal-lenke → `../`)
+   - `config.yml` (`locales: [nb]`, `repo: SAMT-BU/<repo>`)
+2. Legg til kort i `static/edit/index.html`
+3. Gjenta for `-en/` med `locales: [en]` og lenke → `../en/`
 
 ## Innholdskonvensjoner
 
