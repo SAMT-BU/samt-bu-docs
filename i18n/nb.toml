@@ -30,3 +30,9 @@ other = "Informasjonsmodeller"
 
 [innsikt]
 other = "Felles innsikt"
+
+[teams]
+other = "Teams"
+
+[utkast]
+other = "Utkast og innspill"

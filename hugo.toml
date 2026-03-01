@@ -79,3 +79,28 @@ enableGitInfo = true
   title = "Felles innsikt"
   url = "innsikt/"
   icon = "fa-bar-chart"
+
+[[params.navSwitcher]]
+  id = "teams"
+  title = "Teams"
+  url = "teams/"
+  icon = "fa-users"
+
+[[params.navSwitcher]]
+  id = "utkast"
+  title = "Utkast og innspill"
+  url = "utkast/"
+  icon = "fa-pencil"
+
+[module]
+  [[module.imports]]
+    path = "github.com/SAMT-BU/team-architecture"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/teams/team-architecture"
+
+  [[module.imports]]
+    path = "github.com/SAMT-BU/samt-bu-drafts"
+    [[module.imports.mounts]]
+      source = "content"
+      target = "content/utkast"

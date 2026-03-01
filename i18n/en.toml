@@ -30,3 +30,9 @@ other = "Information Models"
 
 [innsikt]
 other = "Shared insights"
+
+[teams]
+other = "Teams"
+
+[utkast]
+other = "Inputs and drafts"
