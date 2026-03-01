@@ -6,3 +6,27 @@ other = "Content"
 
 [navSwitcherPlaceholder]
 other = "Select section"
+
+[om]
+other = "About"
+
+[behov]
+other = "Needs"
+
+[pilotering]
+other = "Pilots"
+
+[arkitektur]
+other = "Architecture"
+
+[loesning]
+other = "Solutions"
+
+[rammeverk]
+other = "Framework"
+
+[informasjonsmodeller]
+other = "Information Models"
+
+[innsikt]
+other = "Shared insights"

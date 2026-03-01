@@ -6,3 +6,27 @@ other = "Innhold"
 
 [navSwitcherPlaceholder]
 other = "Velg seksjon"
+
+[om]
+other = "Om"
+
+[behov]
+other = "Behov"
+
+[pilotering]
+other = "Piloter"
+
+[arkitektur]
+other = "Arkitektur"
+
+[loesning]
+other = "Løsninger"
+
+[rammeverk]
+other = "Rammeverk"
+
+[informasjonsmodeller]
+other = "Informasjonsmodeller"
+
+[innsikt]
+other = "Felles innsikt"
