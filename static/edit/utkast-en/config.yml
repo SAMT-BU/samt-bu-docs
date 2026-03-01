@@ -27,6 +27,15 @@ collections:
     i18n: true
     media_folder: ""
     public_folder: ""
+    sortable_fields:
+      fields:
+        - name: weight
+          label: Sort order
+        - name: title
+          label: Title
+      default:
+        field: weight
+        direction: Ascending
     fields:
       - label: "Unique ID"
         name: id
