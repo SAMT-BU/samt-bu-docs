@@ -47,11 +47,15 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
   pilotering/                      # Piloter (weight 20)
     pilot-1-arkitektur/
   arkitektur/                      # Arkitektur (weight 30)
+    maalbildet/                    # Målbilde (weight 1) – kapabilitetskart, tjenester, applikasjoner, brukerreiser, prosesser, data, moenstre
+    veikart/                       # Veikart (weight 2) – samme 7 underkapitler
   loesning/                        # Løsninger (weight 40)
   rammeverk/                       # Rammeverk (weight 50)
     metodikk/                      # Metodikk (weight 30)
     juss/                          # Juss (weight 40)
     styring/                       # Styring (weight 50)
+    begrepsapparat/                # Begrepsapparat (weight 10)
+    standarder/                    # Standarder (weight 20)
   informasjonsmodeller/            # Informasjonsmodeller (weight 60)
   innsikt/                         # Felles innsikt – lokal placeholder (weight 70)
   teams/                           # Teams (weight 80) – lokalt seksjonshode
@@ -81,8 +85,8 @@ static/
   edit/                            # Decap CMS – innholdsredigering
     index.html                     # Norsk portalside («English →»-lenke i header)
     en/index.html                  # Engelsk portalside («Norsk →»-lenke i header)
-    docs-nb/, arkitektur-nb/, innsikt-nb/    # Norske CMS-portaler (locales: [nb])
-    docs-en/, arkitektur-en/, innsikt-en/    # Engelske CMS-portaler (locales: [en])
+    docs-nb/, arkitektur-nb/, utkast-nb/     # Norske CMS-portaler (locales: [nb], locale: nb)
+    docs-en/, arkitektur-en/, utkast-en/     # Engelske CMS-portaler (locales: [en])
 cloudflare-worker/
   oauth-worker.js                  # GitHub OAuth-proxy (deployet på Cloudflare Workers)
 i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksjonstitler, «Sist endret»)
@@ -101,27 +105,36 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 
 ### Aktive CMS-portaler
 
-| Mappe | Repo | Språk | Tittel |
-|-------|------|-------|--------|
-| `static/edit/docs-nb/` | `SAMT-BU/samt-bu-docs` | nb | Gjeldende dokumentasjon |
-| `static/edit/docs-en/` | `SAMT-BU/samt-bu-docs` | en | Current documentation |
-| `static/edit/arkitektur-nb/` | `SAMT-BU/team-architecture` | nb | Team arkitektur |
-| `static/edit/arkitektur-en/` | `SAMT-BU/team-architecture` | en | Team architecture |
-| `static/edit/utkast-nb/` | `SAMT-BU/samt-bu-drafts` | nb | Innspill og utkast |
-| `static/edit/utkast-en/` | `SAMT-BU/samt-bu-drafts` | en | Inputs and drafts |
+| Mappe | Repo | Språk | Portalkorttittel | CMS-samlingsnavn |
+|-------|------|-------|------------------|-----------------|
+| `static/edit/docs-nb/` | `SAMT-BU/samt-bu-docs` | nb | Gjeldende dokumentasjon | Sider |
+| `static/edit/docs-en/` | `SAMT-BU/samt-bu-docs` | en | Current documentation | Pages |
+| `static/edit/arkitektur-nb/` | `SAMT-BU/team-architecture` | nb | Team arkitektur | Team arkitektur |
+| `static/edit/arkitektur-en/` | `SAMT-BU/team-architecture` | en | Team architecture | Team architecture |
+| `static/edit/utkast-nb/` | `SAMT-BU/samt-bu-drafts` | nb | Innspill og utkast | Innspill og utkast |
+| `static/edit/utkast-en/` | `SAMT-BU/samt-bu-drafts` | en | Inputs and drafts | Inputs and drafts |
+
+**NB-portaler har i tillegg:**
+- `locale: nb` i `config.yml`
+- Inline JS-lokale i `index.html` som oversetter `«Collections» → «Samlinger»` og `«New» → «Ny»`
+- Risiko ved Decap-oppgradering dokumentert i [issue #66](https://github.com/SAMT-BU/samt-bu-docs/issues/66)
+
+**Alle portaler har:**
+- `sortable_fields: ['weight', 'title']` – sorterer etter Hugo `weight` (matcher sidebar-rekkefølge)
 
 ### Legge til ny CMS-portal
 
 1. Opprett mappe `static/edit/<seksjon>-nb/` med:
-   - `index.html` (← Portal-lenke → `../`)
-   - `config.yml` (`locales: [nb]`, `repo: SAMT-BU/<repo>`)
+   - `index.html` (← Portal-lenke → `../` + JS-lokale-blokk for NB)
+   - `config.yml` (`locales: [nb]`, `locale: nb`, `repo: SAMT-BU/<repo>`, `sortable_fields: ['weight', 'title']`)
 2. Legg til kort i `static/edit/index.html`
-3. Gjenta for `-en/` med `locales: [en]` og lenke → `../en/`
+3. Gjenta for `-en/` uten `locale: nb` og uten JS-lokale, lenke → `../en/`
 
 ## Innholdskonvensjoner
 
 - Alle seksjoner har `_index.nb.md` og `_index.en.md`
-- Frontmatter-felter: `weight` (sorteringsrekkefølge), `status`, `draft: true` for upublisert innhold
+- Frontmatter-felter: `id` (UUID, delt mellom nb/en), `weight` (sorteringsrekkefølge), `status`, `draft: true` for upublisert innhold
+- **`id`-felt:** UUID v4, samme verdi i `_index.nb.md` og `_index.en.md` for samme side. Aldri endres.
 - `editURL` i `hugo.toml` genererer "Rediger på GitHub"-lenker: `https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/`
 - **Commit-meldinger skrives på norsk** (se git-historikken for stil)
 
@@ -130,16 +143,19 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 Symbolet genereres **automatisk** av `status-symbol.html` fra `status`-feltet – **ikke** lagret i `linkTitle`.
 Redaktøren trenger kun endre `status:`-feltet:
 
-| Symbol | Statusverdi |
-|--------|-------------|
-| ◍ | Ny |
-| ◔ | Tidlig utkast |
-| ◐ | Pågår |
-| ◕ | Til QA |
-| ⏺ | Godkjent |
-| ⨂ | Avbrutt |
+| Symbol | NB-verdi | EN-verdi |
+|--------|----------|----------|
+| ◍ | Ny | New |
+| ◔ | Tidlig utkast | Early draft |
+| ◐ | Pågår | In progress |
+| ◕ | Til QA | For QA |
+| ⏺ | Godkjent | Approved |
+| ⨂ | Avbrutt | Cancelled |
 
-Alle use case-filer har en kommentarblokk i frontmatter som viser gyldige verdier.
+- NB-filer bruker norske verdier, EN-filer bruker engelske verdier.
+- `status-symbol.html` håndterer begge språk.
+- Kun use case-filer (01–19 under `behov/use-cases/`) har status satt; øvrige sider har blank status.
+- Alle use case-filer har en kommentarblokk i frontmatter som viser gyldige verdier.
 
 ## Arkitekturbeslutninger
 
