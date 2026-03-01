@@ -78,9 +78,9 @@ static/
   js/search.js                     # Lunr.js søkeimplementasjon
   edit/                            # Sveltia CMS-portal (innholdsredigering)
     index.html                     # Portal/meny – velg seksjon
-    use-cases/
-      index.html                   # Decap CMS for use cases
-      config.yml                   # CMS-konfigurasjon (nb+en, status-dropdown)
+    use-cases-nb/
+      index.html                   # Sveltia CMS loader
+      config.yml                   # CMS-konfigurasjon (nb-only)
 cloudflare-worker/
   oauth-worker.js                  # GitHub OAuth-proxy (deployet på Cloudflare Workers)
 i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret")
@@ -91,7 +91,8 @@ i18n/nb.toml, en.toml              # Oversettelser (foreløpig kun "Sist endret"
 - **Portal (produksjon):** `https://samt-bu.github.io/samt-bu-docs/edit/`
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
 - **Lokal testing:** `hugo server` + «Work with Local Repository» i nettleseren → `http://localhost:1313/samt-bu-docs/edit/`
-- **Ny seksjon:** lag `static/edit/<seksjon>-nb/` + `static/edit/<seksjon>-en/` med `index.html` + `config.yml`, legg til kort i `static/edit/index.html`
+- **Ny seksjon:** lag `static/edit/<seksjon>-nb/` med `index.html` + `config.yml` (`locales: [nb]`, `default_locale: nb`), legg til kort i `static/edit/index.html`
+- **Tospråklig støtte:** ikke i bruk – Sveltia håndterer ikke `_index.en.md` via GitHub API. Engelsk redigeres manuelt.
 - **Frontmatter-format:** YAML (`---`) – ikke TOML.
 
 ## Innholdskonvensjoner
