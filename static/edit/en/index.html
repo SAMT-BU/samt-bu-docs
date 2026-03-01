@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="nb">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>SAMT-BU – innholdsredigering</title>
+  <title>SAMT-BU – Content editing (English)</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,6 +28,18 @@
       gap: 16px;
     }
 
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    header .subtitle {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
     header a.lang-switch {
       color: rgba(255,255,255,0.8);
       font-size: 0.85rem;
@@ -40,18 +52,6 @@
     }
 
     header a.lang-switch:hover { color: #fff; border-color: #fff; }
-
-    header h1 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-
-    header .subtitle {
-      font-size: 0.85rem;
-      opacity: 0.75;
-      margin-top: 2px;
-    }
 
     main {
       flex: 1;
@@ -118,14 +118,6 @@
 
     .card a.btn:hover { background: #154075; }
 
-    .card a.btn-outline {
-      background: #fff;
-      color: #1b4f8a;
-      border: 1px solid #1b4f8a;
-    }
-
-    .card a.btn-outline:hover { background: #eef2f8; }
-
     footer {
       padding: 20px 32px;
       font-size: 0.8rem;
@@ -145,41 +137,41 @@
 <body>
   <header>
     <div>
-      <h1>SAMT-BU – innholdsredigering</h1>
-      <div class="subtitle">Velg en seksjon for å redigere innhold</div>
+      <h1>SAMT-BU – Content editing</h1>
+      <div class="subtitle">Select a section to edit</div>
     </div>
-    <a class="lang-switch" href="en/">English →</a>
+    <a class="lang-switch" href="../">Norsk →</a>
   </header>
 
   <main>
     <p class="intro">
-      Dette er et internt verktøy for redaktører. Velg seksjonen du vil redigere nedenfor.
-      Du vil bli bedt om å logge inn med GitHub-kontoen din.
+      This is an internal tool for editors. Select the section you want to edit below.
+      You will be asked to log in with your GitHub account.
     </p>
 
     <div class="cards">
 
       <div class="card">
-        <h2>Dokumentasjon</h2>
-        <p>Rediger alt lokalt innhold i samt-bu-docs: Om, Temaer, Behov, use cases m.m.</p>
+        <h2>Documentation</h2>
+        <p>Edit all local English content in samt-bu-docs: About, Topics, Needs, use cases, etc.</p>
         <div class="btn-row">
-          <a class="btn" href="docs-nb/">Åpne editor &rarr;</a>
+          <a class="btn" href="../docs-en/">Open editor &rarr;</a>
         </div>
       </div>
 
       <div class="card">
-        <h2>Arkitektur</h2>
-        <p>Rediger arkitekturinnhold (samt-bu-arkitektur-modulen).</p>
+        <h2>Architecture</h2>
+        <p>Edit English architecture content (samt-bu-arkitektur module).</p>
         <div class="btn-row">
-          <a class="btn" href="arkitektur-nb/">Åpne editor &rarr;</a>
+          <a class="btn" href="../arkitektur-en/">Open editor &rarr;</a>
         </div>
       </div>
 
       <div class="card">
-        <h2>Felles innsikt</h2>
-        <p>Rediger innhold i samt-bu-innsikt-modulen.</p>
+        <h2>Shared insights</h2>
+        <p>Edit English content in the samt-bu-innsikt module.</p>
         <div class="btn-row">
-          <a class="btn" href="innsikt-nb/">Åpne editor &rarr;</a>
+          <a class="btn" href="../innsikt-en/">Open editor &rarr;</a>
         </div>
       </div>
 
@@ -187,8 +179,8 @@
   </main>
 
   <footer>
-    <span>Drevet av <a href="https://sveltia.com/cms" target="_blank" rel="noopener">Sveltia CMS</a></span>
-    <a href="/samt-bu-docs/">&larr; Tilbake til nettstedet</a>
+    <span>Powered by <a href="https://decapcms.org" target="_blank" rel="noopener">Decap CMS</a></span>
+    <a href="/samt-bu-docs/en/">&larr; Back to website</a>
   </footer>
 </body>
 </html>
