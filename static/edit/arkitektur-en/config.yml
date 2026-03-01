@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: SAMT-BU/samt-bu-arkitektur
+  repo: SAMT-BU/team-arkitektur
   branch: main
   base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev
 
@@ -16,7 +16,7 @@ i18n:
 
 collections:
   - name: arkitektur
-    label: "Architecture"
+    label: "Team architecture"
     label_singular: "Page"
     folder: content
     nested:
