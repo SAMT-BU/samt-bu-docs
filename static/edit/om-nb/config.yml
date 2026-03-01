@@ -20,7 +20,7 @@ collections:
     label_singular: "Side"
     folder: content/om
     path: "{{slug}}/_index"
-    create: false
+    create: true
     i18n: true
     media_folder: ""
     public_folder: ""
