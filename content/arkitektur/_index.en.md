@@ -1,7 +1,7 @@
 ---
-title: "Architecture"
-linkTitle: "Architecture"
+title: Architecture
+linkTitle: Architecture
 weight: 30
-status: "Ny"
+status: null
 ---
-
+TBD
