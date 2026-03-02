@@ -69,9 +69,9 @@ jobs:
           TZ: Europe/Oslo
           HUGO_MODULE_REPLACEMENTS: >-
             github.com/SAMT-BU/team-architecture ->
-            .hugo-modules/team-architecture,
+            ${{ github.workspace }}/.hugo-modules/team-architecture,
             github.com/SAMT-BU/samt-bu-drafts ->
-            .hugo-modules/samt-bu-drafts
+            ${{ github.workspace }}/.hugo-modules/samt-bu-drafts
         run: |
           hugo \
             --gc \
