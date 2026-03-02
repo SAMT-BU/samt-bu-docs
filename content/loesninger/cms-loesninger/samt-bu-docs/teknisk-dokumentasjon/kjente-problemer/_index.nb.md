@@ -1,4 +1,5 @@
 ---
+id: a4f0df57-6b51-486d-9e56-c0e36383222e
 title: "Kjente problemer og løsninger"
 linkTitle: "Kjente problemer"
 weight: 80

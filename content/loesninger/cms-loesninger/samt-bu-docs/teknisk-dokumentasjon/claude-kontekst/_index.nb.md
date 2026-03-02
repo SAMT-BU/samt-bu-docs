@@ -1,4 +1,5 @@
 ---
+id: b9737bab-5043-4776-8edc-cf2fc515d4b0
 title: "Utviklernotater og Claude-kontekst"
 linkTitle: "Utviklernotater"
 weight: 90
