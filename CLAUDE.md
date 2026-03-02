@@ -63,6 +63,7 @@ content/                           # Alt innhold (Markdown med YAML frontmatter)
   teams/                           # Teams (weight 80) – lokalt seksjonshode
     team-architecture/             # ← montert fra Hugo Module team-architecture
     team-governance/               # ← montert fra Hugo Module team-governance
+    team-semantics/                # ← montert fra Hugo Module team-semantics
   utkast/                          # Utkast og innspill (weight 90) – ← montert fra Hugo Module samt-bu-drafts
 themes/hugo-theme-samt-bu/         # ⭐ Git submodule – all presentasjonslogikk ligger her
   layouts/partials/
@@ -240,7 +241,7 @@ Dropdown i headeren for å navigere direkte til en av de 10 seksjonene.
 - Barn-liste på seksjonssider (midt- og høyrekolonne)
 - «Om SAMT-BU» som første seksjon med tre underkapitler (Om prosjektet, Om dette nettstedet, Hvordan bidra)
 - 10 seksjoner i flat struktur direkte under `content/`
-- Hugo Module-integrasjon: team-architecture, team-governance og samt-bu-drafts montert
+- Hugo Module-integrasjon: team-architecture, team-governance, team-semantics og samt-bu-drafts montert
 - Nettsted omdøpt til «SAMT-BU Docs», `loesning/` omdøpt til `loesninger/`
 - Ny dokumentasjonsstruktur: `loesninger/cms-loesninger/samt-bu-docs/` (teknisk dok. + administrasjonsveiledning)
 - 20 use cases under Behov (inkl. Kommuneforlaget brukstilfelle-analyse)
@@ -264,6 +265,7 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 |-------|------|---------------|--------|
 | `github.com/SAMT-BU/team-architecture` | [team-architecture](https://github.com/SAMT-BU/team-architecture) | `content/teams/team-architecture/` | Team arkitektur |
 | `github.com/SAMT-BU/team-governance` | [team-governance](https://github.com/SAMT-BU/team-governance) | `content/teams/team-governance/` | Team governance |
+| `github.com/SAMT-BU/team-semantics` | [team-semantics](https://github.com/SAMT-BU/team-semantics) | `content/teams/team-semantics/` | Team semantikk |
 | `github.com/SAMT-BU/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-BU/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
 
 **Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<sti>/"`.
