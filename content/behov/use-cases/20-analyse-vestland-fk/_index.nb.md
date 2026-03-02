@@ -1,4 +1,5 @@
 ---
+id: e0d42db3-b997-4bcc-9bf5-4da622c18429
 title: "20. Analyse-case fra Vestland-FK"
 linkTitle: "20. Analyse-case Vestland-FK"
 weight: 20
