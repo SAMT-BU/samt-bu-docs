@@ -31,10 +31,8 @@ collections:
     fields:
       - label: "Unique ID"
         name: id
-        widget: string
+        widget: hidden
         i18n: duplicate
-        default: "undefined"
-        hint: "Auto-managed – do not edit this value"
 
       - label: Title
         name: title
