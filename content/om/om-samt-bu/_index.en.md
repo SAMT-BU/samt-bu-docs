@@ -1,13 +1,13 @@
 ---
 id: "364728ba-fc9d-4605-9511-57acdbb7f9f3"
-title: "About SAMT-BU"
-linkTitle: "About SAMT-BU"
+title: "About the SAMT-BU project"
+linkTitle: "About the SAMT-BU project"
 weight: 1
 ---
 
 SAMT-BU is a collaborative project on data-driven service development and joined-up services for children and young people – from kindergarten to higher education.
 
-The project's full title is **"Felles loft: Joined-up services for children and young people"**, running from October 2025 to December 2027.
+The project's full title is *Felles loft: Joined-up services for children and young people*, running from October 2025 to December 2027.
 
 ![Illustration: SAMT-BU – from kindergarten to higher education](samt-bu-fra-barnehage-til-hoyere-utdanning.png)
 

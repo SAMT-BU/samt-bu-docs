@@ -17,7 +17,7 @@ other = "Innhold"
 other = "Velg seksjon"
 
 [om]
-other = "Om"
+other = "Om SAMT-BU"
 
 [behov]
 other = "Behov"
@@ -28,7 +28,7 @@ other = "Piloter"
 [arkitektur]
 other = "Arkitektur"
 
-[loesning]
+[loesninger]
 other = "Løsninger"
 
 [rammeverk]

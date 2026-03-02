@@ -1,5 +1,5 @@
 baseURL = "https://samt-bu.github.io/samt-bu-docs/"
-title = "SAMT-BU Dokumentasjon"
+title = "SAMT-BU Docs"
 theme = "hugo-theme-samt-bu"
 defaultContentLanguage = "nb"
 defaultContentLanguageInSubdir = false
@@ -12,7 +12,7 @@ enableGitInfo = true
   [languages.nb]
     languageCode = "nb-NO"
     languageName = "Bokmål"
-    title = "SAMT-BU Dokumentasjon"
+    title = "SAMT-BU Docs"
     weight = 1
     [languages.nb.params]
       navSwitcherLabel = "Innhold"
@@ -20,7 +20,7 @@ enableGitInfo = true
   [languages.en]
     languageCode = "en-US"
     languageName = "English"
-    title = "SAMT-BU Documentation"
+    title = "SAMT-BU Docs"
     weight = 2
     [languages.en.params]
       navSwitcherLabel = "Content"
@@ -34,7 +34,7 @@ enableGitInfo = true
 
 [[params.navSwitcher]]
   id = "om"
-  title = "Om"
+  title = "Om SAMT-BU"
   url = "om/"
   icon = "fa-info-circle"
 
@@ -57,9 +57,9 @@ enableGitInfo = true
   icon = "fa-sitemap"
 
 [[params.navSwitcher]]
-  id = "loesning"
+  id = "loesninger"
   title = "Løsninger"
-  url = "loesning/"
+  url = "loesninger/"
   icon = "fa-cogs"
 
 [[params.navSwitcher]]

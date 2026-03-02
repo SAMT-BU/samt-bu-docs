@@ -17,7 +17,7 @@ other = "Content"
 other = "Select section"
 
 [om]
-other = "About"
+other = "About SAMT-BU"
 
 [behov]
 other = "Needs"
@@ -28,7 +28,7 @@ other = "Pilots"
 [arkitektur]
 other = "Architecture"
 
-[loesning]
+[loesninger]
 other = "Solutions"
 
 [rammeverk]
