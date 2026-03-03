@@ -267,6 +267,7 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 | `github.com/SAMT-BU/team-governance` | [team-governance](https://github.com/SAMT-BU/team-governance) | `content/teams/team-governance/` | Team governance |
 | `github.com/SAMT-BU/team-semantics` | [team-semantics](https://github.com/SAMT-BU/team-semantics) | `content/teams/team-semantics/` | Team semantikk |
 | `github.com/SAMT-BU/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-BU/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
+| `github.com/SAMT-BU/solution-samt-bu-docs` | [solution-samt-bu-docs](https://github.com/SAMT-BU/solution-samt-bu-docs) | `content/loesninger/cms-loesninger/samt-bu-docs/` | SAMT-BU Docs (teknisk dok.) |
 
 **Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<sti>/"`.
 
