@@ -45,7 +45,7 @@ Passer for enkeltendringer og mindre rettelser uten lokal installasjon. Krever G
 
 **Slik gjør du det:**
 
-1. Gå til siden du vil redigere på [samt-bu.github.io/samt-bu-docs](https://samt-bu.github.io/samt-bu-docs/)
+1. Gå til siden du vil redigere på [samt-x.github.io/samt-bu-docs](https://samt-x.github.io/samt-bu-docs/)
 2. Klikk lenken **«Rediger på GitHub»** nederst på siden
 3. Gjør endringene dine i Markdown-feltet
 4. Rull ned til **«Commit changes»**
@@ -107,7 +107,7 @@ sudo dpkg -i hugo_extended_0.155.3_linux-amd64.deb
 ### Klone repoet
 
 ```bash
-git clone --recurse-submodules https://github.com/SAMT-BU/samt-bu-docs.git
+git clone --recurse-submodules https://github.com/SAMT-X/samt-bu-docs.git
 cd samt-bu-docs
 hugo mod download
 ```

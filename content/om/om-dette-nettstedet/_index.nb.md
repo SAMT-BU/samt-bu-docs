@@ -16,6 +16,6 @@ SAMT-BU Docs er et statisk dokumentasjonsnettsted utviklet som del av prosjektet
 
 ## Teknisk plattform
 
-Nettstedet er bygget med [Hugo](https://gohugo.io/) (statisk nettstedsgenerator) og publiseres via GitHub Pages på `samt-bu.github.io/samt-bu-docs`. Innholdet skrives i Markdown og versjonshåndteres i Git. Tospråklig støtte (norsk og engelsk) er innebygd.
+Nettstedet er bygget med [Hugo](https://gohugo.io/) (statisk nettstedsgenerator) og publiseres via GitHub Pages på `samt-x.github.io/samt-bu-docs`. Innholdet skrives i Markdown og versjonshåndteres i Git. Tospråklig støtte (norsk og engelsk) er innebygd.
 
 Innhold fra team-repoer monteres automatisk inn via Hugo Modules, og CMS-redigering er mulig direkte i nettleseren via Decap CMS – uten teknisk kunnskap om Git eller Markdown.

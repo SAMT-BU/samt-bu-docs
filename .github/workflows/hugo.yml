@@ -42,14 +42,14 @@ jobs:
       - name: Checkout team-architecture module
         uses: actions/checkout@v4
         with:
-          repository: SAMT-BU/team-architecture
+          repository: SAMT-X/team-architecture
           path: .hugo-modules/team-architecture
           fetch-depth: 0
 
       - name: Checkout samt-bu-drafts module
         uses: actions/checkout@v4
         with:
-          repository: SAMT-BU/samt-bu-drafts
+          repository: SAMT-X/samt-bu-drafts
           path: .hugo-modules/samt-bu-drafts
           fetch-depth: 0
 
@@ -71,9 +71,9 @@ jobs:
           HUGO_ENVIRONMENT: production
           TZ: Europe/Oslo
           HUGO_MODULE_REPLACEMENTS: >-
-            github.com/SAMT-BU/team-architecture ->
+            github.com/SAMT-X/team-architecture ->
             ${{ github.workspace }}/.hugo-modules/team-architecture,
-            github.com/SAMT-BU/samt-bu-drafts ->
+            github.com/SAMT-X/samt-bu-drafts ->
             ${{ github.workspace }}/.hugo-modules/samt-bu-drafts
         run: |
           hugo \

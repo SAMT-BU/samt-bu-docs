@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: SAMT-BU/team-architecture
+  repo: SAMT-X/team-architecture
   branch: main
   base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev
 

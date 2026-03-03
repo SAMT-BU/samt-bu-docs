@@ -16,6 +16,6 @@ SAMT-BU Docs is a static documentation website developed as part of the project 
 
 ## Technical platform
 
-The site is built with [Hugo](https://gohugo.io/) (a static site generator) and published via GitHub Pages at `samt-bu.github.io/samt-bu-docs`. Content is written in Markdown and version-controlled in Git. Bilingual support (Norwegian and English) is built in.
+The site is built with [Hugo](https://gohugo.io/) (a static site generator) and published via GitHub Pages at `samt-x.github.io/samt-bu-docs`. Content is written in Markdown and version-controlled in Git. Bilingual support (Norwegian and English) is built in.
 
 Content from team repositories is automatically mounted into the site via Hugo Modules, and CMS editing is available directly in the browser via Decap CMS – without any technical knowledge of Git or Markdown.

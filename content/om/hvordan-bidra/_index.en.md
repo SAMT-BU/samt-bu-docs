@@ -45,7 +45,7 @@ Suitable for individual changes and minor corrections without a local installati
 
 **How to do it:**
 
-1. Go to the page you wish to edit at [samt-bu.github.io/samt-bu-docs](https://samt-bu.github.io/samt-bu-docs/)
+1. Go to the page you wish to edit at [samt-x.github.io/samt-bu-docs](https://samt-x.github.io/samt-bu-docs/)
 2. Click the **"Edit on GitHub"** link at the bottom of the page
 3. Make your changes in the Markdown field
 4. Scroll down to **"Commit changes"**
@@ -107,7 +107,7 @@ sudo dpkg -i hugo_extended_0.155.3_linux-amd64.deb
 ### Clone the Repository
 
 ```bash
-git clone --recurse-submodules https://github.com/SAMT-BU/samt-bu-docs.git
+git clone --recurse-submodules https://github.com/SAMT-X/samt-bu-docs.git
 cd samt-bu-docs
 hugo mod download
 ```

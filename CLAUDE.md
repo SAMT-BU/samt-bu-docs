@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **SAMT-BU Docs** – et statisk Hugo-basert dokumentasjonsnettsted for prosjektet SAMT-BU
 (Sammenhengende tjenester for barn og unge). Én av flere dokumentasjonskanaler i prosjektet.
-Publiseres til GitHub Pages på `https://samt-bu.github.io/samt-bu-docs/`.
+Publiseres til GitHub Pages på `https://samt-x.github.io/samt-bu-docs/`.
 
 ## Teknisk oppsett
 
@@ -27,7 +27,7 @@ hugo          # Bygg til public/
 hugo -D       # Bygg inkludert utkast (draft: true)
 
 # Produksjonsbygg (brukes av CI)
-hugo --gc --minify --baseURL "https://samt-bu.github.io/samt-bu-docs/"
+hugo --gc --minify --baseURL "https://samt-x.github.io/samt-bu-docs/"
 ```
 
 CI/CD: GitHub Actions (`.github/workflows/hugo.yml`) bygger og deployer automatisk ved push til `main`. Hugo-versjon i CI: **0.155.3 extended**.
@@ -102,8 +102,8 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 
 ## Decap CMS – innholdsredigering
 
-- **Norsk portal:** `https://samt-bu.github.io/samt-bu-docs/edit/`
-- **Engelsk portal:** `https://samt-bu.github.io/samt-bu-docs/edit/en/`
+- **Norsk portal:** `https://samt-x.github.io/samt-bu-docs/edit/`
+- **Engelsk portal:** `https://samt-x.github.io/samt-bu-docs/edit/en/`
 - **OAuth-proxy:** Cloudflare Worker `https://samt-bu-cms-auth.erik-hag1.workers.dev`
 - **Lokal testing:** `hugo server` + åpne portalen i nettleser → «Work with Local Repository» (`local_backend: true` i config.yml)
 - **config.yml-mal:** `backend.name: github`, `repo: SAMT-BU/<repo>`, `branch: main`, `base_url: https://samt-bu-cms-auth.erik-hag1.workers.dev`, `local_backend: true`, `i18n.structure: multiple_files`
@@ -133,7 +133,7 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 **NB-portaler har i tillegg:**
 - `locale: nb` i `config.yml`
 - Inline JS-lokale i `index.html` som oversetter `«Collections» → «Samlinger»` og `«New» → «Ny»`
-- Risiko ved Decap-oppgradering dokumentert i [issue #66](https://github.com/SAMT-BU/samt-bu-docs/issues/66)
+- Risiko ved Decap-oppgradering dokumentert i [issue #66](https://github.com/SAMT-X/samt-bu-docs/issues/66)
 
 **Alle portaler har:**
 - `sortable_fields: ['weight', 'title']` – sorterer etter Hugo `weight` (matcher sidebar-rekkefølge)
@@ -153,7 +153,7 @@ i18n/nb.toml, en.toml              # Oversettelser (navSwitcher-etiketter, seksj
 - **`id`-felt:** UUID v4, samme verdi i `_index.nb.md` og `_index.en.md` for samme side. Aldri endres.
   Håndteres automatisk av GitHub Actions-workflow (`.github/workflows/ensure-uuids.yml`) i alle tre repoer –
   aldri sett manuelt. `widget: hidden` i Decap CMS (skjult fra redaktøren).
-- `editURL` i `hugo.toml` genererer "Rediger på GitHub"-lenker: `https://github.com/SAMT-BU/samt-bu-docs/edit/main/content/`
+- `editURL` i `hugo.toml` genererer "Rediger på GitHub"-lenker: `https://github.com/SAMT-X/samt-bu-docs/edit/main/content/`
 - **Commit-meldinger skrives på norsk** (se git-historikken for stil)
 
 ### Statussymboler for use cases
@@ -263,24 +263,24 @@ Innhold fra eksterne repoer monteres inn via Hugo Module-systemet (`go.mod` + `h
 
 | Modul | Repo | Montert under | Tittel |
 |-------|------|---------------|--------|
-| `github.com/SAMT-BU/team-architecture` | [team-architecture](https://github.com/SAMT-BU/team-architecture) | `content/teams/team-architecture/` | Team arkitektur |
-| `github.com/SAMT-BU/team-governance` | [team-governance](https://github.com/SAMT-BU/team-governance) | `content/teams/team-governance/` | Team governance |
-| `github.com/SAMT-BU/team-semantics` | [team-semantics](https://github.com/SAMT-BU/team-semantics) | `content/teams/team-semantics/` | Team semantikk |
-| `github.com/SAMT-BU/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-BU/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
-| `github.com/SAMT-BU/solution-samt-bu-docs` | [solution-samt-bu-docs](https://github.com/SAMT-BU/solution-samt-bu-docs) | `content/loesninger/cms-loesninger/samt-bu-docs/` | SAMT-BU Docs (teknisk dok.) |
+| `github.com/SAMT-X/team-architecture` | [team-architecture](https://github.com/SAMT-X/team-architecture) | `content/teams/team-architecture/` | Team arkitektur |
+| `github.com/SAMT-X/team-governance` | [team-governance](https://github.com/SAMT-X/team-governance) | `content/teams/team-governance/` | Team governance |
+| `github.com/SAMT-X/team-semantics` | [team-semantics](https://github.com/SAMT-X/team-semantics) | `content/teams/team-semantics/` | Team semantikk |
+| `github.com/SAMT-X/samt-bu-drafts` | [samt-bu-drafts](https://github.com/SAMT-X/samt-bu-drafts) | `content/utkast/` | Utkast og innspill |
+| `github.com/SAMT-X/solution-samt-bu-docs` | [solution-samt-bu-docs](https://github.com/SAMT-X/solution-samt-bu-docs) | `content/loesninger/cms-loesninger/samt-bu-docs/` | SAMT-BU Docs (teknisk dok.) |
 
 **Konfigurert i `hugo.toml`** under `[module] [[module.imports]]` med `source = "content"` og `target = "content/<sti>/"`.
 
 **Oppdatere en modul** (etter push til modulrepoet):
 ```bash
-hugo mod get github.com/SAMT-BU/samt-bu-drafts@latest
-hugo mod get github.com/SAMT-BU/team-architecture@latest
+hugo mod get github.com/SAMT-X/samt-bu-drafts@latest
+hugo mod get github.com/SAMT-X/team-architecture@latest
 ```
 
 **Legge til ny modul:**
-1. Opprett repo, `hugo mod init github.com/SAMT-BU/<navn>`, lag `content/_index.nb.md` + `_index.en.md`, push
+1. Opprett repo, `hugo mod init github.com/SAMT-X/<navn>`, lag `content/_index.nb.md` + `_index.en.md`, push
 2. Legg til `[[module.imports]]`-blokk i `hugo.toml`
-3. Kjør `hugo mod get github.com/SAMT-BU/<navn>@latest`
+3. Kjør `hugo mod get github.com/SAMT-X/<navn>@latest`
 4. Verifiser med `hugo`, commit `hugo.toml` + `go.mod` + `go.sum`
 
 **Repo-navnekonvensjon:**
@@ -306,7 +306,7 @@ hugo mod get github.com/SAMT-BU/team-architecture@latest
 
 3. **`HUGO_MODULE_REPLACEMENTS`** (env-var på Build-steget):
    ```
-   github.com/SAMT-BU/team-architecture -> ${{ github.workspace }}/.hugo-modules/team-architecture
+   github.com/SAMT-X/team-architecture -> ${{ github.workspace }}/.hugo-modules/team-architecture
    ```
    Gjør at Hugo bruker de lokale klonene (med injisert lastmod) i stedet for Go-modulcachen (zip uten historikk).
 
