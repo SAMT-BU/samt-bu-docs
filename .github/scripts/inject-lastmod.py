@@ -11,6 +11,9 @@ import re
 MODULE_PATHS = [
     '.hugo-modules/team-architecture',
     '.hugo-modules/samt-bu-drafts',
+    '.hugo-modules/solution-samt-bu-docs',
+    # Legg til nye modulrepoer her – samme mønster.
+    # Husk også checkout-steg og HUGO_MODULE_REPLACEMENTS i hugo.yml.
 ]
 
 

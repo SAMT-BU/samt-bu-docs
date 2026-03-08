@@ -41,6 +41,12 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
+      # Hugo-moduler som monterer innhold i dette nettstedet.
+      # For hvert modulrepo som skal ha automatisk synkronisering og korrekte lastmod-datoer:
+      #   1. Legg til en checkout-blokk her (kopier mønsteret under)
+      #   2. Legg til i HUGO_MODULE_REPLACEMENTS lenger ned
+      #   3. Legg til i MODULE_PATHS i .github/scripts/inject-lastmod.py
+      # Merk: repoet MÅ også ha en workflow som trigger repository_dispatch til samt-bu-docs ved push.
       - name: Checkout team-architecture module
         uses: actions/checkout@v4
         with:
@@ -53,6 +59,13 @@ jobs:
         with:
           repository: SAMT-X/samt-bu-drafts
           path: .hugo-modules/samt-bu-drafts
+          fetch-depth: 0
+
+      - name: Checkout solution-samt-bu-docs module
+        uses: actions/checkout@v4
+        with:
+          repository: SAMT-X/solution-samt-bu-docs
+          path: .hugo-modules/solution-samt-bu-docs
           fetch-depth: 0
 
       - name: Setup Go
@@ -76,7 +89,9 @@ jobs:
             github.com/SAMT-X/team-architecture ->
             ${{ github.workspace }}/.hugo-modules/team-architecture,
             github.com/SAMT-X/samt-bu-drafts ->
-            ${{ github.workspace }}/.hugo-modules/samt-bu-drafts
+            ${{ github.workspace }}/.hugo-modules/samt-bu-drafts,
+            github.com/SAMT-X/solution-samt-bu-docs ->
+            ${{ github.workspace }}/.hugo-modules/solution-samt-bu-docs
         run: |
           hugo \
             --gc \
