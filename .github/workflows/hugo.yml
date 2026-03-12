@@ -8,7 +8,7 @@ on:
     types: [module-updated]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: "pages"
@@ -38,6 +38,23 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+
+      - name: Sikre UUID-er i frontmatter
+        run: |
+          python3 .github/scripts/ensure-uuids.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/
+          if git diff --staged --quiet; then
+            echo "Ingen endringer – alle UUID-er var på plass"
+          else
+            git commit -m "Auto: legg til manglende UUID-er i frontmatter [skip ci]"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "Push-forsøk $i feilet, prøver igjen..."
+              sleep 3
+            done
+          fi
 
       # Hugo-moduler som monterer innhold i dette nettstedet.
       # For hvert modulrepo som skal ha automatisk synkronisering og korrekte lastmod-datoer:
