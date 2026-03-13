@@ -91,6 +91,9 @@ jobs:
       - name: Inject lastmod into module content
         run: python3 .github/scripts/inject-lastmod.py
 
+      - name: Konfigurer git for UTF-8-stier
+        run: git config --global core.quotepath false
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
