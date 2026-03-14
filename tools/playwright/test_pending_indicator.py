@@ -168,47 +168,57 @@ async def step_03_open_edit_menu(page: Page):
     await edit_btn.wait_for(state="visible", timeout=5000)
     await edit_btn.click()
     await page.wait_for_timeout(400)
+    # Vent til menyen er synlig og highlight «Rediger dette kapitlet»
+    rediger_item = page.locator("#edit-menu a").filter(
+        has_text=re.compile(r"Rediger dette kapitlet|Edit this chapter", re.IGNORECASE)
+    ).first
+    await rediger_item.wait_for(state="visible", timeout=5000)
     await screenshot(page, "03-endre-meny-apen", "#edit-menu")
-    print("  ✓ Endre-meny åpnet")
+    # Screenshot med highlight på valgt menyvalg
+    await page.evaluate("""
+        const el = Array.from(document.querySelectorAll('#edit-menu a'))
+            .find(a => /Rediger dette kapitlet|Edit this chapter/i.test(a.textContent));
+        if (el) { el._hl = el.style.background; el.style.background = '#ffe066'; }
+    """)
+    await screenshot(page, "03b-menyvalg-rediger-highlight")
+    await page.evaluate("""
+        const el = Array.from(document.querySelectorAll('#edit-menu a'))
+            .find(a => /Rediger dette kapitlet|Edit this chapter/i.test(a.textContent));
+        if (el) el.style.background = el._hl || '';
+    """)
+    print("  ✓ Endre-meny åpnet – «Rediger dette kapitlet» uthevet i screenshot")
 
 
 async def step_04_open_edit_dialog(page: Page):
     print("\n[4/9] Åpner redigeringsdialog…")
-    # Klikk «Rediger dette kapitlet» – teksten varierer med språk
     rediger = page.locator("#edit-menu a").filter(
         has_text=re.compile(r"Rediger dette kapitlet|Edit this chapter", re.IGNORECASE)
     ).first
     await rediger.wait_for(state="visible", timeout=5000)
     await rediger.click()
-    # Vent til dialog er synlig
     await page.wait_for_selector("#qe-overlay", state="visible", timeout=10000)
-    await page.wait_for_timeout(1500)  # TipTap-lasting
-    await screenshot(page, "04-redigeringsdialog-apen", "#qe-overlay")
-    print("  ✓ Redigeringsdialog åpnet")
+    # Vent til tittelfelt er populert (frontmatter er lastet)
+    await page.wait_for_function(
+        "document.getElementById('qe-field-title')?.value?.length > 0",
+        timeout=15000
+    )
+    await screenshot(page, "04-redigeringsdialog-apen", "#qe-meta-panel")
+    print("  ✓ Redigeringsdialog åpnet og frontmatter lastet")
 
 
 async def step_05_make_change(page: Page):
-    print("\n[5/9] Gjør en liten endring i editoren…")
-    editor = page.locator(".ProseMirror").first
-    await editor.wait_for(state="visible", timeout=8000)
-    # Klikk på slutten av teksten og legg til en usynlig endring
-    await editor.click()
-    await page.keyboard.press("End")
+    print("\n[5/9] Endrer tittelen – synlig i venstremenyen etter bygg…")
+    title_input = page.locator("#qe-field-title")
+    await title_input.wait_for(state="visible", timeout=10000)
+    current_title = await title_input.input_value()
+    # Fjern eventuell gammel tidsstempel-suffix
+    base_title = re.sub(r'\s*\(testet \d{2}:\d{2}:\d{2}\)$', '', current_title).strip()
     ts = datetime.now().strftime("%H:%M:%S")
-    marker = f" <!-- autotest {ts} -->"
-    # Legg til i source via evaluering for å unngå å forstyrre Markdown
-    await page.evaluate(f"""
-        (() => {{
-            const editor = document.querySelector('.ProseMirror');
-            if (editor) {{
-                // Finn siste paragraph og legg til invisible whitespace
-                const last = editor.querySelector('p:last-of-type');
-                if (last) last.textContent += '\u200b';  // zero-width space
-            }}
-        }})()
-    """)
-    await screenshot(page, "05-endring-gjort", ".ProseMirror")
-    print(f"  ✓ Endring gjort (zero-width space, usynlig for lesere)")
+    new_title = f"{base_title} (testet {ts})"
+    await title_input.triple_click()
+    await title_input.fill(new_title)
+    await screenshot(page, "05-tittel-endret", "#qe-meta-panel")
+    print(f"  ✓ Tittel endret: «{current_title}» → «{new_title}»")
 
 
 async def step_06_save_and_observe_indicator(page: Page):
