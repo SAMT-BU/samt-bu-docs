@@ -26,9 +26,35 @@ import asyncio
 import os
 import json
 import re
+import shutil
+import subprocess
 from datetime import datetime
 from pathlib import Path
 from playwright.async_api import async_playwright, Page, BrowserContext
+
+# ---------------------------------------------------------------------------
+# FFmpeg
+# ---------------------------------------------------------------------------
+
+VIDEO_W = 1920
+VIDEO_H = 1080
+
+def find_ffmpeg() -> str | None:
+    p = shutil.which("ffmpeg")
+    if p:
+        return p
+    local = Path(os.environ.get("LOCALAPPDATA", ""))
+    for found in local.glob("Microsoft/WinGet/Packages/Gyan.FFmpeg*/*/bin/ffmpeg.exe"):
+        return str(found)
+    return None
+
+def convert_to_mp4(webm: Path, mp4: Path, ffmpeg: str):
+    subprocess.run([
+        ffmpeg, "-y", "-i", str(webm),
+        "-vcodec", "libx264", "-crf", "18",
+        "-preset", "slow", "-pix_fmt", "yuv420p",
+        str(mp4)
+    ], check=True, capture_output=True)
 
 # ---------------------------------------------------------------------------
 # Konfigurasjon
@@ -532,7 +558,8 @@ async def main():
             args=["--start-maximized"]
         )
         context: BrowserContext = await browser.new_context(
-            no_viewport=True,
+            viewport={"width": VIDEO_W, "height": VIDEO_H},
+            record_video_size={"width": VIDEO_W, "height": VIDEO_H},
             record_video_dir=str(SCREENSHOTS / "video") if not HEADLESS else None
         )
         page = await context.new_page()
@@ -554,6 +581,22 @@ async def main():
         finally:
             await context.close()
             await browser.close()
+
+    # Konverter WebM → MP4 med høy kvalitet
+    ffmpeg = find_ffmpeg()
+    if ffmpeg and not HEADLESS:
+        video_dir = SCREENSHOTS / "video"
+        webms = list(video_dir.glob("*.webm"))
+        if webms:
+            mp4 = SCREENSHOTS / "demo.mp4"
+            print(f"\n🎬 Konverterer til MP4 (CRF 18, H.264)…")
+            try:
+                convert_to_mp4(webms[0], mp4, ffmpeg)
+                print(f"  ✓ {mp4}")
+            except subprocess.CalledProcessError as e:
+                print(f"  ⚠ FFmpeg feilet: {e.stderr.decode()[-200:]}")
+    elif not ffmpeg:
+        print("\n⚠ FFmpeg ikke funnet – WebM beholdes ukonvertert")
 
 
 if __name__ == "__main__":
