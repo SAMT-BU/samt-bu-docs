@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+import sys, io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 """
 Playwright E2E-test: Pending build-indikator
 =============================================
@@ -42,7 +46,7 @@ except ImportError:
 BASE_URL    = os.environ.get("SAMTU_BASE_URL", "https://samt-bu-docs.pages.dev")
 GH_TOKEN    = os.environ.get("GITHUB_TOKEN", "")
 GH_USER     = os.environ.get("GITHUB_USER", "")          # Ditt GitHub-brukernavn
-TEST_PAGE   = os.environ.get("TEST_PAGE", "/om/om-samt-bu/")   # Side som finnes og kan redigeres
+TEST_PAGE   = os.environ.get("TEST_PAGE", "/test-samt-bu-docs/test-1/")   # Dedikert testside
 HEADLESS    = os.environ.get("HEADLESS", "false").lower() == "true"
 SLOW_MO     = int(os.environ.get("SLOW_MO", "400"))       # ms – lavere = raskere, 0 = maks hastighet
 
@@ -215,7 +219,7 @@ async def step_05_make_change(page: Page):
     base_title = re.sub(r'\s*\(testet \d{2}:\d{2}:\d{2}\)$', '', current_title).strip()
     ts = datetime.now().strftime("%H:%M:%S")
     new_title = f"{base_title} (testet {ts})"
-    await title_input.triple_click()
+    await title_input.click(click_count=3)
     await title_input.fill(new_title)
     await screenshot(page, "05-tittel-endret", "#qe-meta-panel")
     print(f"  ✓ Tittel endret: «{current_title}» → «{new_title}»")
@@ -262,10 +266,8 @@ async def step_06_save_and_observe_indicator(page: Page):
 
 async def step_07_navigate_away(page: Page):
     print("\n[7/9] Navigerer til annen side og sjekker at indikator gjenopprettes…")
-    # Klikk på et annet menyelement
-    other_link = page.locator("#sidebar a").nth(2)
-    await other_link.click()
-    await page.wait_for_load_state("networkidle")
+    # Naviger direkte til en annen side (unngår skjulte sidebar-lenker)
+    await page.goto(BASE_URL + "/om/om-samt-bu/", wait_until="networkidle")
     await page.wait_for_timeout(800)  # Resume-kode kjøres etter 200ms
 
     current_url = page.url
