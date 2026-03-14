@@ -27,37 +27,16 @@ import os
 import json
 import re
 import shutil
-import subprocess
 from datetime import datetime
 from pathlib import Path
 from playwright.async_api import async_playwright, Page, BrowserContext
 
 # ---------------------------------------------------------------------------
-# FFmpeg
+# Video-konfigurasjon
 # ---------------------------------------------------------------------------
 
-VIDEO_W       = 1920
-VIDEO_H       = 1080
-VIDEO_PAD_TOP = 100   # klaring øverst – WMP-tittellinje
-VIDEO_PAD_BOT = 200   # klaring nederst – WMP transport-kontroller
-
-def find_ffmpeg() -> str | None:
-    p = shutil.which("ffmpeg")
-    if p:
-        return p
-    local = Path(os.environ.get("LOCALAPPDATA", ""))
-    for found in local.glob("Microsoft/WinGet/Packages/Gyan.FFmpeg*/*/bin/ffmpeg.exe"):
-        return str(found)
-    return None
-
-def convert_to_mp4(webm: Path, mp4: Path, ffmpeg: str):
-    subprocess.run([
-        ffmpeg, "-y", "-i", str(webm),
-        "-vf", f"pad={VIDEO_W}:{VIDEO_H+VIDEO_PAD_TOP+VIDEO_PAD_BOT}:0:{VIDEO_PAD_TOP}:black",
-        "-vcodec", "libx264", "-crf", "18",
-        "-preset", "slow", "-pix_fmt", "yuv420p",
-        str(mp4)
-    ], check=True, capture_output=True)
+VIDEO_W = 1920
+VIDEO_H = 1080
 
 # ---------------------------------------------------------------------------
 # Konfigurasjon
@@ -485,11 +464,16 @@ async def step_08_wait_for_build_and_countdown(page: Page):
 
     for i in range(12):  # maks 3 min
         await page.wait_for_timeout(15000)
-        # Re-injiser pulse hvert intervall (forsvinner ikke ved DOM-oppdatering)
-        await inject_indicator_pulse(page)
-        state   = await get_pending_state(page)
-        count   = state.get("count", 0)
-        ind_txt = await get_indicator_text(page)
+        try:
+            # Siden kan auto-reloade her – ignorer navigation-feil
+            await inject_indicator_pulse(page)
+            state   = await get_pending_state(page)
+            count   = state.get("count", 0)
+            ind_txt = await get_indicator_text(page)
+        except Exception:
+            # Auto-reload i gang – vent ett intervall til og prøv igjen
+            print(f"  ⏱ {(i+1)*15}s – side lastes på nytt…")
+            continue
 
         print(f"  ⏱ {(i+1)*15}s – count={count}, indikator: «{ind_txt}»")
 
@@ -585,21 +569,15 @@ async def main():
             await context.close()
             await browser.close()
 
-    # Konverter WebM → MP4 med høy kvalitet
-    ffmpeg = find_ffmpeg()
-    if ffmpeg and not HEADLESS:
+    # Flytt .webm til demo.webm i screenshot-mappen
+    if not HEADLESS:
         video_dir = SCREENSHOTS / "video"
         webms = list(video_dir.glob("*.webm"))
         if webms:
-            mp4 = SCREENSHOTS / "demo.mp4"
-            print(f"\n🎬 Konverterer til MP4 (CRF 18, H.264)…")
-            try:
-                convert_to_mp4(webms[0], mp4, ffmpeg)
-                print(f"  ✓ {mp4}")
-            except subprocess.CalledProcessError as e:
-                print(f"  ⚠ FFmpeg feilet: {e.stderr.decode()[-200:]}")
-    elif not ffmpeg:
-        print("\n⚠ FFmpeg ikke funnet – WebM beholdes ukonvertert")
+            dest = SCREENSHOTS / "demo.webm"
+            shutil.move(str(webms[0]), dest)
+            video_dir.rmdir()
+            print(f"\n🎬 Video: {dest}")
 
     # Kopier viewer.html inn i screenshot-mappen
     viewer_src = Path(__file__).parent / "viewer.html"

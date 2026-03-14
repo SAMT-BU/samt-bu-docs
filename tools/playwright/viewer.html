@@ -26,19 +26,16 @@
     letter-spacing: 0.02em;
   }
 
-  /* Video-wrapper: viser bare innholdsområdet (svarte soner croppes bort) */
   #video-wrap {
     width: 100%;
     max-width: 1200px;
-    overflow: hidden;
     background: #000;
-    /* aspect-ratio settes av JS etter at videodimensjoner er kjent */
+    line-height: 0;
   }
 
   video {
     width: 100%;
     display: block;
-    /* margin-top settes av JS for å croppe topp-padding */
   }
 
   /* Kontrollpanel – UNDER videoen, aldri overlaid */
@@ -126,13 +123,12 @@
 </div>
 
 <div id="file-row">
-  Ingen video lastet – <label for="file-input">åpne demo.mp4</label> eller dra filen hit
+  Ingen video lastet – <label for="file-input">åpne demo.webm</label> eller dra filen hit
   <input type="file" id="file-input" accept="video/*">
 </div>
 
 <script>
 const v         = document.getElementById('v');
-const videoWrap = document.getElementById('video-wrap');
 const seekbar   = document.getElementById('seekbar');
 const btnPlay   = document.getElementById('btn-play');
 const btnFs     = document.getElementById('btn-fs');
@@ -140,49 +136,17 @@ const timeEl    = document.getElementById('time');
 const fileRow   = document.getElementById('file-row');
 const fileInput = document.getElementById('file-input');
 
-// Svarte soner lagt til av test_pending_indicator.py (VIDEO_PAD_TOP / VIDEO_PAD_BOT).
-// Disse croppes bort slik at spilleren viser bare innholdsområdet (16:9).
-const PAD_TOP = 100;
-const PAD_BOT = 200;
-
-let cropEnabled = false;
-
-function applyCrop() {
-  if (!cropEnabled) return;
-  const scale = videoWrap.clientWidth / v.videoWidth;
-  v.style.marginTop = -(PAD_TOP * scale) + 'px';
-}
-
-function setupCrop() {
-  const vw = v.videoWidth;
-  const vh = v.videoHeight;
-  const expectedH = Math.round(vw * 9 / 16);   // 1080 for 1920-bred video
-
-  if (vh <= expectedH + 2) {
-    // Ingen padding – vis videoen som den er
-    videoWrap.style.aspectRatio = '';
-    return;
-  }
-
-  // Video har padding – crop til innholdsområdet
-  cropEnabled = true;
-  videoWrap.style.aspectRatio = `${vw} / ${expectedH}`;
-  applyCrop();
-  window.addEventListener('resize', applyCrop);
-}
-
-// --- last demo.mp4 fra samme mappe ---
-v.src = 'demo.mp4';
+// --- last demo.webm fra samme mappe ---
+v.src = 'demo.webm';
 v.load();
 
 v.addEventListener('loadedmetadata', () => {
   fileRow.style.display = 'none';
   seekbar.max = v.duration;
   updateTime();
-  setupCrop();
 });
 v.addEventListener('error', () => {
-  // demo.mp4 ikke funnet – vis fil-velger
+  // demo.webm ikke funnet – vis fil-velger
 });
 
 // --- fil-velger / drag-and-drop ---
@@ -196,9 +160,6 @@ document.addEventListener('drop', e => {
 function loadFile(e, file) {
   const f = file || fileInput.files[0];
   if (!f) return;
-  cropEnabled = false;
-  v.style.marginTop = '';
-  videoWrap.style.aspectRatio = '';
   v.src = URL.createObjectURL(f);
   v.load();
   fileRow.style.display = 'none';
@@ -233,10 +194,10 @@ function fmt(s) {
   return m + ':' + String(sec).padStart(2, '0');
 }
 
-// --- fullskjerm (kun innholdsområdet) ---
+// --- fullskjerm ---
 btnFs.addEventListener('click', () => {
   if (!document.fullscreenElement) {
-    videoWrap.requestFullscreen().catch(() => {});
+    document.getElementById('video-wrap').requestFullscreen().catch(() => {});
   } else {
     document.exitFullscreen();
   }
