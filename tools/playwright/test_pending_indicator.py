@@ -36,8 +36,10 @@ from playwright.async_api import async_playwright, Page, BrowserContext
 # FFmpeg
 # ---------------------------------------------------------------------------
 
-VIDEO_W = 1920
-VIDEO_H = 1080
+VIDEO_W       = 1920
+VIDEO_H       = 1080
+VIDEO_PAD_TOP = 100   # klaring øverst – WMP-tittellinje
+VIDEO_PAD_BOT = 200   # klaring nederst – WMP transport-kontroller
 
 def find_ffmpeg() -> str | None:
     p = shutil.which("ffmpeg")
@@ -51,7 +53,7 @@ def find_ffmpeg() -> str | None:
 def convert_to_mp4(webm: Path, mp4: Path, ffmpeg: str):
     subprocess.run([
         ffmpeg, "-y", "-i", str(webm),
-        "-vf", f"pad={VIDEO_W}:{VIDEO_H+200}:0:0:black",  # 200px svart sikkerhetssone – WMP/Films&TV-kontroller er 80–150px
+        "-vf", f"pad={VIDEO_W}:{VIDEO_H+VIDEO_PAD_TOP+VIDEO_PAD_BOT}:0:{VIDEO_PAD_TOP}:black",
         "-vcodec", "libx264", "-crf", "18",
         "-preset", "slow", "-pix_fmt", "yuv420p",
         str(mp4)
@@ -150,7 +152,7 @@ async def show_bubble(page: Page, text: str, duration_ms: int = None):
             b.id = 'pw-bubble';
             b.innerHTML = text;
             b.style.cssText = [
-                'position:fixed', 'bottom:70px', 'left:50%',
+                'position:fixed', 'bottom:160px', 'left:50%',
                 'transform:translateX(-50%)',
                 'background:rgba(15,25,50,0.93)',
                 'color:#fff', 'padding:18px 28px',
@@ -556,7 +558,7 @@ async def main():
         browser = await pw.chromium.launch(
             headless=HEADLESS,
             slow_mo=SLOW_MO,
-            args=["--start-maximized"]
+            args=[]
         )
         context: BrowserContext = await browser.new_context(
             viewport={"width": VIDEO_W, "height": VIDEO_H},
