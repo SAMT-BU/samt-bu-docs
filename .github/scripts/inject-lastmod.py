@@ -25,7 +25,15 @@ def get_lastmod(module_path, rel_path):
     return result.stdout.strip()
 
 
-def inject_lastmod(filepath, lastmod):
+def get_author(module_path, rel_path):
+    result = subprocess.run(
+        ['git', 'log', '-1', '--format=%aN', '--', rel_path],
+        capture_output=True, text=True, cwd=module_path
+    )
+    return result.stdout.strip()
+
+
+def inject_lastmod(filepath, lastmod, author):
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
@@ -43,6 +51,12 @@ def inject_lastmod(filepath, lastmod):
         frontmatter = re.sub(r'^lastmod:.*$', f'lastmod: {lastmod}', frontmatter, flags=re.MULTILINE)
     else:
         frontmatter = frontmatter.rstrip('\n') + f'\nlastmod: {lastmod}\n'
+
+    if author:
+        if re.search(r'^last_editor:', frontmatter, re.MULTILINE):
+            frontmatter = re.sub(r'^last_editor:.*$', f'last_editor: {author}', frontmatter, flags=re.MULTILINE)
+        else:
+            frontmatter = frontmatter.rstrip('\n') + f'\nlast_editor: {author}\n'
 
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write('---' + frontmatter + rest)
@@ -66,6 +80,7 @@ for module_path in MODULE_PATHS:
             rel_path = os.path.relpath(filepath, module_path)
 
             lastmod = get_lastmod(module_path, rel_path)
+            author = get_author(module_path, rel_path)
             if lastmod:
-                if inject_lastmod(filepath, lastmod):
-                    print(f'  {rel_path}: lastmod: {lastmod}')
+                if inject_lastmod(filepath, lastmod, author):
+                    print(f'  {rel_path}: lastmod: {lastmod}, last_editor: {author}')
