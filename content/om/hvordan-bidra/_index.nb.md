@@ -7,41 +7,50 @@ last_editor: erikhag1git (Erik Hagen)
 
 ---
 
-Dette nettstedet er åpent for bidrag fra alle samarbeidspartnere i SAMT-BU-prosjektet. Det finnes tre måter å bidra på, avhengig av hva slags endringer du skal gjøre og din tekniske bakgrunn:
+Dette nettstedet er åpent for bidrag fra alle samarbeidspartnere i SAMT-BU-prosjektet. Det finnes flere måter å bidra på – se oversikten under. For de fleste fagpersoner og redaktører er **innebygd redigering i nettleseren** den anbefalte veien inn.
 
 | Metode | Passer for | Krever |
 |--------|-----------|--------|
-| [CMS-redigering](#alternativ-1--redigering-i-nettleseren-via-cms) | Fagpersoner og redaktører | GitHub-konto (gratis) |
-| [GitHub-redigering](#alternativ-2--redigering-direkte-p-github) | Enkeltendringer, tekniske brukere | GitHub-konto + Markdown |
-| [Lokal oppsett](#alternativ-3--lokal-oppsett-for-utviklere) | Strukturelle endringer, utviklere | Hugo + Git installert |
+| [Innebygd editor](#anbefalt-innebygd-redigering-i-nettleseren) | Fagpersoner og redaktører | GitHub-konto + skrivetilgang |
+| [GitHub-redigering](#alternativ-redigering-direkte-p-github) | Enkeltendringer, tekniske brukere | GitHub-konto + Markdown |
+| [Lokal oppsett](#alternativ-lokal-oppsett-for-utviklere) | Strukturelle endringer, utviklere | Hugo + Git installert |
 
 ---
 
-## Alternativ 1 – Redigering i nettleseren via CMS
+## Anbefalt: Innebygd redigering i nettleseren
 
-**Dette er det anbefalte alternativet for de fleste bidragsytere.** Du redigerer innhold direkte i nettleseren i et visuelt redigeringsverktøy – ingen Markdown- eller Git-kunnskap nødvendig.
+Du redigerer innhold direkte i nettleseren i et visuelt tekstverktøy – ingen Markdown- eller Git-kunnskap nødvendig.
 
-**Slik redigerer du en eksisterende side:**
+### Hva du trenger
 
-1. Gå til siden du vil redigere på nettstedet
+- En **GitHub-konto** (opprett gratis på [github.com](https://github.com))
+- **Skrivetilgang** til riktig repo – kontakt en administrator for å få dette første gang
+
+### Redigere en eksisterende side
+
+1. Gå til siden du vil redigere
 2. Klikk **«Endre»**-menyen øverst til høyre i headeren
-3. Velg **«Denne siden»** – du sendes direkte til riktig side i CMS-editoren
-4. Logg inn med GitHub-kontoen din (første gang: klikk «Login with GitHub»)
-5. Gjør endringene dine i redigeringsfeltet
-6. Klikk **«Lagre»** – endringen publiseres automatisk etter kort tid
+3. Velg **«Rediger dette kapitlet»**
+4. Logg inn med GitHub-kontoen din hvis du ikke allerede er innlogget (popup-vindu)
+5. Gjør endringene dine i tekstfeltet
+6. Klikk **«Lagre»**
 
-**Slik lager du en ny side:**
+Nettstedet oppdateres automatisk innen ca. 1 minutt. En statusindikator nede til venstre i skjermen viser at oppdateringen er i gang.
 
-1. Klikk **«Endre»** → **«Andre valg»** i headeren for å åpne CMS-portalen
-2. Velg riktig samling i venstre panel
-3. Klikk **«Ny»** og fyll inn tittel og innhold
+### Opprette en ny side
+
+1. Gå til siden du vil plassere den nye siden ved siden av (søsken) eller under (underkapittel)
+2. Klikk **«Endre»** og velg:
+   - **«Nytt kapittel etter dette»** – ny side på samme nivå
+   - **«Nytt underkapittel»** – ny side ett nivå ned
+3. Fyll inn tittel og eventuelt innhold i dialogen
 4. Klikk **«Lagre»**
 
-> **Merk:** Du trenger en GitHub-konto for å logge inn. Opprett én gratis på [github.com](https://github.com). Kontakt en administrator for å få skrivetilgang til riktig repo første gang.
+> **Merknad:** Det arbeides med å gi bedre oversikt over pågående redigeringsarbeid på tvers av brukere. Løsningen er fullt brukbar slik den er i dag, men du kan oppleve at siden tar ca. 1 minutt å oppdatere etter lagring, og at det ikke alltid er synlig om andre redigerer samme side samtidig.
 
 ---
 
-## Alternativ 2 – Redigering direkte på GitHub
+## Alternativ: Redigering direkte på GitHub
 
 Passer for enkeltendringer og mindre rettelser uten lokal installasjon. Krever GitHub-konto og kjennskap til Markdown.
 
@@ -59,7 +68,7 @@ Siden publiseres automatisk innen et minutt etter at endringen er godkjent.
 
 ---
 
-## Alternativ 3 – Lokal oppsett (for utviklere)
+## Alternativ: Lokal oppsett (for utviklere)
 
 Dette alternativet gir deg et fullt lokalt arbeidsmiljø der du kan forhåndsvise alle endringer i nettleseren mens du skriver. Anbefalt for strukturelle endringer, nytt innhold i større omfang eller teknisk utvikling.
 

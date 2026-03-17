@@ -7,41 +7,50 @@ last_editor: erikhag1git (Erik Hagen)
 
 ---
 
-This website is open to contributions from all partners in the SAMT-BU project. There are three ways to contribute, depending on the type of changes you want to make and your technical background:
+This website is open to contributions from all partners in the SAMT-BU project. There are several ways to contribute – see the overview below. For most subject-matter experts and editors, the **built-in browser editor** is the recommended starting point.
 
 | Method | Suitable for | Requires |
 |--------|-------------|---------|
-| [CMS editing](#option-1--editing-in-the-browser-via-cms) | Subject-matter experts and editors | GitHub account (free) |
-| [GitHub editing](#option-2--editing-directly-on-github) | Minor changes, technical users | GitHub account + Markdown |
-| [Local setup](#option-3--local-setup-for-developers) | Structural changes, developers | Hugo + Git installed |
+| [Built-in editor](#recommended-built-in-editing-in-the-browser) | Subject-matter experts and editors | GitHub account + write access |
+| [GitHub editing](#alternative-editing-directly-on-github) | Minor changes, technical users | GitHub account + Markdown |
+| [Local setup](#alternative-local-setup-for-developers) | Structural changes, developers | Hugo + Git installed |
 
 ---
 
-## Option 1 – Editing in the Browser via CMS
+## Recommended: Built-in Editing in the Browser
 
-**This is the recommended option for most contributors.** You edit content directly in the browser using a visual editor – no knowledge of Markdown or Git required.
+You edit content directly in the browser using a visual text editor – no knowledge of Markdown or Git required.
 
-**To edit an existing page:**
+### What You Need
 
-1. Go to the page you wish to edit on the website
+- A **GitHub account** (create one for free at [github.com](https://github.com))
+- **Write access** to the correct repository – contact an administrator to obtain this the first time
+
+### Editing an Existing Page
+
+1. Go to the page you wish to edit
 2. Click the **"Edit"** menu in the top-right corner of the header
-3. Select **"This page"** – you are taken directly to the correct page in the CMS editor
-4. Log in with your GitHub account (first time: click "Login with GitHub")
-5. Make your changes in the editing field
-6. Click **"Save"** – the change is published automatically after a short while
+3. Select **"Edit this chapter"**
+4. Log in with your GitHub account if you are not already logged in (pop-up window)
+5. Make your changes in the text field
+6. Click **"Save"**
 
-**To create a new page:**
+The website updates automatically within approximately 1 minute. A status indicator at the bottom left of the screen shows that the update is in progress.
 
-1. Click **"Edit"** → **"Other options"** in the header to open the CMS portal
-2. Select the appropriate collection in the left panel
-3. Click **"New"** and fill in the title and content
+### Creating a New Page
+
+1. Navigate to the page you want to place the new page next to (sibling) or beneath (sub-chapter)
+2. Click **"Edit"** and select:
+   - **"New chapter after this"** – new page at the same level
+   - **"New sub-chapter"** – new page one level down
+3. Fill in the title and any content in the dialog
 4. Click **"Save"**
 
-> **Note:** You need a GitHub account to log in. Create one for free at [github.com](https://github.com). Contact an administrator to obtain write access to the correct repository the first time.
+> **Note:** Work is ongoing to provide a better overview of active editing across users. The solution is fully usable as it stands today, but pages may take approximately 1 minute to update after saving, and it may not always be visible whether others are editing the same page at the same time.
 
 ---
 
-## Option 2 – Editing Directly on GitHub
+## Alternative: Editing Directly on GitHub
 
 Suitable for individual changes and minor corrections without a local installation. Requires a GitHub account and familiarity with Markdown.
 
@@ -59,7 +68,7 @@ The page is published automatically within a minute of the change being approved
 
 ---
 
-## Option 3 – Local Setup (for Developers)
+## Alternative: Local Setup (for Developers)
 
 This option gives you a full local working environment in which you can preview all changes in the browser as you write. Recommended for structural changes, larger amounts of new content, or technical development.
 
