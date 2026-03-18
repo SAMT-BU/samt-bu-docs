@@ -27,5 +27,5 @@ Nav har erkjent svakhetene, men peker på teknisk kompleksitet som årsak til at
 
 Foreløpig ideer:
 
-1. Innled samarbeid med NAV - og kanskje Skattetetaten og helsenorge - om å ta hull på dette sammen i en eller flere SAMT-BU piloter. Juridiske problemstillinger og tekniske løsninger, som f.eks. samtykkeløsninger, er felles for en rekke use cases på tvers av flere sektorer. Det er ikke sikkert at det behøves mye ressursinnsats fra SAMT-BU, men det er viktig at beste praksis for hvordan samarbeid om sammenhengende tjenester blir tatt fram.
+1. Innled samarbeid med NAV - og kanskje Skattetetaten og Helsenorge - om å ta hull på dette sammen i en eller flere SAMT-BU piloter. Juridiske problemstillinger og tekniske løsninger, som f.eks. samtykkeløsninger, er felles for en rekke use cases på tvers av flere sektorer. Det er ikke sikkert at det behøves mye ressursinnsats fra SAMT-BU, men det er viktig at beste praksis for hvordan samarbeid om sammenhengende tjenester blir tatt fram.
 2. Innled samarbeid med Aftenposten og andre medier om å grave fram slike saker og definere SAMT-BU "cases", samt piloter og prosjekter som skal løse problemet. Kan vi gjøre massemedia til vår forlengede kommunikasjonsavdeling?
