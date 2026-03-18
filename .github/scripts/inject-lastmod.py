@@ -19,11 +19,18 @@ MODULE_PATHS = [
 
 
 def get_lastmod(module_path, rel_path):
+    """Finn timestamp for siste ikke-bot-commit som berørte denne filen."""
     result = subprocess.run(
-        ['git', 'log', '-1', '--format=%cI', '--', rel_path],
+        ['git', 'log', '--format=%cI|%ae', '--', rel_path],
         capture_output=True, text=True, cwd=module_path
     )
-    return result.stdout.strip()
+    for line in result.stdout.strip().splitlines():
+        if not line:
+            continue
+        timestamp, _, email = line.partition('|')
+        if '[bot]' not in email:
+            return timestamp.strip()
+    return ''
 
 
 def get_last_human_author(module_path, rel_path):

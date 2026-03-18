@@ -1,4 +1,4 @@
-name: Deploy Hugo site to Pages
+name: UUID-sikring og CF Pages-rebuild
 
 on:
   push:
@@ -10,34 +10,24 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 defaults:
   run:
     shell: bash
 
 jobs:
-  build:
+  # Kjøres kun ved push – sjekker og injiserer UUID-er i frontmatter.
+  # CF Pages fanger opp pushen automatisk og bygger nettstedet.
+  uuid-check:
+    if: github.event_name == 'push' && github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: 0.155.3
+    concurrency:
+      group: "uuid"
+      cancel-in-progress: false
     steps:
-      - name: Install Hugo CLI
-        run: |
-          for i in 1 2 3; do
-            wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb && break
-            echo "Attempt $i failed, retrying in $((i * 5)) seconds..."
-            sleep $((i * 5))
-          done
-          sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          submodules: recursive
 
       - name: Sikre UUID-er i frontmatter
         run: |
@@ -56,78 +46,13 @@ jobs:
             done
           fi
 
-      # Hugo-moduler som monterer innhold i dette nettstedet.
-      # For hvert modulrepo som skal ha automatisk synkronisering og korrekte lastmod-datoer:
-      #   1. Legg til en checkout-blokk her (kopier mønsteret under)
-      #   2. Legg til i HUGO_MODULE_REPLACEMENTS lenger ned
-      #   3. Legg til i MODULE_PATHS i .github/scripts/inject-lastmod.py
-      # Merk: repoet MÅ også ha en workflow som trigger repository_dispatch til samt-bu-docs ved push.
-      - name: Checkout team-architecture module
-        uses: actions/checkout@v4
-        with:
-          repository: SAMT-X/team-architecture
-          path: .hugo-modules/team-architecture
-          fetch-depth: 0
-
-      - name: Checkout samt-bu-drafts module
-        uses: actions/checkout@v4
-        with:
-          repository: SAMT-X/samt-bu-drafts
-          path: .hugo-modules/samt-bu-drafts
-          fetch-depth: 0
-
-      - name: Checkout solution-samt-bu-docs module
-        uses: actions/checkout@v4
-        with:
-          repository: SAMT-X/solution-samt-bu-docs
-          path: .hugo-modules/solution-samt-bu-docs
-          fetch-depth: 0
-
-      - name: Checkout team-pilot-1 module
-        uses: actions/checkout@v4
-        with:
-          repository: SAMT-X/team-pilot-1
-          path: .hugo-modules/team-pilot-1
-          fetch-depth: 0
-
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
-
-      - name: Inject lastmod into module content
-        run: python3 .github/scripts/inject-lastmod.py
-
-      - name: Konfigurer git for UTF-8-stier
-        run: git config --global core.quotepath false
-
-      - name: Build with Hugo
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-          TZ: Europe/Oslo
-          HUGO_MODULE_REPLACEMENTS: >-
-            github.com/SAMT-X/team-architecture ->
-            ${{ github.workspace }}/.hugo-modules/team-architecture,
-            github.com/SAMT-X/samt-bu-drafts ->
-            ${{ github.workspace }}/.hugo-modules/samt-bu-drafts,
-            github.com/SAMT-X/solution-samt-bu-docs ->
-            ${{ github.workspace }}/.hugo-modules/solution-samt-bu-docs,
-            github.com/SAMT-X/team-pilot-1 ->
-            ${{ github.workspace }}/.hugo-modules/team-pilot-1
+  # Kjøres ved repository_dispatch fra modulrepoer eller manuell workflow_dispatch.
+  # Trigger CF Pages til å bygge med siste modulversjoner (inkl. injisert lastmod).
+  trigger-cf-pages:
+    if: (github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch') && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
         run: |
-          hugo \
-            --gc \
-            --minify \
-            --baseURL "https://samt-bu-docs.pages.dev/"
-
-      - name: Deploy to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-        run: |
-          for i in 1 2 3; do
-            npx wrangler pages deploy ./public --project-name samt-bu-docs --branch main && break
-            echo "Deploy-forsøk $i feilet, prøver igjen om 15 sek..."
-            sleep 15
-          done
+          curl -s -X POST "${{ secrets.CF_PAGES_DEPLOY_HOOK }}"
+          echo "CF Pages build trigget (kilde: ${{ github.event.client_payload.source || 'manuell' }})."
