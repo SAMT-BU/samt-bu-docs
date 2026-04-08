@@ -4,6 +4,10 @@ title: 24. Utrede/teste register med elevinformasjon
 weight: 260
 status: Ny
 ---
+Foreløpig beskrivelse (Torbjørn): 
+
+\###
+
 Lotte Otelie Sørensen (KS Digital):\
 \
 Hei!
