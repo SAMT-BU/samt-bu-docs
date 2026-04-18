@@ -1,5 +1,5 @@
 /**
- * Cloudflare Worker – GitHub OAuth-proxy for Decap CMS
+ * Cloudflare Worker – GitHub OAuth-proxy + CF Pages build-status proxy
  *
  * Miljøvariabler som må settes i Cloudflare-dashboardet:
  *   CLIENT_ID     – GitHub OAuth App Client ID
@@ -8,6 +8,7 @@
  * Endepunkter:
  *   GET /auth?provider=github&site_id=...  → redirect til GitHub OAuth
  *   GET /callback?code=...                 → bytt kode mot token, lukk popup
+ *   GET /build-status?url=<side-url>       → hent samtu-build-tag uten CDN-cache
  */
 
 export default {
@@ -22,9 +23,59 @@ export default {
       return handleCallback(url, env);
     }
 
+    if (url.pathname === "/build-status") {
+      if (request.method === "OPTIONS") {
+        return new Response(null, { status: 204, headers: buildStatusCors() });
+      }
+      return handleBuildStatus(url);
+    }
+
     return new Response("Not found", { status: 404 });
   },
 };
+
+// --- Build-status proxy (omgår CF CDN-cache ved hjelp av cf.bypassCache) ---
+
+async function handleBuildStatus(url) {
+  const cors = buildStatusCors();
+  const pageUrl = url.searchParams.get("url");
+
+  if (!pageUrl || !pageUrl.startsWith("https://samt-bu-docs-git.pages.dev/")) {
+    return new Response(JSON.stringify({ error: "ugyldig url" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json", ...cors },
+    });
+  }
+
+  try {
+    const resp = await fetch(pageUrl, {
+      cf: { bypassCache: true },
+      headers: { Accept: "text/html" },
+    });
+    const html = await resp.text();
+    const m = html.match(/<meta name="samtu-build" content="([^"]+)"/);
+    const buildTag = m ? m[1] : null;
+    return new Response(JSON.stringify({ buildTag }), {
+      headers: { "Content-Type": "application/json", ...cors },
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", ...cors },
+    });
+  }
+}
+
+function buildStatusCors() {
+  return {
+    "Access-Control-Allow-Origin": "https://samt-bu-docs-git.pages.dev",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Max-Age": "86400",
+    "Cache-Control": "no-store",
+  };
+}
+
+// --- GitHub OAuth ---
 
 function handleAuth(url, env) {
   const provider = url.searchParams.get("provider");
@@ -71,9 +122,6 @@ async function handleCallback(url, env) {
   const content = JSON.stringify({ token, provider: "github" });
   const message = `authorization:github:success:${content}`;
 
-  // Send token tilbake til CMS-vinduet via postMessage.
-  // Flyten: popup sender "authorizing:github" til opener (wildcard),
-  // CMS svarer med sin origin, popup sender token til den spesifikke origin.
   const html = `<!DOCTYPE html>
 <html lang="nb">
 <head>
