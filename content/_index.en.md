@@ -8,9 +8,9 @@ draft: false
 
 Welcome to SAMT-BU Docs – the documentation platform for the [Connected Services for Children and Young People (SAMT-BU)](/samt-bu-docs/om/om-samt-bu/) project.
 
-## Open and Portable Documentation
+## Data-Centric Documentation
 
-All content in this solution is stored as plain text files ([Markdown](https://www.markdownguide.org/)) in an open Git repository. This means the documentation is not locked to this platform, to Hugo, or to GitHub – it can be taken forward in its entirety, fully independent of SAMT-BU Docs as a solution.
+All content in this solution is stored as plain text files ([Markdown](https://www.markdownguide.org/)) in an open Git repository. This means the documentation is not locked to this platform or the solutions we currently use (such as GitHub or Hugo) – it can be taken forward in its entirety, fully independent of SAMT-BU Docs as a solution.
 
 In practice, this means:
 

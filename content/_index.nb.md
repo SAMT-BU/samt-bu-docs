@@ -8,9 +8,9 @@ draft: false
 
 Velkommen til SAMT-BU Docs – dokumentasjonsplattformen for prosjektet [Sammenhengende tjenester for barn og unge (SAMT-BU)](/samt-bu-docs/om/om-samt-bu/).
 
-## Åpen og bærbar dokumentasjon
+## Datasentrisk dokumentasjon
 
-Alt innhold i denne løsningen lagres som vanlige tekstfiler ([Markdown](https://www.markdownguide.org/)) i et åpent Git-repo. Det betyr at dokumentasjonen ikke er låst til denne plattformen, til Hugo eller til GitHub – den kan tas videre helt og holdent, uavhengig av SAMT-BU Docs som løsning.
+Alt innhold i denne løsningen lagres som vanlige tekstfiler ([Markdown](https://www.markdownguide.org/)) i et åpent Git-repo. Det betyr at dokumentasjonen ikke er låst til denne plattformen eller løsninger vi akkurat nå bruker (slik som f.eks. GitHub eller Hugo) – den kan tas videre helt og holdent, uavhengig av SAMT-BU Docs som løsning.
 
 Konkret innebærer det at:
 
