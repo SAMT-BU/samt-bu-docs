@@ -1,5 +1,7 @@
 ---
 # id: auto-generert – kopierte verdier overskrives automatisk ved push
+id: acb557dd-202d-4738-8f53-c310c734201b
+# id: auto-generert – kopierte verdier overskrives automatisk ved push
 title: "KS FoU 256060 – Leverandørmarkedet for digitale løsninger til kommunal sektor"
 linkTitle: "KS FoU 256060 – Leverandørmarkedet"
 weight: 10

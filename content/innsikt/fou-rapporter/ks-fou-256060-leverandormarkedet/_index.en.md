@@ -1,4 +1,6 @@
 ---
+# id: auto-generated – copied values are overwritten automatically on push
+id: acb557dd-202d-4738-8f53-c310c734201b
 # id: auto-generert – kopierte verdier overskrives automatisk ved push
 title: "KS Research Report 256060 – The Supplier Market for Digital Solutions in the Municipal Sector"
 linkTitle: "KS R&D 256060 – Supplier Market"
