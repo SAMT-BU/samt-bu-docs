@@ -7,5 +7,5 @@ require (
 	github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260308200706-ef199a1101e4 // indirect
 	github.com/SAMT-X/team-architecture v0.0.0-20260423145752-c6d715909724 // indirect
 	github.com/SAMT-X/team-pilot-1 v0.0.0-20260423152807-cb3ad57d1fc1 // indirect
-	github.com/SAMT-X/team-semantics v0.0.0-20260303201125-e3c90581dbf4 // indirect
+	github.com/SAMT-X/team-semantics v0.0.0-20260423155808-7607ed08de8b // indirect
 )
