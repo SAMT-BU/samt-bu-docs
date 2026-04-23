@@ -57,16 +57,10 @@ enableGitInfo = true
   icon = "fa-sitemap"
 
 [[params.navSwitcher]]
-  id = "loesninger"
-  title = "Løsninger"
-  url = "loesninger/"
-  icon = "fa-cogs"
-
-[[params.navSwitcher]]
-  id = "rammeverk"
-  title = "Rammeverk"
-  url = "rammeverk/"
-  icon = "fa-cubes"
+  id = "prosjektleveranser"
+  title = "Prosjektleveranser"
+  url = "prosjektleveranser/"
+  icon = "fa-briefcase"
 
 
 [[params.navSwitcher]]
@@ -112,4 +106,4 @@ enableGitInfo = true
     path = "github.com/SAMT-X/solution-samt-bu-docs"
     [[module.imports.mounts]]
       source = "content"
-      target = "content/loesninger/cms-loesninger/samt-bu-docs"
+      target = "content/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs"
