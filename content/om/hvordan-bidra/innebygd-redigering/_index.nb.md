@@ -12,7 +12,7 @@ Du redigerer innhold direkte i nettleseren i et visuelt tekstverktøy – ingen 
 ## Hva du trenger
 
 - En **GitHub-konto** (opprett gratis på [github.com](https://github.com))
-- **Skrivetilgang** er ikke påkrevd – uten tilgang sendes endringen automatisk som et endringsforslag (pull request) som en administrator kan godkjenne
+- **Skrivetilgang** til repoet – kontakt en administrator for å få tilgang
 
 ## Redigere en eksisterende side
 
