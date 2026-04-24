@@ -11,8 +11,9 @@ Du redigerer innhold direkte i nettleseren i et visuelt tekstverktøy – ingen 
 
 ## Hva du trenger
 
-- En **GitHub-konto** (opprett gratis på [github.com](https://github.com))
-- **Skrivetilgang** til repoet – kontakt en administrator for å få tilgang
+- En **GitHub-konto** (opprett gratis på [github.com](https://github.com)) – det er alt som trengs
+
+**Skrivetilgang er ikke nødvendig.** Uten skrivetilgang sendes endringene dine som et *endringsforslag* (pull request) som en redaktør ser over og godkjenner. Med skrivetilgang publiseres endringen direkte. I begge tilfeller brukes nøyaktig samme grensesnitt – menynavnene tilpasses automatisk.
 
 ## Redigere en eksisterende side
 
@@ -25,7 +26,7 @@ Du redigerer innhold direkte i nettleseren i et visuelt tekstverktøy – ingen 
 
 **Tips:** Bilder kan limes direkte inn i tekstfeltet (Ctrl+V eller høyreklikk → Lim inn).
 
-Har du skrivetilgang publiseres endringen direkte. Har du ikke skrivetilgang, opprettes det automatisk et endringsforslag (pull request) som en administrator ser over og godkjenner. Du får en lenke til forslaget etter lagring.
+**Skrivetilgang:** Endringen publiseres direkte. **Uten skrivetilgang:** Det opprettes automatisk et endringsforslag (pull request). Du ser «Foreslå endring av dette kapitlet» i stedet for «Rediger denne siden» i menyen, og etter lagring vises en lenke til forslaget. En redaktør ser over og godkjenner.
 
 Nettstedet oppdateres automatisk etter lagring. En statusindikator nede til venstre i skjermen holder deg oppdatert underveis.
 
@@ -38,6 +39,8 @@ Nettstedet oppdateres automatisk etter lagring. En statusindikator nede til vens
 3. Fyll inn tittel og eventuelt innhold i dialogen
 4. Klikk **«Lagre»**
 
+Uten skrivetilgang vises «Foreslå nytt kapittel etter dette» / «Foreslå nytt underkapittel» i stedet. Forslaget sendes som en pull request og en lenke vises etter at du har klikket «Lagre».
+
 ## Flytte et kapittel
 
 1. Gå til siden du vil flytte
@@ -48,6 +51,8 @@ Nettstedet oppdateres automatisk etter lagring. En statusindikator nede til vens
 
 Klikk **«Avbryt»** i dialogen for å avbryte uten å gjøre endringer. Nettstedet oppdateres automatisk etter at flyttingen er fullført.
 
+> **Merk:** Flytt-funksjonen krever skrivetilgang og støtter ikke forslagsflyt (pull request).
+
 ## Slette en side
 
 1. Gå til siden du vil slette
@@ -56,6 +61,8 @@ Klikk **«Avbryt»** i dialogen for å avbryte uten å gjøre endringer. Nettste
 4. Bekreft i dialogen
 
 Siden og begge språkversjoner (norsk og engelsk) slettes i ett og samme trinn. Nettstedet oppdateres automatisk etter sletting.
+
+Uten skrivetilgang vises «Foreslå sletting av denne siden» i stedet. Forslaget sendes som en pull request og en lenke vises etter bekreftelse.
 
 > **Merk:** Sletting er ikke umiddelbart reverserbart via grensesnittet. Kontakt en administrator dersom du har slettet en side ved en feil.
 
