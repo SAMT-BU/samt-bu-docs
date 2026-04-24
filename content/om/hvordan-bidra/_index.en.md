@@ -270,4 +270,4 @@ GitHub Actions builds and publishes automatically after 1–2 minutes.
 
 A more comprehensive user guide – including tips for editors, advanced editing, and site administration – is available in the solution documentation:
 
-→ [User guide for SAMT-BU Docs](/samt-bu-docs/loesninger/cms-loesninger/samt-bu-docs/brukerveiledning/)
+→ [User guide for SAMT-BU Docs](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/brukerveiledning/)

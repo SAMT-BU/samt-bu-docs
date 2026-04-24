@@ -27,4 +27,4 @@ Content from team repositories is automatically mounted into the site via Hugo M
 ## See also
 
 - [How to Contribute](/samt-bu-docs/om/hvordan-bidra/) – get started with editing and contributions
-- [SAMT-BU Docs – solution documentation](/samt-bu-docs/loesninger/cms-loesninger/samt-bu-docs/) – technical documentation and user guide for editors
+- [SAMT-BU Docs – solution documentation](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/) – technical documentation and user guide for editors

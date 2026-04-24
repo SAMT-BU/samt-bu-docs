@@ -26,4 +26,4 @@ Innhold fra team-repoer monteres automatisk inn via Hugo Modules, og CMS-rediger
 ## Se også
 
 - [Hvordan bidra](/samt-bu-docs/om/hvordan-bidra/) – kom i gang med redigering og bidrag
-- [SAMT-BU Docs – løsningsdokumentasjon](/samt-bu-docs/loesninger/cms-loesninger/samt-bu-docs/) – teknisk dokumentasjon og brukerveiledning for redaktører
+- [SAMT-BU Docs – løsningsdokumentasjon](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/) – teknisk dokumentasjon og brukerveiledning for redaktører
