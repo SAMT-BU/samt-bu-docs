@@ -86,7 +86,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "https://samt-bu-docs.pages.dev/"
+            --baseURL "https://docs.samt-bu.no/"
 
       - name: Deploy to Cloudflare Pages
         env:
