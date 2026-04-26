@@ -313,6 +313,52 @@ hugo mod get github.com/SAMT-X/team-architecture@latest
 
 **Kjent begrensning:** Lokalt (`hugo server`) vises ingen `lastmod` for modulinnhold – Hugo bruker modulcachen. Kun produksjonsbygg (CI) har korrekte tidsstempler for modul-sider.
 
+## PR-håndtering
+
+Bidragsytere uten direkte push-tilgang sender forslag som pull requests. Bruk alltid GitHub-grensesnittet (ikke direkte push til main) – ellers vises PR som «Closed» i stedet for «Merged», som er forvirrende for ikke-tekniske bidragsytere.
+
+### Konfliktfri PR
+
+```bash
+gh pr view <nr> --repo SAMT-X/samt-bu-docs --json mergeable,mergeStateStatus
+gh pr merge <nr> --repo SAMT-X/samt-bu-docs --merge
+```
+
+### PR med konflikt – rebase-flyt
+
+```bash
+# 1. Legg til fork som remote og hent grenen
+git remote add <login> https://github.com/<login>/samt-bu-docs.git
+git fetch <login> <branchname>
+git checkout -b pr-<nr> <login>/<branchname>
+
+# 2. Rebase på main, løs konflikt
+git rebase origin/main
+# ... rediger konfliktfil, behold ønsket innhold ...
+git add <fil>
+GIT_EDITOR=true git rebase --continue
+
+# 3. Push rebased branch til origin (ikke direkte til main)
+git push origin pr-<nr>:pr-<nr>
+
+# 4. Oppdater PR-head og merge via GitHub
+gh pr merge <nr> --repo SAMT-X/samt-bu-docs --merge
+
+# 5. Rydd opp
+git branch -D pr-<nr>
+git remote remove <login>
+```
+
+### Brukervennlig kommentar – alltid
+
+Legg alltid til en kommentar etter merge/close. Bidragsytere er ofte ikke-tekniske og forstår ikke GitHub-statusmeldinger. Kommando:
+
+```bash
+gh pr comment <nr> --repo SAMT-X/samt-bu-docs --body "..."
+```
+
+Malen skal: bekrefte at forslaget er godkjent og tatt inn, opplyse om at nettstedet oppdateres om noen minutter, unngå teknisk jargon.
+
 ## Verktøy
 
 - **GitHub CLI (`gh`):** Installert (`winget`), versjon 2.87.2. Autentisert mot GitHub.
