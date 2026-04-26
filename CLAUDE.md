@@ -326,28 +326,37 @@ gh pr merge <nr> --repo SAMT-X/samt-bu-docs --merge
 
 ### PR med konflikt – rebase-flyt
 
+Sjekk alltid `maintainer_can_modify` i PR-detaljene – er den `true`, kan vi pushe direkte tilbake til fork-grenen og merge rent via GitHub (gir «Merged», ikke «Closed»).
+
 ```bash
-# 1. Legg til fork som remote og hent grenen
+# 1. Sjekk at maintainer_can_modify er true
+gh pr view <nr> --repo SAMT-X/samt-bu-docs --json maintainerCanModify
+
+# 2. Legg til fork som remote og hent grenen
 git remote add <login> https://github.com/<login>/samt-bu-docs.git
 git fetch <login> <branchname>
 git checkout -b pr-<nr> <login>/<branchname>
 
-# 2. Rebase på main, løs konflikt
+# 3. Rebase på main, løs konflikt
 git rebase origin/main
 # ... rediger konfliktfil, behold ønsket innhold ...
 git add <fil>
 GIT_EDITOR=true git rebase --continue
 
-# 3. Push rebased branch til origin (ikke direkte til main)
-git push origin pr-<nr>:pr-<nr>
+# 4. Push rebased commits tilbake til fork-grenen (krever maintainer_can_modify: true)
+git push <login> pr-<nr>:<branchname> --force-with-lease
 
-# 4. Oppdater PR-head og merge via GitHub
+# 5. Merge via GitHub – gir "Merged" (lilla)
 gh pr merge <nr> --repo SAMT-X/samt-bu-docs --merge
 
-# 5. Rydd opp
+# 6. Rydd opp
+git checkout main && git pull origin main
 git branch -D pr-<nr>
 git remote remove <login>
+git push origin --delete pr-<nr>
 ```
+
+**Hvis `maintainer_can_modify` er `false`:** Push `pr-<nr>` til `origin` og merge lokalt med `--no-ff -m "... Closes #<nr>"`. PR vises da som «Closed», ikke «Merged» – kompenser med en god kommentar til bidragsyteren.
 
 ### Brukervennlig kommentar – alltid
 
