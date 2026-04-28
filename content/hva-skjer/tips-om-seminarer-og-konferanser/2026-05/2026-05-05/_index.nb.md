@@ -1,6 +1,6 @@
 ---
 id: 1c71e51e-366b-4baa-b3a6-4cf37af8c70b
-title: 2026-05-05 DataWeek26
+title: 2026-05-05 EU DataWeek i Oslo
 weight: 10
 ---
 Ref. <https://www.sintef.no/arrangementer-og-kurs/data-week-2026/>
