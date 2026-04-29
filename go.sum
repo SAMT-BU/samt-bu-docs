@@ -2,6 +2,12 @@ github.com/SAMT-X/samt-bu-drafts v0.0.0-20260305124447-1b3b16686b14 h1:b5NpMA3C3
 github.com/SAMT-X/samt-bu-drafts v0.0.0-20260305124447-1b3b16686b14/go.mod h1:DSWTYGYc0Gdp9/uUD33suYZHwaCzxtWsXX9loG2ohyE=
 github.com/SAMT-X/samt-bu-pilot-1 v0.0.0-20260428234552-fb8f3a903d17 h1:rCLNYeQfPCU+wztx1Lf+OMFlj3XdtKuWgzIXn2+PLVs=
 github.com/SAMT-X/samt-bu-pilot-1 v0.0.0-20260428234552-fb8f3a903d17/go.mod h1:7cPGceD7eGhlqdSk4Jq2ZzfC8rv4guziKQjA5m2DcUM=
+github.com/SAMT-X/samt-bu-pilot-2 v0.0.0-20260429113412-121a30a506c6 h1:xUxmtnbitlADsUofkj2TLqU58qNIq+3vUO5vxObFIWg=
+github.com/SAMT-X/samt-bu-pilot-2 v0.0.0-20260429113412-121a30a506c6/go.mod h1:ktg5lAp6Ahr9q1DpFQuFmlXp547I2rLaoX6OK/DO3ZE=
+github.com/SAMT-X/samt-bu-pilot-3 v0.0.0-20260429113408-f44d2ce12c91 h1:zYIeBLxS0x4qJOQBwLKK45gxRX7dr+unajl0iWuQ0fE=
+github.com/SAMT-X/samt-bu-pilot-3 v0.0.0-20260429113408-f44d2ce12c91/go.mod h1:xNPYqfV0zntOmSyyxFLLuQndU6Wzjm3Vix1bweZJxJc=
+github.com/SAMT-X/samt-bu-pilot-4 v0.0.0-20260429113415-99337c536292 h1:T967EHjSU0WI45Xf7nBVM3ZOe/a140XshtLaCuOP9fw=
+github.com/SAMT-X/samt-bu-pilot-4 v0.0.0-20260429113415-99337c536292/go.mod h1:hsoPr4SOoc16JucQ+9NJqgwABDK2jLf9FFbuGMly6NM=
 github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260308200706-ef199a1101e4 h1:lda1hExJnOmr5YgeDYy7oN8YHsU9y0pXj+VCHhCMmSY=
 github.com/SAMT-X/solution-samt-bu-docs v0.0.0-20260308200706-ef199a1101e4/go.mod h1:tfkaCWHf85mWvul6ze9NJlAvxHtE6dQmBOlzoogTUec=
 github.com/SAMT-X/team-architecture v0.0.0-20260423145752-c6d715909724 h1:N6V0xs/F1rJ8bfGLTfh6AKVnl4JbiwrgT4NkOzKgeO4=
