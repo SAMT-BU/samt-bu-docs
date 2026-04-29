@@ -52,44 +52,78 @@ wget https://github.com/gohugoio/hugo/releases/download/v0.155.3/hugo_extended_0
 sudo dpkg -i hugo_extended_0.155.3_linux-amd64.deb
 ```
 
-## Klone repoet
+## Innholdsstruktur – flere repos
+
+SAMT-BU Docs er satt opp med **innholdsmoduler**: innhold fra ulike team og piloter ligger i egne GitHub-repoer og monteres automatisk inn i nettstedet ved publisering. Du trenger derfor ikke klone alle repoer for å se hele nettstedet – Hugo henter manglende moduler fra GitHub automatisk.
+
+| Repo | Innhold | Montert under |
+|------|---------|---------------|
+| `samt-bu-docs` | Hoveddokumentasjon, konfigurasjon | *(rot)* |
+| `samt-bu-pilot-1` | Pilot 1 | `pilotering/pilot-1/` |
+| `samt-bu-pilot-2` | Pilot 2 | `pilotering/pilot-2/` |
+| `samt-bu-pilot-3` | Pilot 3 | `pilotering/pilot-3/` |
+| `samt-bu-pilot-4` | Pilot 4 | `pilotering/pilot-4/` |
+| `team-architecture` | Overordnet arkitektur | `arkitektur/overordnet-arkitektur/` |
+| `team-semantics` | Informasjonsarkitektur | `arkitektur/informasjonsarkitektur/` |
+| `samt-bu-drafts` | Utkast og innspill | `utkast/` |
+| `solution-samt-bu-docs` | Teknisk dokumentasjon | `prosjektleveranser/…` |
+
+## Scenario A – Kun forhåndsvisning av hele nettstedet
+
+Klon `samt-bu-docs` og start serveren. Hugo henter innholdet fra alle modulrepoer automatisk.
 
 ```bash
 git clone --recurse-submodules https://github.com/SAMT-X/samt-bu-docs.git
 cd samt-bu-docs
-hugo mod download
-```
-
-`--recurse-submodules` sørger for at temaet (`hugo-theme-samt-bu`) lastes ned. `hugo mod download` henter innholdsmoduler fra de andre repoene.
-
-## Start lokal forhåndsvisning
-
-```bash
 hugo server
 ```
 
-Åpne [http://localhost:1313/samt-bu-docs/](http://localhost:1313/samt-bu-docs/) i nettleseren. Siden oppdaterer seg automatisk når du lagrer en fil.
+Åpne [http://localhost:1313/](http://localhost:1313/) i nettleseren.
 
-## Filstruktur – der innholdet bor
+## Scenario B – Redigere innhold i ett bestemt repo
+
+Ønsker du bare å redigere innhold i for eksempel `samt-bu-pilot-2`, trenger du kun å klone det repoet:
+
+```bash
+git clone https://github.com/SAMT-X/samt-bu-pilot-2.git
+cd samt-bu-pilot-2
+# rediger filer i content/
+git add .
+git commit -m "Beskrivelse av endringen"
+git push
+```
+
+Nettstedet oppdateres automatisk på [docs.samt-bu.no](https://docs.samt-bu.no/) innen ca. ett minutt. Ingen lokal Hugo-server er nødvendig.
+
+## Scenario C – Full lokal utvikling på tvers av alle repos
+
+Vil du redigere innhold i flere moduler og se endringene live lokalt, klon alle repoer som søskenmapper og bruk det medfølgende hjelpe­scriptet:
+
+```bash
+# Klon samtlige repos side om side
+git clone --recurse-submodules https://github.com/SAMT-X/samt-bu-docs.git
+git clone https://github.com/SAMT-X/samt-bu-pilot-1.git
+git clone https://github.com/SAMT-X/samt-bu-pilot-2.git
+# ... osv. for de modulene du vil jobbe med
+
+# Start lokal server (scriptet finner lokale kloner automatisk)
+cd samt-bu-docs
+tools/hugo-local.sh
+```
+
+Scriptet leser `hugo.toml`, oppdager hvilke moduler du har klonet lokalt, og starter Hugo med disse pekende på dine lokale filer. Moduler du ikke har klonet hentes fortsatt fra GitHub.
 
 ```
-content/
-  om/                      ← «Om»-seksjonen
-  behov/                   ← Behov (use cases)
-  pilotering/              ← Piloter
-  arkitektur/              ← Arkitektur
-  prosjektleveranser/      ← Løsninger og rammeverk
-  innsikt/                 ← Felles innsikt
-  administrasjon-og-styring/
-  utkast/                  ← Utkast og innspill (innholdsmodul)
+samt-bu-docs/            ← klon alltid denne
+samt-bu-pilot-1/         ← klon de du vil redigere
+samt-bu-pilot-2/
+...
 ```
 
-Hvert kapittel er en **mappe** med to filer:
+**Med utkast:**
 
-```
-content/om/om-samt-bu/
-  _index.nb.md    ← Norsk innhold
-  _index.en.md    ← Engelsk innhold
+```bash
+tools/hugo-local.sh --drafts
 ```
 
 ## Skrive innhold
@@ -130,8 +164,8 @@ GitHub Actions bygger og publiserer automatisk etter 1–2 minutter.
 
 | Kommando | Beskrivelse |
 |----------|-------------|
-| `hugo server` | Start lokal server med live-reload |
-| `hugo server -D` | Inkluder også utkast (`draft: true`) |
+| `tools/hugo-local.sh` | Start lokal server med automatisk modulerstatning |
+| `tools/hugo-local.sh --drafts` | Inkluder også utkast (`draft: true`) |
+| `hugo server` | Start lokal server (henter moduler fra GitHub) |
 | `hugo` | Bygg til `public/` (sjekk for feil) |
 | `git pull` | Hent siste endringer fra GitHub |
-| `hugo mod get -u` | Oppdater alle innholdsmoduler til siste versjon |
