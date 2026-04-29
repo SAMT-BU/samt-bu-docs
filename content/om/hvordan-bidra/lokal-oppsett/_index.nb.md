@@ -1,18 +1,16 @@
 ---
 # id: auto-generert – kopierte verdier overskrives automatisk ved push
 id: "e26cb201-0841-46b2-8ac7-2ba3708edde6"
-title: "Lokal oppsett (for utviklere)"
-linkTitle: "Lokal oppsett"
+title: Lokalt oppsett
 weight: 30
 
 ---
-
 Dette alternativet gir deg et fullt lokalt arbeidsmiljø der du kan forhåndsvise alle endringer i nettleseren mens du skriver. Anbefalt for strukturelle endringer, nytt innhold i større omfang eller teknisk utvikling.
 
 ## Hva du trenger
 
 | Verktøy | Versjon | Formål |
-|---------|---------|--------|
+| --- | --- | --- |
 | [Git](https://git-scm.com/) | Siste stabile | Versjonskontroll |
 | [Hugo Extended](https://gohugo.io/) | 0.155.3 eller nyere | Nettstedsgenerator |
 | [Go](https://go.dev/) | 1.21 eller nyere | Kreves av Hugo Modules |
@@ -57,7 +55,7 @@ sudo dpkg -i hugo_extended_0.155.3_linux-amd64.deb
 SAMT-BU Docs er satt opp med **innholdsmoduler**: innhold fra ulike team og piloter ligger i egne GitHub-repoer og monteres automatisk inn i nettstedet ved publisering. Du trenger derfor ikke klone alle repoer for å se hele nettstedet – Hugo henter manglende moduler fra GitHub automatisk.
 
 | Repo | Innhold | Montert under |
-|------|---------|---------------|
+| --- | --- | --- |
 | `samt-bu-docs` | Hoveddokumentasjon, konfigurasjon | *(rot)* |
 | `samt-bu-pilot-1` | Pilot 1 | `pilotering/pilot-1/` |
 | `samt-bu-pilot-2` | Pilot 2 | `pilotering/pilot-2/` |
@@ -78,7 +76,7 @@ cd samt-bu-docs
 hugo server
 ```
 
-Åpne [http://localhost:1313/](http://localhost:1313/) i nettleseren.
+Åpne <http://localhost:1313/> i nettleseren.
 
 ## Scenario B – Redigere innhold i ett bestemt repo
 
@@ -157,13 +155,12 @@ git push
 
 GitHub Actions bygger og publiserer automatisk etter 1–2 minutter.
 
-> **Uten skrivetilgang til repoet?** Opprett en *pull request* i stedet:
-> `git checkout -b mitt-bidrag` → gjør endringer → `git push origin mitt-bidrag` → åpne PR på GitHub.
+> **Uten skrivetilgang til repoet?** Opprett en *pull request* i stedet: `git checkout -b mitt-bidrag` → gjør endringer → `git push origin mitt-bidrag` → åpne PR på GitHub.
 
 ## Nyttige kommandoer
 
 | Kommando | Beskrivelse |
-|----------|-------------|
+| --- | --- |
 | `tools/hugo-local.sh` | Start lokal server med automatisk modulerstatning |
 | `tools/hugo-local.sh --drafts` | Inkluder også utkast (`draft: true`) |
 | `hugo server` | Start lokal server (henter moduler fra GitHub) |
