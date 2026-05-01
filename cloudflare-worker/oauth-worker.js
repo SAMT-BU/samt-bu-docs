@@ -209,20 +209,11 @@ async function handleSuggest(request, env) {
     return suggestError(400, "Mangler treeItems eller deletePrefix");
   }
 
-  // Verifiser at kallet kommer fra en autentisert GitHub-bruker med gyldig token.
-  // GET /user krever user-nivå-tillatelse som appen ikke har – bruk repo-metadata i stedet.
-  if (!userToken) return suggestError(401, "Mangler brukertoken – logg inn først");
-  const verifyRes = await fetch("https://api.github.com/user/installations", {
-    headers: {
-      "Authorization": `Bearer ${userToken}`,
-      "Accept": "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-    cache: "no-store",
-  });
-  if (!verifyRes.ok) {
-    const verifyErr = await verifyRes.json().catch(() => ({}));
-    return suggestError(401, `Ugyldig brukertoken (${verifyRes.status}): ${verifyErr.message || verifyRes.statusText}`);
+  // Verifiser at kallet har et token fra vår OAuth-flyt.
+  // GitHub App user-tokens starter med ghu_, klassiske med ghp_.
+  if (!userToken || typeof userToken !== "string" ||
+      !(/^(ghu_|ghp_|github_pat_)[A-Za-z0-9_]{20,}$/.test(userToken))) {
+    return suggestError(401, "Mangler gyldig brukertoken – logg inn først");
   }
 
   const gh = (path, opts = {}) => fetch(
