@@ -1,2 +1,6 @@
 name = "samt-bu-cms-auth"
 compatibility_date = "2026-04-24"
+
+routes = [
+  { pattern = "auth.samt-bu.no", custom_domain = true }
+]
