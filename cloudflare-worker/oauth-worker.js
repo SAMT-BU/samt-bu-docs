@@ -212,7 +212,7 @@ async function handleSuggest(request, env) {
   // Verifiser at kallet kommer fra en autentisert GitHub-bruker med gyldig token.
   // GET /user krever user-nivå-tillatelse som appen ikke har – bruk repo-metadata i stedet.
   if (!userToken) return suggestError(401, "Mangler brukertoken – logg inn først");
-  const verifyRes = await fetch(`https://api.github.com/repos/SAMT-X/${repo}`, {
+  const verifyRes = await fetch("https://api.github.com/user/installations", {
     headers: {
       "Authorization": `Bearer ${userToken}`,
       "Accept": "application/vnd.github+json",
