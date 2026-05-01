@@ -194,7 +194,7 @@ async function handleSuggest(request, env) {
   let body;
   try { body = await request.json(); } catch { return suggestError(400, "Ugyldig JSON"); }
 
-  const { repo, branch, treeItems, deletePrefix, commitMessage, prTitle, prBody } = body;
+  const { repo, branch, treeItems, deletePrefix, commitMessage, prTitle, prBody, userToken } = body;
 
   if (!repo || typeof repo !== "string" || !/^[a-zA-Z0-9_.-]+$/.test(repo) || repo.length > 100) {
     return suggestError(400, "Ugyldig repo-navn");
@@ -207,6 +207,23 @@ async function handleSuggest(request, env) {
   }
   if (!treeItems && !deletePrefix) {
     return suggestError(400, "Mangler treeItems eller deletePrefix");
+  }
+
+  // Verifiser at kallet kommer fra en autentisert GitHub-bruker
+  if (!userToken) return suggestError(401, "Mangler brukertoken – logg inn først");
+  const userRes = await fetch("https://api.github.com/user", {
+    headers: {
+      "Authorization": `Bearer ${userToken}`,
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+  if (!userRes.ok) return suggestError(401, "Ugyldig brukertoken – logg inn på nytt");
+  const callerLogin = (await userRes.json()).login;
+
+  // Branch-navn må starte med brukerens login (hindrer forfalskning)
+  if (!branch.startsWith(callerLogin + "/")) {
+    return suggestError(403, "Branch-navn samsvarer ikke med innlogget bruker");
   }
 
   const gh = (path, opts = {}) => fetch(
@@ -226,7 +243,10 @@ async function handleSuggest(request, env) {
   try {
     // 1. Hent HEAD commit SHA
     const refRes = await gh("/git/ref/heads/main");
-    if (!refRes.ok) return suggestError(502, "Kunne ikke hente HEAD");
+    if (!refRes.ok) {
+      const refErr = await refRes.json().catch(() => ({}));
+      return suggestError(502, `Kunne ikke hente HEAD (${refRes.status}): ${refErr.message || refRes.statusText}`);
+    }
     const { object: { sha: headSha } } = await refRes.json();
 
     // 2. Hent commit for å få tree SHA
