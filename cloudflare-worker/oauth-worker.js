@@ -4,11 +4,13 @@
  * Miljøvariabler som må settes i Cloudflare-dashboardet:
  *   CLIENT_ID     – GitHub App Client ID
  *   CLIENT_SECRET – GitHub App Client Secret (kryptert)
+ *   WORKER_PAT    – Fine-grained PAT (samt-x org, Contents+Issues+PRs R/W)
  *
  * Endepunkter:
- *   GET /auth?provider=github&site_id=...  → redirect til GitHub OAuth
- *   GET /callback?code=...                 → bytt kode mot token, lukk popup
- *   GET /build-status?url=<side-url>       → hent samtu-build-tag uten CDN-cache
+ *   GET  /auth?provider=github&site_id=...  → redirect til GitHub OAuth
+ *   GET  /callback?code=...                 → bytt kode mot token, lukk popup
+ *   GET  /build-status?url=<side-url>       → hent samtu-build-tag uten CDN-cache
+ *   POST /suggest                           → opprett branch+commit+PR på vegne av ekstern bruker
  */
 
 export default {
@@ -28,6 +30,13 @@ export default {
         return new Response(null, { status: 204, headers: buildStatusCors() });
       }
       return handleBuildStatus(url);
+    }
+
+    if (url.pathname === "/suggest") {
+      if (request.method === "OPTIONS") {
+        return new Response(null, { status: 204, headers: suggestCors() });
+      }
+      return handleSuggest(request, env);
     }
 
     return new Response("Not found", { status: 404 });
@@ -169,6 +178,141 @@ async function handleCallback(url, env) {
 
   return new Response(html, {
     headers: { "Content-Type": "text/html;charset=UTF-8" },
+  });
+}
+
+// --- /suggest – Worker-proxy for eksterne bidragsytere (branch + commit + PR) ---
+
+async function handleSuggest(request, env) {
+  if (request.method !== "POST") {
+    return suggestError(405, "Method not allowed");
+  }
+  if (!env.WORKER_PAT) {
+    return suggestError(500, "Server ikke konfigurert (mangler WORKER_PAT)");
+  }
+
+  let body;
+  try { body = await request.json(); } catch { return suggestError(400, "Ugyldig JSON"); }
+
+  const { repo, branch, treeItems, deletePrefix, commitMessage, prTitle, prBody } = body;
+
+  if (!repo || typeof repo !== "string" || !/^[a-zA-Z0-9_.-]+$/.test(repo) || repo.length > 100) {
+    return suggestError(400, "Ugyldig repo-navn");
+  }
+  if (!branch || typeof branch !== "string" || !/^[a-zA-Z0-9_./-]+$/.test(branch) || branch.length > 200) {
+    return suggestError(400, "Ugyldig branch-navn");
+  }
+  if (!commitMessage || !prTitle) {
+    return suggestError(400, "Mangler commitMessage eller prTitle");
+  }
+  if (!treeItems && !deletePrefix) {
+    return suggestError(400, "Mangler treeItems eller deletePrefix");
+  }
+
+  const gh = (path, opts = {}) => fetch(
+    `https://api.github.com/repos/SAMT-X/${repo}${path}`,
+    {
+      ...opts,
+      headers: {
+        "Authorization": `Bearer ${env.WORKER_PAT}`,
+        "Accept": "application/vnd.github+json",
+        "Content-Type": "application/json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      cache: "no-store",
+    }
+  );
+
+  try {
+    // 1. Hent HEAD commit SHA
+    const refRes = await gh("/git/ref/heads/main");
+    if (!refRes.ok) return suggestError(502, "Kunne ikke hente HEAD");
+    const { object: { sha: headSha } } = await refRes.json();
+
+    // 2. Hent commit for å få tree SHA
+    const commitRes = await gh(`/git/commits/${headSha}`);
+    if (!commitRes.ok) return suggestError(502, "Kunne ikke hente commit");
+    const { tree: { sha: baseTreeSha } } = await commitRes.json();
+
+    // 3. Bygg tree-items (vanlig upsert eller rekursiv sletting via prefix)
+    let items = treeItems || [];
+    if (deletePrefix) {
+      const treeRes = await gh(`/git/trees/${baseTreeSha}?recursive=1`);
+      if (!treeRes.ok) return suggestError(502, "Kunne ikke hente repo-tre");
+      const { tree } = await treeRes.json();
+      const prefix = deletePrefix.replace(/\/$/, "") + "/";
+      items = tree
+        .filter(i => i.type === "blob" && i.path.startsWith(prefix))
+        .map(i => ({ path: i.path, mode: i.mode, type: "blob", sha: null }));
+      if (items.length === 0) return suggestError(400, "Ingen filer funnet under angitt sti");
+    }
+
+    // 4. Opprett nytt tre
+    const newTreeRes = await gh("/git/trees", {
+      method: "POST",
+      body: JSON.stringify({ base_tree: baseTreeSha, tree: items }),
+    });
+    if (!newTreeRes.ok) {
+      const e = await newTreeRes.json();
+      return suggestError(502, `Tre-oppretting feilet: ${e.message}`);
+    }
+    const { sha: newTreeSha } = await newTreeRes.json();
+
+    // 5. Opprett commit
+    const newCommitRes = await gh("/git/commits", {
+      method: "POST",
+      body: JSON.stringify({ message: commitMessage, tree: newTreeSha, parents: [headSha] }),
+    });
+    if (!newCommitRes.ok) {
+      const e = await newCommitRes.json();
+      return suggestError(502, `Commit-oppretting feilet: ${e.message}`);
+    }
+    const { sha: newCommitSha } = await newCommitRes.json();
+
+    // 6. Opprett branch pekende på ny commit
+    const branchRes = await gh("/git/refs", {
+      method: "POST",
+      body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: newCommitSha }),
+    });
+    if (!branchRes.ok) {
+      const e = await branchRes.json();
+      return suggestError(502, `Branch-oppretting feilet: ${e.message}`);
+    }
+
+    // 7. Opprett pull request
+    const prRes = await gh("/pulls", {
+      method: "POST",
+      body: JSON.stringify({ title: prTitle, body: prBody || "", head: branch, base: "main" }),
+    });
+    if (!prRes.ok) {
+      const e = await prRes.json();
+      return suggestError(502, `PR-oppretting feilet: ${e.message}`);
+    }
+    const { number, html_url } = await prRes.json();
+
+    return new Response(JSON.stringify({ pr_number: number, pr_url: html_url }), {
+      headers: { "Content-Type": "application/json", ...suggestCors() },
+    });
+
+  } catch (e) {
+    return suggestError(500, e.message);
+  }
+}
+
+function suggestCors() {
+  return {
+    "Access-Control-Allow-Origin": "https://docs.samt-bu.no",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400",
+    "Cache-Control": "no-store",
+  };
+}
+
+function suggestError(status, message) {
+  return new Response(JSON.stringify({ error: message }), {
+    status,
+    headers: { "Content-Type": "application/json", ...suggestCors() },
   });
 }
 
