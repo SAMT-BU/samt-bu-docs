@@ -209,21 +209,20 @@ async function handleSuggest(request, env) {
     return suggestError(400, "Mangler treeItems eller deletePrefix");
   }
 
-  // Verifiser at kallet kommer fra en autentisert GitHub-bruker
+  // Verifiser at kallet kommer fra en autentisert GitHub-bruker med gyldig token.
+  // GET /user krever user-nivå-tillatelse som appen ikke har – bruk repo-metadata i stedet.
   if (!userToken) return suggestError(401, "Mangler brukertoken – logg inn først");
-  const userRes = await fetch("https://api.github.com/user", {
+  const verifyRes = await fetch(`https://api.github.com/repos/SAMT-X/${repo}`, {
     headers: {
       "Authorization": `Bearer ${userToken}`,
       "Accept": "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
     },
+    cache: "no-store",
   });
-  if (!userRes.ok) return suggestError(401, "Ugyldig brukertoken – logg inn på nytt");
-  const callerLogin = (await userRes.json()).login;
-
-  // Branch-navn må starte med brukerens login (hindrer forfalskning)
-  if (!branch.startsWith(callerLogin + "/")) {
-    return suggestError(403, "Branch-navn samsvarer ikke med innlogget bruker");
+  if (!verifyRes.ok) {
+    const verifyErr = await verifyRes.json().catch(() => ({}));
+    return suggestError(401, `Ugyldig brukertoken (${verifyRes.status}): ${verifyErr.message || verifyRes.statusText}`);
   }
 
   const gh = (path, opts = {}) => fetch(
