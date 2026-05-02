@@ -27,7 +27,7 @@ Innhold fra team-repoer monteres automatisk inn via Hugo Modules, og CMS-rediger
 
 For å redigere innhold logger du inn med en GitHub-konto. SAMT-BU Docs bruker en **GitHub App** – ikke en bred OAuth-tillatelse. Det betyr at appen kun får tilgang til de spesifikke repoene i SAMT-X-organisasjonen der appen er installert, ikke til andre repositorier på kontoen din.
 
-Hvis du sender inn et endringsforslag (som bruker uten skrivetilgang), utfører en dedikert bot-konto (`samt-x-bot`) de tekniske GitHub-operasjonene på dine vegne. Ditt forslag registreres som en pull request med ditt GitHub-brukernavn, men boten håndterer selve skrivingen til repoet.
+Hvis du sender inn et endringsforslag (som bruker uten skrivetilgang), utfører en dedikert bot-konto (`samt-x-bot`) de tekniske GitHub-operasjonene på dine vegne. Ditt forslag registreres som en pull request med ditt GitHub-brukernavn, men boten håndterer selve skrivingen til repoet. Bot-kontoen er utelukkende tilknyttet `SAMT-X`-organisasjonen på GitHub og har ikke tilgang til noe utenfor den.
 
 Du kan trekke tilbake tilgangen når som helst via GitHub-innstillingene dine (Settings → Applications → Authorized GitHub Apps).
 
