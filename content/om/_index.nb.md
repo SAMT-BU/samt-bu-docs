@@ -67,11 +67,11 @@ Prosjektet skal levere sju hovedprodukter, utviklet iterativt gjennom prosjektl�
 
 ## Om dette nettstedet
 
-SAMT-BU Docs er bygget med [Hugo](https://gohugo.io/) og publiseres via Cloudflare Pages. Innhold skrives i Markdown og versjonshåndteres i Git. Nettstedet er tospråklig (norsk og engelsk) og kan redigeres direkte i nettleseren uten teknisk kunnskap.
+SAMT-BU Docs er prosjektets felles dokumentasjonsplattform. Innhold versjonshåndteres med åpen standard og kan redigeres direkte i nettleseren uten teknisk kunnskap – av fagpersoner, redaktører og utviklere på lik linje.
 
-Innhold fra team-repoer monteres automatisk inn via Hugo Modules. Alle bidrar på lik linje – fagpersoner, redaktører og utviklere.
+Nettstedet er tospråklig (norsk og engelsk) for å støtte internasjonalt samarbeid, blant annet om initiativ som Skills Dataspace i EU.
 
-For innlogging og tilgang via GitHub, samt detaljer om teknisk arkitektur, se [løsningsdokumentasjonen](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/).
+For innlogging og tilgang, samt detaljer om den tekniske løsningen, se [løsningsdokumentasjonen](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/).
 
 ## Se også
 

@@ -53,9 +53,11 @@ The project builds on Novari's **FINT** (Common Integrations), which has demonst
 
 ## About this website
 
-SAMT-BU Docs is built with [Hugo](https://gohugo.io/) and published via Cloudflare Pages. Content is written in Markdown and version-controlled in Git. The site is bilingual (Norwegian and English) and can be edited directly in the browser without technical knowledge.
+SAMT-BU Docs is the project's shared documentation platform. Content is version-controlled using open standards and can be edited directly in the browser without technical knowledge – by subject-matter experts, editors and developers alike.
 
-For details on login, access and technical architecture, see the [solution documentation](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/).
+The site is bilingual (Norwegian and English) to support international collaboration, including initiatives such as Skills Dataspace in the EU.
+
+For details on login, access and the technical solution, see the [solution documentation](/prosjektleveranser/loesninger/cms-loesninger/samt-bu-docs/).
 
 ## See also
 
